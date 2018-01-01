@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+
+    @if (Auth::check())
+        <div class="panel panel-default">
+                <div class="panel-heading"><h3>Welcome</h3></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -14,10 +13,22 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h4>You are logged in!</h4>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+    @else
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                <h3 class="">Please 
+                     <a href="{{url('login')}}">
+                        <button type="button" class="btn btn-dark">Login</button>
+                    </a>
+                To Access the features
+                </h3>
+                </div>
+
+        </div>  
+    @endif  
+            
+    
 @endsection

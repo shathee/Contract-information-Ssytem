@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
     
 
-    <title>@yield('title')</title>
+    <title>CPC</title>
   </head>
   <body>
 
@@ -36,35 +39,54 @@
                       <li class="nav-item">
                         <a class="nav-link active" href="{{ url('/home') }}">Dashboard</a>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                      </li>
+                      
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User Management</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">Governement Users</a>
-                          <a class="dropdown-item" href="#">Users Logins</a>
+                          <a class="dropdown-item" href="{{url('admin/users')}}">Users Login</a>
                           <a class="dropdown-item" href="#">Pe Offices</a>
                           <a class="dropdown-item" href="#"></a>
                         </div>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                      
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contract Management</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Contracts</a>
+                          <a class="dropdown-item" href="#">Bills</a>
+                          <a class="dropdown-item" href="#"></a>
+                          <a class="dropdown-item" href="#"></a>
+                        </div>
                       </li>
-                      <li class="nav-item  float-right">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Miscelenous</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Divisions</a>
+                          <a class="dropdown-item" href="#">Districts</a>
+                          <a class="dropdown-item" href="#"></a>
+                          <a class="dropdown-item" href="#"></a>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                          <strong>{{ Auth::user()->name }}
+                          <span class="fa fa-user" ></span>
+                          <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Profile</a>
+                          <a class="dropdown-item" href="#">Edit Password</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                          
+                        </div>
+                      </li>
+                      <li class="nav-item justify-content-end">
                             <a class="nav-link" href="{{ url('/logout') }}">logout</a>
                       </li>
+
                 @else
-                      <li class="nav-item">
-                        <a class="nav-link disabled" href="#">&nbsp;</a>
-                      </li>
+                      
                       <!--<li class="nav-item">
                         <a class="nav-link" href="{{ url('/login') }}">Login</a>
                       </li>
@@ -78,8 +100,8 @@
       </div>
 
       <div id="content-wrapper" class="row">
-          <div class="col-md-3">@yield('sidebar')</div>
-          <div class="col-md-9"> @yield('content')</div>
+          
+          <div class="col-md-12"> @yield('content')</div>
           
       </div>
 
@@ -123,12 +145,11 @@
                     
                 </div>
             </div>
-            <div class="footer-copyright row ">
+            <div class="footer-copyright">
                 <p>© 2018 Bangladesh Water Development Board </p>
             </div>
         </div>
-        
-          
+       
       </div>
 
 
