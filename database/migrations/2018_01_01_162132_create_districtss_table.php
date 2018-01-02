@@ -17,10 +17,10 @@ class CreateDistrictssTable extends Migration
             $table->increments('id');
             $table->integer('division_id');
             $table->string('name');
-            $table->string('bn_name');
-            $table->string('lat');
-            $table->string('lon');
-            $table->string('website');
+            $table->string('bn_name')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lon')->nullable();
+            $table->string('website')->nullable();
  
         });
     }

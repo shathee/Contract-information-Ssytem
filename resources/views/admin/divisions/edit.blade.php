@@ -4,11 +4,11 @@
     
 <div class="card">
   <div class="card-header">
-   Edit Guser #{{ $guser->id }}
+   Edit Division #{{ $division->id }}
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
-        <a href="{{ url('/admin/gusers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+        <a href="{{ url('/admin/divisions') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
     </h5>
     @if ($errors->any())
         <ul class="alert alert-danger">
@@ -18,11 +18,11 @@
         </ul>
     @endif
 
-    <form method="POST" action="{{ url('/admin/gusers/' . $guser->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/admin/divisions/' . $division->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 
-        @include ('admin.gusers.form', ['submitButtonText' => 'Update'])
+        @include ('admin.divisions.form', ['submitButtonText' => 'Update'])
 
     </form>
 
@@ -33,6 +33,5 @@
   </div>
 </div>
 
- 
-                
+         
 @endsection

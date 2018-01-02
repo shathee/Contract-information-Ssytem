@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/users', 'UsersController');
 Route::resource('admin/gusers', 'GusersController');
+Route::resource('admin/divisions', 'DivisionsController');
+Route::resource('admin/districts', 'DistrictsController');
+Route::resource('admin/zones', 'ZonesController');
+Route::resource('admin/circles', 'CirclesController');
+Route::resource('admin/peoffices', 'PeofficesController');

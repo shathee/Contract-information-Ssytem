@@ -45,8 +45,8 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('admin/gusers')}}">Governement Users</a>
                           <a class="dropdown-item" href="{{url('admin/users')}}">Users Login</a>
-                          <a class="dropdown-item" href="#">Pe Offices</a>
-                          <a class="dropdown-item" href="#"></a>
+                          <a class="dropdown-item" href="{{url('admin/peoffices')}}">Pe Offices</a>
+                          
                         </div>
                       </li>
                       
@@ -62,10 +62,10 @@
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Miscelenous</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Divisions</a>
-                          <a class="dropdown-item" href="#">Districts</a>
-                          <a class="dropdown-item" href="#"></a>
-                          <a class="dropdown-item" href="#"></a>
+                          <a class="dropdown-item" href="{{url('admin/divisions')}}">Divisions</a>
+                          <a class="dropdown-item" href="{{url('admin/districts')}}">Districts</a>
+                          <a class="dropdown-item" href="{{url('admin/zones')}}">Zones</a>
+                          <a class="dropdown-item" href="{{url('admin/circles')}}">Circles</a>
                         </div>
                       </li>
                       <li class="nav-item dropdown">
