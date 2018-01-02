@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\User;
 use App\Model\Guser;
+use App\User;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class GusersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,14 +22,16 @@ class UsersController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $users = User::where('name', 'LIKE', "%$keyword%")
-                ->orWhere('email', 'LIKE', "%$keyword%")
+            $gusers = Guser::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('office', 'LIKE', "%$keyword%")
+                ->orWhere('designation', 'LIKE', "%$keyword%")
+                ->orWhere('mobile', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $users = User::paginate($perPage);
+            $gusers = Guser::paginate($perPage);
         }
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.gusers.index', compact('gusers'));
     }
 
     /**
@@ -39,7 +41,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.gusers.create');
     }
 
     /**
@@ -53,20 +55,10 @@ class UsersController extends Controller
     {
         
         $requestData = $request->all();
-        $requestData['password'] = bcrypt($request->password);
         
-        $user = User::create($requestData);
+        Guser::create($requestData);
 
-        //$input['name'] = $user->name;
-        //$input['user_id'] = $user->id;
-        
-
-        Guser::create([
-            'user_id'   => $user->id,
-            'name'   => $user->name,
-        ]);
-
-        return redirect('admin/users')->with('flash_message', 'User added!');
+        return redirect('admin/gusers')->with('flash_message', 'Guser added!');
     }
 
     /**
@@ -78,9 +70,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-
-        return view('admin.users.show', compact('user'));
+        $guser = Guser::findOrFail($id);
+        
+        return view('admin.gusers.show', compact('guser'));
     }
 
     /**
@@ -92,9 +84,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $guser = Guser::findOrFail($id);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.gusers.edit', compact('guser'));
     }
 
     /**
@@ -109,12 +101,11 @@ class UsersController extends Controller
     {
         
         $requestData = $request->all();
-        $requestData['password'] = bcrypt($request->password);
         
-        $user = User::findOrFail($id);
-        $user->update($requestData);
+        $guser = Guser::findOrFail($id);
+        $guser->update($requestData);
 
-        return redirect('admin/users')->with('flash_message', 'User updated!');
+        return redirect('admin/gusers')->with('flash_message', 'Guser updated!');
     }
 
     /**
@@ -126,8 +117,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        Guser::destroy($id);
 
-        return redirect('admin/users')->with('flash_message', 'User deleted!');
+        return redirect('admin/gusers')->with('flash_message', 'Guser deleted!');
     }
 }

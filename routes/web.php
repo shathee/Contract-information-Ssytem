@@ -21,3 +21,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/users', 'UsersController');
+Route::resource('admin/gusers', 'GusersController');

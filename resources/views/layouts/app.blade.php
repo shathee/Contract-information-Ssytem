@@ -43,7 +43,7 @@
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User Management</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Governement Users</a>
+                          <a class="dropdown-item" href="{{url('admin/gusers')}}">Governement Users</a>
                           <a class="dropdown-item" href="{{url('admin/users')}}">Users Login</a>
                           <a class="dropdown-item" href="#">Pe Offices</a>
                           <a class="dropdown-item" href="#"></a>
