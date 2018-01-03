@@ -34,7 +34,8 @@
             @foreach($districts as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->division_id }}</td><td>{{ $item->name }}</td><td>{{ $item->bn_name }}</td>
+                    <td>{{ $item->division->name }}</td>
+                    <td>{{ $item->name }}</td><td>{{ $item->bn_name }}</td>
                     <td>
                         <a href="{{ url('/admin/districts/' . $item->id) }}" title="View District"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/admin/districts/' . $item->id . '/edit') }}" title="Edit District"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

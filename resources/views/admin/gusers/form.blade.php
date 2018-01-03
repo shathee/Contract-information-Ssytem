@@ -4,15 +4,16 @@
         <input class="form-control" name="name" type="text" id="name" value="{{ $guser->name or ''}}" >
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('office') ? 'has-error' : ''}}">
-    <label for="office" class="col-md-4 control-label">{{ 'Office' }}</label>
+</div>
+<div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
+    <label for="peoffice_id" class="col-md-4 control-label">{{ 'Office' }}</label>
     <div class="col-md-6">
-        <select name="office" class="form-control" id="office" required>
+        <select name="peoffice_id" class="form-control" id="office" required>
     @foreach ($peoffices as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($guser->office) && $guser->office == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+        <option value="{{ $optionKey }}" {{ (isset($guser->peoffice_id) && $guser->peoffice_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
     @endforeach
 </select>
-        {!! $errors->first('office', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('peoffice_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('designation') ? 'has-error' : ''}}">

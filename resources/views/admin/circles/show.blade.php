@@ -26,7 +26,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $circle->id }}</td>
                                     </tr>
-                                    <tr><th> Zone Id </th><td> {{ $circle->zone_id }} </td></tr><tr><th> Name </th><td> {{ $circle->name }} </td></tr><tr><th> Address </th><td> {{ $circle->address }} </td></tr>
+                                    <tr><th> Zone Id </th><td> {{ $circle->zone->name }} </td></tr><tr><th> Name </th><td> {{ $circle->name }} </td></tr><tr><th> Address </th><td> {{ $circle->address }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

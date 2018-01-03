@@ -25,9 +25,11 @@
                     <th>ID</th><td>{{ $guser->id }}</td>
                 </tr>
                 <tr><th> Name </th><td> {{ $guser->name }} </td></tr>
-                <tr><th> Office </th><td> {{ $guser->office }} </td></tr>
-                <tr><th> Designation </th><td> {{ $guser->designation }} </td></tr>
-                <tr><th> Email </th><td> {{ $guser->user->email }} </td></tr>
+                <tr><th> Office </th><td> {{ $guser->peoffice->name }} </td></tr>
+                <tr><th> Designation </th><td> {{ $designation[$guser->designation] }} </td></tr>
+                <tr><th> Email </th><td> {{ $guser->user->email }} </td>
+                    
+                </tr>
             </tbody>
         </table>
     </div>

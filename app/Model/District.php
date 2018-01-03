@@ -27,5 +27,15 @@ class District extends Model
      */
     protected $fillable = ['division_id', 'name', 'bn_name', 'lat', 'lon', 'website'];
 
-    
+    public function division()
+    {
+        return $this->belongsTo('App\Model\Division');
+    }
+
+    public function zone()
+    {
+        return $this->hasMany('App\Model\Zone');
+    }
+
+
 }

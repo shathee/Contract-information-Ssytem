@@ -25,12 +25,16 @@ class Guser extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'user_id', 'office', 'designation', 'mobile'];
+    protected $fillable = ['name', 'user_id', 'peoffice_id', 'designation', 'mobile'];
 
     public function user()
     {
         return $this->belongsTo('App\User');
     }
 
+    public function peoffice()
+    {
+        return $this->belongsTo('App\Model\Peoffice');
+    }
     
 }

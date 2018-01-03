@@ -81,7 +81,10 @@ class GusersController extends Controller
     {
         $guser = Guser::findOrFail($id);
         
-        return view('admin.gusers.show', compact('guser'));
+        $path = storage_path() . "\json\designation.json";
+        $designation = json_decode(file_get_contents($path), true);
+
+        return view('admin.gusers.show', compact('guser','designation'));
     }
 
     /**

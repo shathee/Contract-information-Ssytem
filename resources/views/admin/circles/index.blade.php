@@ -30,14 +30,19 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Zone Id</th><th>Name</th><th>Address</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Zone Id</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($circles as $item)
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->zone_id }}</td><td>{{ $item->name }}</td><td>{{ $item->address }}</td>
+                                        <td>{{ $item->zone->name }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->address }}</td>
                                         <td>
                                             <a href="{{ url('/admin/circles/' . $item->id) }}" title="View Circle"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/circles/' . $item->id . '/edit') }}" title="Edit Circle"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

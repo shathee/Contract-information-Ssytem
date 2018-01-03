@@ -46,7 +46,7 @@
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->address }}</td>
-                    <td>{{ $item->district }}</td>
+                    <td>{{ $item->district->name }}</td>
                     <td>
                         <a href="{{ url('/admin/zones/' . $item->id) }}" title="View Zone"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/admin/zones/' . $item->id . '/edit') }}" title="Edit Zone"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -25,7 +25,7 @@ class Circle extends Model
      *
      * @var array
      */
-    protected $fillable = ['zone_id', 'name', 'address', 'district', 'phone', 'code'];
+    protected $fillable = ['zone_id', 'name', 'address', 'district_id', 'phone', 'code'];
 
     public function peoffice()
     {

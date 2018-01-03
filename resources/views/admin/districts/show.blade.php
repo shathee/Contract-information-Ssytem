@@ -23,7 +23,7 @@
                 <tr>
                     <th>ID</th><td>{{ $district->id }}</td>
                 </tr>
-                <tr><th> Division Id </th><td> {{ $district->division_id }} </td></tr><tr><th> Name </th><td> {{ $district->name }} </td></tr><tr><th> Bn Name </th><td> {{ $district->bn_name }} </td></tr>
+                <tr><th> Division Id </th><td> {{ $district->division->name }} </td></tr><tr><th> Name </th><td> {{ $district->name }} </td></tr><tr><th> Bn Name </th><td> {{ $district->bn_name }} </td></tr>
             </tbody>
         </table>
     </div>

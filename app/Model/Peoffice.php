@@ -25,7 +25,7 @@ class Peoffice extends Model
      *
      * @var array
      */
-    protected $fillable = ['zone_id', 'circle_id', 'name', 'address', 'district', 'postcode', 'phone', 'code'];
+    protected $fillable = ['zone_id', 'circle_id', 'name', 'address', 'district_id', 'postcode', 'phone', 'code'];
 
 
     public function circle()
@@ -33,6 +33,10 @@ class Peoffice extends Model
         return $this->belongsTo('App\Model\Circle');
     }
 
+    public function zone()
+    {
+        return $this->belongsTo('App\Model\Zone');
+    }
     
     
 }

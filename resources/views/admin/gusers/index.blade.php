@@ -41,7 +41,12 @@
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->user->email }}</td>
-                    <td>{{ $item->office }}</td>
+                    <td>@if($item->peoffice_id)
+                        {{ $item->peoffice->name }}
+                        @else
+                        No Data
+                        @endif
+                    </td>
                     <td>{{ $designation[$item->designation] }}</td>
                     <td>
                         <a href="{{ url('/admin/gusers/' . $item->id) }}" title="View Guser"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

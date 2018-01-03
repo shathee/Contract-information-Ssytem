@@ -25,12 +25,17 @@ class Zone extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'address', 'district', 'phone', 'code'];
+    protected $fillable = ['name', 'address', 'district_id', 'phone', 'code'];
 
 
     public function circle()
     {
         return $this->hasMany('App\Model\Circle');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo('App\Model\District');
     }
 
     

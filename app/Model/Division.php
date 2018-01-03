@@ -27,5 +27,10 @@ class Division extends Model
      */
     protected $fillable = ['name', 'bn_name'];
 
+     public function district()
+    {
+        return $this->hasMany('App\Model\District');
+    }
+
     
 }

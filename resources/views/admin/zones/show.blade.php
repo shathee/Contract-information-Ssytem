@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $zone->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $zone->name }} </td></tr><tr><th> Address </th><td> {{ $zone->address }} </td></tr><tr><th> District </th><td> {{ $zone->district }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $zone->name }} </td></tr><tr><th> Address </th><td> {{ $zone->address }} </td></tr><tr><th> District </th><td> {{ $zone->district->name }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

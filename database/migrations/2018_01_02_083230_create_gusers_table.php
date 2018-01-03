@@ -17,7 +17,7 @@ class CreateGusersTable extends Migration
             
             $table->integer('user_id');
             $table->string('name')->nullable();
-            $table->string('office')->nullable();
+            $table->string('peoffice_id')->nullable();
             $table->string('designation')->nullable();
             $table->string('mobile')->nullable();
             $table->timestamps();

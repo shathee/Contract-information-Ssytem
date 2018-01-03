@@ -57,7 +57,7 @@ class ZonesController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($requestData);
         Zone::create($requestData);
 
         return redirect('admin/zones')->with('flash_message', 'Zone added!');
