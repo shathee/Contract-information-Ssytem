@@ -27,6 +27,11 @@ class Circle extends Model
      */
     protected $fillable = ['zone_id', 'name', 'address', 'district', 'phone', 'code'];
 
+    public function peoffice()
+    {
+        return $this->hasMany('App\Model\Peoffice');
+    }
+
     public function zone()
     {
         return $this->belongsTo('App\Model\Zone');

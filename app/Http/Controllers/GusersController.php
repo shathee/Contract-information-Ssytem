@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Model\Guser;
+use App\Model\Peoffice;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,9 @@ class GusersController extends Controller
      */
     public function index(Request $request)
     {
+        $path = storage_path() . "\json\designation.json";
+        $designation = json_decode(file_get_contents($path), true);
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -31,7 +35,7 @@ class GusersController extends Controller
             $gusers = Guser::paginate($perPage);
         }
 
-        return view('admin.gusers.index', compact('gusers'));
+        return view('admin.gusers.index', compact('gusers','designation'));
     }
 
     /**
@@ -41,7 +45,12 @@ class GusersController extends Controller
      */
     public function create()
     {
-        return view('admin.gusers.create');
+        $peoffices = Peoffice::all()->pluck('name','id');
+      
+        $path = storage_path() . "\json\designation.json";
+        $designation = json_decode(file_get_contents($path), true); 
+        
+        return view('admin.gusers.create', compact('designation','peoffices'));
     }
 
     /**
@@ -86,7 +95,11 @@ class GusersController extends Controller
     {
         $guser = Guser::findOrFail($id);
 
-        return view('admin.gusers.edit', compact('guser'));
+        $peoffices = Peoffice::all()->pluck('name','id');
+        $path = storage_path() . "\json\designation.json";
+        $designation = json_decode(file_get_contents($path), true); 
+
+        return view('admin.gusers.edit', compact('guser','designation','peoffices'));
     }
 
     /**

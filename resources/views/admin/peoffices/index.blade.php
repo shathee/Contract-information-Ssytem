@@ -33,7 +33,9 @@
             @foreach($peoffices as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->zone_id }}</td><td>{{ $item->circle_id }}</td><td>{{ $item->name }}</td>
+                    <td>{{ $item->zone_id }}</td>
+                    <td>{{ $item->circle_id }}</td>
+                    <td>{{ $item->name }}</td>
                     <td>
                         <a href="{{ url('/admin/peoffices/' . $item->id) }}" title="View Peoffice"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/admin/peoffices/' . $item->id . '/edit') }}" title="Edit Peoffice"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

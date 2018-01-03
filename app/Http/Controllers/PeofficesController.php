@@ -36,7 +36,7 @@ class PeofficesController extends Controller
         } else {
             $peoffices = Peoffice::paginate($perPage);
         }
-
+       
         return view('admin.peoffices.index', compact('peoffices'));
     }
 

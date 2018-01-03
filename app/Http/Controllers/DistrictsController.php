@@ -32,7 +32,7 @@ class DistrictsController extends Controller
         } else {
             $districts = District::paginate($perPage);
         }
-
+        
         return view('admin.districts.index', compact('districts'));
     }
 
