@@ -1,0 +1,125 @@
+{
+    "fields": [
+        {
+            "name": "office_memo",
+            "type": "string"
+        },
+        {
+            "name": "memo_date",
+            "type": "date"
+        },
+        {
+            "name": "peoffice",
+            "type": "select",
+            "options": {
+                "technology": "Technology",
+                "tips": "Tips",
+                "health": "Health"
+            }
+        },
+        {
+            "name": "circle",
+            "type": "select",
+            "options": {
+                "technology": "Technology",
+                "tips": "Tips",
+                "health": "Health"
+            }
+        },
+        {
+            "name": "zone",
+            "type": "select",
+            "options": {
+                "technology": "Technology",
+                "tips": "Tips",
+                "health": "Health"
+            }
+        },
+        {
+            "name": "others",
+            "type": "string"
+        },
+        {
+            "name": "name_of_works",
+            "type": "text"
+        },
+        {
+            "name": "contract_no",
+            "type": "string"
+        },
+        {
+            "name": "contractors_legal_title",
+            "type": "string"
+        },
+        {
+            "name": "contractors_contact_details",
+            "type": "text"
+        },
+        {
+            "name": "contractorstrade_license_details",
+            "type": "text"
+        },
+        {
+            "name": "noa_reference",
+            "type": "string"
+        },
+        {
+            "name": "noa_date",
+            "type": "date"
+        },
+        {
+            "name": "original_contract_price",
+            "type": "number"
+        },
+        {
+            "name": "executed_contract_price",
+            "type": "number"
+        },
+        {
+            "name": "contract_date_of_commencement",
+            "type": "date"
+        },
+        {
+            "name": "contract_date_of_completion",
+            "type": "date"
+        },
+        {
+            "name": "actual_date_of_commencement",
+            "type": "date"
+        },
+        {
+            "name": "actual_contract_date_of_completion",
+            "type": "date"
+        },
+        {
+            "name": "days_contract_period_extended",
+            "type": "number"
+        },
+        {
+            "name": "amount_bonus_early_completion",
+            "type": "number"
+        },
+        {
+            "name": "amount_ld_delayed_completion",
+            "type": "number"
+        },
+        {
+            "name": "physical_progress",
+            "type": "number"
+        },
+        {
+            "name": "financial_progress",
+            "type": "number"
+        },
+        {
+            "name": "special_note",
+            "type": "text"
+        }
+    ],
+    "validations": [
+        {
+            "field": "name_of_works",
+            "rules": "required|min:10"
+        }
+    ]
+}

@@ -17,7 +17,6 @@
 Auth::routes();
 
 
-
 Route::middleware(['auth'])->group(function () {
 
 	
@@ -31,8 +30,6 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('admin/peoffices', 'PeofficesController');
 		
 	});
-
-
 
 	Route::get('/', function () {
         return view('home');
