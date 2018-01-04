@@ -39,7 +39,7 @@
                       <li class="nav-item">
                         <a class="nav-link active" href="{{ url('/home') }}">Dashboard</a>
                       </li>
-                      
+                      @if (Auth::user()->role=='ADMIN' && Auth::user()->status=='active')
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User Management</a>
                         <div class="dropdown-menu">
@@ -82,6 +82,30 @@
                           
                         </div>
                       </li>
+                      @elseif (Auth::user()->role=='PE' && Auth::user()->status=='active')
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contract Management</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Contracts</a>
+                          <a class="dropdown-item" href="#">Bills</a>
+                          <a class="dropdown-item" href="#"></a>
+                          <a class="dropdown-item" href="#"></a>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                          <strong>{{ Auth::user()->name }}
+                          <span class="fa fa-user" ></span>
+                          <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ Auth::user()->name }}">Profile</a>
+                          <a class="dropdown-item" href="#">Edit Password</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                          
+                        </div>
+                      </li>
+                      @endif
                       <li class="nav-item justify-content-end">
                             <a class="nav-link" href="{{ url('/logout') }}">logout</a>
                       </li>

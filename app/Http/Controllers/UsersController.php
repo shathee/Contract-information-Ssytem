@@ -39,7 +39,12 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $rolepath = storage_path() . "\json\urole.json";
+        $role = json_decode(file_get_contents($rolepath), true);
+        $statuspath = storage_path() . "\json\ustatus.json";
+        $status = json_decode(file_get_contents($statuspath), true);
+
+        return view('admin.users.create',compact('role','status'));
     }
 
     /**
@@ -54,6 +59,7 @@ class UsersController extends Controller
         
         $requestData = $request->all();
         $requestData['password'] = bcrypt($request->password);
+
         
         $user = User::create($requestData);
 
@@ -93,8 +99,12 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+        $rolepath = storage_path() . "\json\urole.json";
+        $role = json_decode(file_get_contents($rolepath), true);
+        $statuspath = storage_path() . "\json\ustatus.json";
+        $status = json_decode(file_get_contents($statuspath), true);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', compact('user','role','status'));
     }
 
     /**

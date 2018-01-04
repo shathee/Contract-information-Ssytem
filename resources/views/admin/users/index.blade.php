@@ -32,6 +32,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Last Updated</th>
                                         <th>Actions</th>
                                     </tr>
@@ -40,7 +41,9 @@
                                 @foreach($users as $item)
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->email }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->role }}</td>
                                         <td>{{ $item->updated_at }}</td>
                                         <td>
                                             <a href="{{ url('/admin/users/' . $item->id) }}" title="View User">

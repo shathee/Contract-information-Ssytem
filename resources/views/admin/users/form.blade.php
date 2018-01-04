@@ -20,6 +20,28 @@
         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('role') ? 'has-error' : ''}}">
+    <label for="role" class="col-md-4 control-label">{{ 'Role' }}</label>
+    <div class="col-md-6">
+        <select name="role" class="form-control" id="role" required>
+        @foreach ($role as $optionKey => $optionValue)
+            <option value="{{ $optionKey }}" {{ (isset($user->role) && $user->role == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+        @endforeach
+        </select>
+        {!! $errors->first('role', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
+    <label for="status" class="col-md-4 control-label">{{ 'Status' }}</label>
+    <div class="col-md-6">
+        <select name="status" class="form-control" id="status" required>
+        @foreach ($status as $optionKey => $optionValue)
+            <option value="{{ $optionKey }}" {{ (isset($user->status) && $user->status == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+        @endforeach
+        </select>
+        {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">

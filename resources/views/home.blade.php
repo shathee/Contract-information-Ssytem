@@ -14,6 +14,12 @@
                     @endif
 
                     <h4>You are logged in!</h4>
+                    @if (Auth::user()->status=='deactive')
+                        <div class="alert alert-warning">
+                            Your account is not activated yet. Please Contact with the Application Administrator
+                        </div>
+                    @endif
+
                 </div>
             </div>
     @else
