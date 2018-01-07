@@ -61,6 +61,7 @@ class ProjectsController extends Controller
     {
         
         $requestData = $request->all();
+        dd($_POST);
         dd($requestData);
         Project::create($requestData);
 

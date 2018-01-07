@@ -38,10 +38,12 @@
         </select>
         {!! $errors->first('fund', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
     <label for="peoffice_id" class="col-md-4 control-label">{{ 'Peoffice Id' }}</label>
     <div class="col-md-6">
-        <select name="peoffice_id" class="form-control custom-select" id="peoffice_id" multiple>
+        
+        <select name="peoffice_id[]" class="form-control custom-select" id="peoffice_id"  multiple >
             @foreach ($peoffice as $optionKey => $optionValue)
                 <option value="{{ $optionKey }}" {{ (isset($peoffice->id) && $peoffice->id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
             @endforeach
