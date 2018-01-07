@@ -9,7 +9,7 @@
             "type": "date"
         },
         {
-            "name": "peoffice",
+            "name": "peoffice_id",
             "type": "select",
             "options": {
                 "technology": "Technology",
@@ -18,7 +18,7 @@
             }
         },
         {
-            "name": "circle",
+            "name": "circle_id",
             "type": "select",
             "options": {
                 "technology": "Technology",
@@ -27,7 +27,7 @@
             }
         },
         {
-            "name": "zone",
+            "name": "zone_id",
             "type": "select",
             "options": {
                 "technology": "Technology",
@@ -45,6 +45,10 @@
         },
         {
             "name": "contract_no",
+            "type": "string"
+        },
+        {
+            "name": "egp_id",
             "type": "string"
         },
         {
@@ -120,6 +124,10 @@
         {
             "field": "name_of_works",
             "rules": "required|min:10"
+        },
+        {
+            "field": "noa_reference",
+            "rules": "required"
         }
     ]
-}
+} 

@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('admin/zones', 'ZonesController');
 		Route::resource('admin/circles', 'CirclesController');
 		Route::resource('admin/peoffices', 'PeofficesController');
+		Route::resource('admin/contracts', 'ContractsController');
 		
 	});
 
@@ -40,3 +41,6 @@ Route::middleware(['auth'])->group(function () {
 
     
 });
+
+
+Route::resource('admin/projects', 'ProjectsController');
