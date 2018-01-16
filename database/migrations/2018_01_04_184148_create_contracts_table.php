@@ -16,6 +16,7 @@ class CreateContractsTable extends Migration
             $table->increments('id');
             $table->string('office_memo')->nullable();
             $table->date('memo_date')->nullable();
+            $table->string('project_id')->nullable();
             $table->string('peoffice_id')->nullable();
             $table->string('circle_id')->nullable();
             $table->string('zone_id')->nullable();

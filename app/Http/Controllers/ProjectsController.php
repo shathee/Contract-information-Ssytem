@@ -61,8 +61,13 @@ class ProjectsController extends Controller
     {
         
         $requestData = $request->all();
-        dd($_POST);
-        dd($requestData);
+        //dd($_POST);
+        $v = '';
+        foreach ($requestData['peoffice_id'] as $key => $value) {
+            $v = $v.'|'.$value;
+        }
+       
+        $requestData['peoffice_id'] = $v;
         Project::create($requestData);
 
         return redirect('admin/projects')->with('flash_message', 'Project added!');

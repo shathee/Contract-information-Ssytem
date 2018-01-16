@@ -26,14 +26,21 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th><th>Peoffice Id</th><th>Circle Id</th><th>Zone Id</th><th>Actions</th>
+                    <th>#</th>
+                    <th>E-GP Id</th>
+                    <th>Package No</th>
+                    <th>Contract No</th>
+                    <th>NOA Date </th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($pecontracts as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->peoffice_id }}</td><td>{{ $item->circle_id }}</td><td>{{ $item->zone_id }}</td>
+                    <td>{{ $item->egp_id }}</td>
+                    <td>{{ $item->package_no }}</td>
+                    <td>{{ $item->Contract_no }}</td><td>{{ $item->Noa_date }}</td>
                     <td>
                         <a href="{{ url('/pecontracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/pecontracts/' . $item->id . '/edit') }}" title="Edit pecontract"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
