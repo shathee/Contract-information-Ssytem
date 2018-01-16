@@ -21,7 +21,7 @@ class CreateDistrictssTable extends Migration
             $table->string('lat')->nullable();
             $table->string('lon')->nullable();
             $table->string('website')->nullable();
- 
+            
         });
     }
 

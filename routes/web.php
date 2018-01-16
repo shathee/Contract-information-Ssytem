@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('admin/circles', 'CirclesController');
 		Route::resource('admin/peoffices', 'PeofficesController');
 		Route::resource('admin/contracts', 'ContractsController');
-		
+		Route::resource('admin/projects', 'ProjectsController');
 	});
 
 	Route::get('/', function () {
@@ -38,9 +38,10 @@ Route::middleware(['auth'])->group(function () {
 	
 
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::resource('/contracts', 'PeContractsController');
+
 
     
 });
 
 
-Route::resource('admin/projects', 'ProjectsController');

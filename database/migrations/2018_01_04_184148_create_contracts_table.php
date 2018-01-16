@@ -14,7 +14,6 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('office_memo')->nullable();
             $table->date('memo_date')->nullable();
             $table->string('peoffice_id')->nullable();
@@ -24,9 +23,10 @@ class CreateContractsTable extends Migration
             $table->text('name_of_works');
             $table->string('contract_no')->nullable();
             $table->string('egp_id')->nullable();
+            $table->string('package_no')->nullable();
             $table->string('contractors_legal_title')->nullable();
             $table->text('contractors_contact_details')->nullable();
-            $table->text('contractorstrade_license_details')->nullable();
+            $table->text('contractors_trade_license_details')->nullable();
             $table->string('noa_reference');
             $table->date('noa_date')->nullable();
             $table->integer('original_contract_price')->nullable();
@@ -41,6 +41,8 @@ class CreateContractsTable extends Migration
             $table->integer('physical_progress')->nullable();
             $table->integer('financial_progress')->nullable();
             $table->text('special_note')->nullable();
+
+            $table->timestamps();
             });
     }
 

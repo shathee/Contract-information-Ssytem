@@ -14,7 +14,6 @@ class CreatePeofficesTable extends Migration
     {
         Schema::create('peoffices', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('zone_id')->nullable();
             $table->string('circle_id')->nullable();
             $table->string('name')->nullable();
@@ -23,6 +22,7 @@ class CreatePeofficesTable extends Migration
             $table->string('postcode')->nullable();
             $table->string('phone')->nullable();
             $table->string('code')->nullable();
+            $table->timestamps();
             });
     }
 
