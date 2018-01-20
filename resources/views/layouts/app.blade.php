@@ -88,8 +88,8 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contract Management</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('contracts')}}">Contracts</a>
+                          <a class="dropdown-item" href="commencements">Commencement/Work Order</a>
                           <a class="dropdown-item" href="#">Bills</a>
-                          <a class="dropdown-item" href="#"></a>
                           <a class="dropdown-item" href="#"></a>
                         </div>
                       </li>

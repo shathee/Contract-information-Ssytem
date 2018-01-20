@@ -49,7 +49,7 @@ class PeContractsController extends Controller
     {
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         $peoffice = Peoffice::where('id',$peoffice_id)->first();;
-//dd($peoffice);
+
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffices = Peoffice::all()->pluck('name','id');
@@ -68,10 +68,10 @@ class PeContractsController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($requestData);
         Contract::create($requestData);
 
-        return redirect('pecontracts')->with('flash_message', 'Contract added!');
+        return redirect('/contracts')->with('flash_message', 'Contract added!');
     }
 
     /**
@@ -99,7 +99,14 @@ class PeContractsController extends Controller
     {
         $pecontract = Contract::findOrFail($id);
 
-        return view('front.pecontracts.edit', compact('pecontract'));
+        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        $peoffice = Peoffice::where('id',$peoffice_id)->first();;
+
+        $zone = Zone::all()->pluck('name','id');
+        $circle = Circle::all()->pluck('name','id');
+        $peoffices = Peoffice::all()->pluck('name','id');
+        
+        return view('front.pecontracts.edit', compact('pecontract','zone','circle','peoffices','peoffice'));
     }
 
     /**
@@ -118,7 +125,7 @@ class PeContractsController extends Controller
         $pecontract = Contract::findOrFail($id);
         $pecontract->update($requestData);
 
-        return redirect('pecontracts')->with('flash_message', 'Contract updated!');
+        return redirect('contracts')->with('flash_message', 'Contract updated!');
     }
 
     /**

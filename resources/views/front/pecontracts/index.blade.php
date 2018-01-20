@@ -40,12 +40,13 @@
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->egp_id }}</td>
                     <td>{{ $item->package_no }}</td>
-                    <td>{{ $item->Contract_no }}</td><td>{{ $item->Noa_date }}</td>
+                    <td>{{ $item->contract_no }}</td>
+                    <td>{{ $item->noa_date }}</td>
                     <td>
-                        <a href="{{ url('/pecontracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                        <a href="{{ url('/pecontracts/' . $item->id . '/edit') }}" title="Edit pecontract"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                        <a href="{{ url('/contracts/' . $item->id . '/edit') }}" title="Edit pecontract"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                        <form method="POST" action="{{ url('/pecontracts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="{{ url('/contracts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete pecontract" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

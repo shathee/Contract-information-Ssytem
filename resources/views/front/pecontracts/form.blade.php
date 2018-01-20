@@ -1,33 +1,26 @@
 <div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
     <label for="peoffice_id" class="col-md-4 control-label">{{ 'Peoffice Id' }}</label>
     <div class="col-md-6">
-        <select name="peoffice_id" class="form-control" id="peoffice_id" disabled="disabled" >
-    @foreach ($peoffices as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($peoffice->id) && $peoffice->id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
-        {!! $errors->first('peoffice_id', '<p class="help-block">:message</p>') !!}
+    <label class="form-control">{{ $peoffice->name or ''}}</label>
+    <input class="form-control" name="peoffice_id" type="hidden" id="peoffice_id" readonly="readonly" value="{{ $peoffice->id or ''}}" >
+    {!! $errors->first('peoffice_id', '<p class="help-block">:message</p>') !!}
+
+        
     </div>
 </div>
 <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
     <label for="circle_id" class="col-md-4 control-label">{{ 'Circle Id' }}</label>
     <div class="col-md-6">
-        <select name="circle_id" class="form-control" id="circle_id"  disabled="disabled">
-    @foreach ($circle as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($peoffice->circle_id) && $peoffice->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
+        <label class="form-control">{{ $peoffice->circle->name or ''}}</label>
+        <input class="form-control" name="circle_id" type="hidden" id="peoffice_id" readonly="readonly" value="{{ $peoffice->circle_id or ''}}" >
         {!! $errors->first('circle_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('zone_id') ? 'has-error' : ''}}">
     <label for="zone_id" class="col-md-4 control-label">{{ 'Zone Id' }}</label>
     <div class="col-md-6">
-        <select name="zone_id" class="form-control" id="zone_id" disabled="disabled">
-    @foreach ($zone as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($peoffice->zone_id) && $peoffice->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
+        <label class="form-control">{{ $peoffice->zone->name or ''}}</label>
+        <input class="form-control" name="zone_id" type="hidden" id="peoffice_id" readonly="readonly" value="{{ $peoffice->zone_id or ''}}" >
         {!! $errors->first('zone_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

@@ -1,0 +1,2 @@
+php artisan crud:generate commencements --fields="commencement_memo_no#string; commencement_memo_date#date
+;contractors_legal_title#text;  contract_no#text;contract_date_of_commencement#date;contract_date_of_commencement_insurance#date;concontract_date_of_commencement_programme#date" --view-path=front --form-helper=html
