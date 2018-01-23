@@ -45,3 +45,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+
+Route::resource('commencements', 'CommencementsController');

@@ -8,7 +8,7 @@
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
-    <a href="{{ url('/commencements/create') }}" class="btn btn-success btn-sm" title="Add New commencement">
+    <a href="{{ url('/commencements/create') }}" class="btn btn-success btn-sm" title="Add New Commencement">
         <i class="fa fa-plus" aria-hidden="true"></i> Add New
     </a>
     </h5>
@@ -26,22 +26,22 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th><th>Commencement Memo No</th><th>Commencement Memo Date</th><th>Contractors Legal Title</th><th>Actions</th>
+                    <th>#</th><th>Commencement Memo No</th><th>Commencement Memo Date</th><th>Contract No</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($commencements as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->commencement_memo_no }}</td><td>{{ $item->commencement_memo_date }}</td><td>{{ $item->contractors_legal_title }}</td>
+                    <td>{{ $item->commencement_memo_no }}</td><td>{{ $item->commencement_memo_date }}</td><td>{{ $item->contract_no }}</td>
                     <td>
-                        <a href="{{ url('/commencements/' . $item->id) }}" title="View commencement"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                        <a href="{{ url('/commencements/' . $item->id . '/edit') }}" title="Edit commencement"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/commencements/' . $item->id) }}" title="View Commencement"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                        <a href="{{ url('/commencements/' . $item->id . '/edit') }}" title="Edit Commencement"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                         <form method="POST" action="{{ url('/commencements' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-xs" title="Delete commencement" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                            <button type="submit" class="btn btn-danger btn-xs" title="Delete Commencement" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                     </td>
                 </tr>

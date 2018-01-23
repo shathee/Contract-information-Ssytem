@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header">
-    Create New commencement
+    Create New Commencement
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">

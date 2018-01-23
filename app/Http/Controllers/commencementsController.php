@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Contract;
 
+use App\Model\Commencement;
 use Illuminate\Http\Request;
 
-class commencementsController extends Controller
+class CommencementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,15 @@ class commencementsController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $commencements = commencement::where('commencement_memo_no', 'LIKE', "%$keyword%")
+            $commencements = Commencement::where('commencement_memo_no', 'LIKE', "%$keyword%")
                 ->orWhere('commencement_memo_date', 'LIKE', "%$keyword%")
-                ->orWhere('contractors_legal_title', 'LIKE', "%$keyword%")
                 ->orWhere('contract_no', 'LIKE', "%$keyword%")
-                ->orWhere('contract_date_of_commencement', 'LIKE', "%$keyword%")
-                ->orWhere('contract_date_of_commencement_insurance', 'LIKE', "%$keyword%")
-                ->orWhere('concontract_date_of_commencement_programme', 'LIKE', "%$keyword%")
+                ->orWhere('contract_commencement_date', 'LIKE', "%$keyword%")
+                ->orWhere('insurance_policy_date', 'LIKE', "%$keyword%")
+                ->orWhere('programme_date', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $commencements = Contract::paginate($perPage);
+            $commencements = Commencement::paginate($perPage);
         }
 
         return view('front.commencements.index', compact('commencements'));
@@ -58,9 +57,9 @@ class commencementsController extends Controller
         
         $requestData = $request->all();
         
-        Contract::create($requestData);
+        Commencement::create($requestData);
 
-        return redirect('commencements')->with('flash_message', 'commencement added!');
+        return redirect('commencements')->with('flash_message', 'Commencement added!');
     }
 
     /**
@@ -72,7 +71,7 @@ class commencementsController extends Controller
      */
     public function show($id)
     {
-        $commencement = Contract::findOrFail($id);
+        $commencement = Commencement::findOrFail($id);
 
         return view('front.commencements.show', compact('commencement'));
     }
@@ -86,7 +85,7 @@ class commencementsController extends Controller
      */
     public function edit($id)
     {
-        $commencement = Contract::findOrFail($id);
+        $commencement = Commencement::findOrFail($id);
 
         return view('front.commencements.edit', compact('commencement'));
     }
@@ -104,10 +103,10 @@ class commencementsController extends Controller
         
         $requestData = $request->all();
         
-        $commencement = Contract::findOrFail($id);
+        $commencement = Commencement::findOrFail($id);
         $commencement->update($requestData);
 
-        return redirect('commencements')->with('flash_message', 'commencement updated!');
+        return redirect('commencements')->with('flash_message', 'Commencement updated!');
     }
 
     /**
@@ -119,8 +118,8 @@ class commencementsController extends Controller
      */
     public function destroy($id)
     {
-        Contract::destroy($id);
+        Commencement::destroy($id);
 
-        return redirect('commencements')->with('flash_message', 'commencement deleted!');
+        return redirect('commencements')->with('flash_message', 'Commencement deleted!');
     }
 }

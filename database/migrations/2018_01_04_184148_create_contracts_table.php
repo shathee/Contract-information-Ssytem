@@ -42,6 +42,7 @@ class CreateContractsTable extends Migration
             $table->integer('physical_progress')->nullable();
             $table->integer('financial_progress')->nullable();
             $table->text('special_note')->nullable();
+            $table->text('commencement_id')->nullable();
 
             $table->timestamps();
             });
