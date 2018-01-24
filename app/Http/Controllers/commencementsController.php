@@ -6,7 +6,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Model\Commencement;
+use App\Model\Contract;
+use App\Model\Guser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Model\Peoffice;
+use App\Model\Circle;
+use App\Model\Zone;
 
 class CommencementsController extends Controller
 {
@@ -42,7 +48,10 @@ class CommencementsController extends Controller
      */
     public function create()
     {
-        return view('front.commencements.create');
+        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        $contracts = Contract::where('peoffice_id',$peoffice_id)->get();
+        
+        return view('front.commencements.create', compact('contracts'));
     }
 
     /**

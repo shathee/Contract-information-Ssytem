@@ -9,10 +9,10 @@
     <label for="peoffice_id" class="col-md-4 control-label">{{ 'Office' }}</label>
     <div class="col-md-6">
         <select name="peoffice_id" class="form-control" id="office" required>
-    @foreach ($peoffices as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($guser->peoffice_id) && $guser->peoffice_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
+            @foreach ($peoffices as $optionKey => $optionValue)
+                <option value="{{ $optionKey }}" {{ (isset($guser->peoffice_id) && $guser->peoffice_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('peoffice_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
