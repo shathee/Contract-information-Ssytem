@@ -17,6 +17,7 @@ class CreateContractsTable extends Migration
             $table->string('office_memo')->nullable();
             $table->date('memo_date')->nullable();
             $table->string('project_id')->nullable();
+           
             $table->string('peoffice_id')->nullable();
             $table->string('circle_id')->nullable();
             $table->string('zone_id')->nullable();
@@ -24,12 +25,13 @@ class CreateContractsTable extends Migration
             $table->text('name_of_works');
             $table->string('contract_no')->nullable();
             $table->string('egp_id')->nullable();
-            $table->string('package_no')->nullable();
+            //$table->string('package_no')->nullable();
             $table->string('contractors_legal_title')->nullable();
             $table->text('contractors_contact_details')->nullable();
             $table->text('contractors_trade_license_details')->nullable();
             $table->string('noa_reference');
             $table->date('noa_date')->nullable();
+            $table->date('contract_date')->nullable();
             $table->integer('original_contract_price')->nullable();
             $table->integer('executed_contract_price')->nullable();
             $table->date('contract_date_of_commencement')->nullable();

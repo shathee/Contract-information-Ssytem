@@ -72,13 +72,22 @@
         <input class="form-control" name="noa_reference" type="text" id="noa_reference" value="{{ $pecontract->noa_reference or ''}}" >
         {!! $errors->first('noa_reference', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
     <label for="noa_date" class="col-md-4 control-label">{{ 'Noa Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control" name="noa_date" type="date" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
+        <input class="form-control datepicker" name="noa_date" type="text" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
         {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('original_contract_price') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('contract_date') ? 'has-error' : ''}}">
+    <label for="noa_date" class="col-md-4 control-label">{{ 'Contract Date' }}</label>
+    <div class="col-md-6">
+        <input class="form-control datepicker" name="contract_date" type="date" id="contract_date" value="{{ $pecontract->contract_date or ''}}" >
+        {!! $errors->first('contract_date', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('original_contract_price') ? 'has-error' : ''}}">
     <label for="original_contract_price" class="col-md-4 control-label">{{ 'Original Contract Price' }}</label>
     <div class="col-md-6">
         <input class="form-control" name="original_contract_price" type="text" id="original_contract_price" value="{{ $pecontract->original_contract_price or ''}}" >

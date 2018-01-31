@@ -49,8 +49,8 @@ class CommencementsController extends Controller
     public function create()
     {
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $contracts = Contract::where('peoffice_id',$peoffice_id)->get();
-        
+        $contracts = Contract::where('peoffice_id',$peoffice_id)->pluck('contract_no','id');
+
         return view('front.commencements.create', compact('contracts'));
     }
 
