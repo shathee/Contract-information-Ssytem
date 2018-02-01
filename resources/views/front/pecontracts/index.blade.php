@@ -43,14 +43,26 @@
                     <td>{{ $item->contract_no }}</td>
                     <td>{{ $item->noa_date }}</td>
                     <td>
-                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                        <a href="{{ url('/contracts/' . $item->id . '/edit') }}" title="Edit pecontract"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        @if($item->commencement_id == NULL)
+                         <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                        <a href="{{ url('/contracts/' . $item->id . '/edit') }}" title="Edit pecontract">
+                            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+                        </a>
 
                         <form method="POST" action="{{ url('/contracts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete pecontract" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
+                        @else
+                       
+                        <button class="btn btn-success btn-xs">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+                            Commencement Given 
+                        </button>
+                        @endif
+
+                        
                     </td>
                 </tr>
             @endforeach

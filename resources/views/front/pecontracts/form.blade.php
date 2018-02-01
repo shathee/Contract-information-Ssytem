@@ -25,42 +25,41 @@
     </div>
 </div>
 <div class="form-group {{ $errors->has('contract_no') ? 'has-error' : ''}}">
-    <label for="contract_no" class="col-md-4 control-label">{{ 'Contract No' }}</label>
+    <label for="contract_no" class="col-md-4 control-label">{{ 'Contract Package No' }}</label>
     <div class="col-md-6">
-        <input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $pecontract->contract_no or ''}}" >
+        <input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $pecontract->contract_no or ''}}" required >
         {!! $errors->first('contract_no', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('egp_id') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('egp_id') ? 'has-error' : ''}}">
     <label for="egp_id" class="col-md-4 control-label">{{ 'Egp Id' }}</label>
     <div class="col-md-6">
         <input class="form-control" name="egp_id" type="text" id="egp_id" value="{{ $pecontract->egp_id or ''}}" >
         {!! $errors->first('egp_id', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('package_no') ? 'has-error' : ''}}">
-    <label for="package_no" class="col-md-4 control-label">{{ 'Package No' }}</label>
-    <div class="col-md-6">
-        <input class="form-control" name="package_no" type="text" id="package_no" value="{{ $pecontract->package_no or ''}}" >
-        {!! $errors->first('package_no', '<p class="help-block">:message</p>') !!}
-    </div>
-</div><div class="form-group {{ $errors->has('name_of_works') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('name_of_works') ? 'has-error' : ''}}">
     <label for="name_of_works" class="col-md-4 control-label">{{ 'Name Of Works' }}</label>
     <div class="col-md-6">
         <textarea class="form-control" rows="5" name="name_of_works" type="textarea" id="name_of_works" >{{ $pecontract->name_of_works or ''}}</textarea>
         {!! $errors->first('name_of_works', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('contractors_legal_title') ? 'has-error' : ''}}">
-    <label for="contractors_legal_title" class="col-md-4 control-label">{{ 'Contractors Legal Title' }}</label>
+</div>
+<div class="form-group {{ $errors->has('contractors_legal_title') ? 'has-error' : ''}}">
+    <label for="contractors_legal_title" class="col-md-4 control-label">{{ 'Contractors Name' }}</label>
     <div class="col-md-6">
-        <input class="form-control" name="contractors_legal_title" type="text" id="contractors_legal_title" value="{{ $pecontract->contractors_legal_title or ''}}" >
+        <input class="form-control" name="contractors_legal_title" type="text" id="contractors_legal_title" value="{{ $pecontract->contractors_legal_title or ''}}" required >
         {!! $errors->first('contractors_legal_title', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('contractors_contact_details') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('contractors_contact_details') ? 'has-error' : ''}}">
     <label for="contractors_contact_details" class="col-md-4 control-label">{{ 'Contractors Contact Details' }}</label>
     <div class="col-md-6">
         <textarea class="form-control" rows="5" name="contractors_contact_details" type="textarea" id="contractors_contact_details" >{{ $pecontract->contractors_contact_details or ''}}</textarea>
         {!! $errors->first('contractors_contact_details', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('contractors_trade_license_details') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('contractors_trade_license_details') ? 'has-error' : ''}}">
     <label for="contractors_trade_license_details" class="col-md-4 control-label">{{ 'Contractors Trade License Details' }}</label>
     <div class="col-md-6">
         <input class="form-control" name="contractors_trade_license_details" type="text" id="contractors_trade_license_details" value="{{ $pecontract->contractors_trade_license_details or ''}}" >
@@ -76,14 +75,14 @@
 <div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
     <label for="noa_date" class="col-md-4 control-label">{{ 'Noa Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control datepicker" name="noa_date" type="text" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
+        <input class="form-control datetimepicker" name="noa_date" type="date" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
         {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('contract_date') ? 'has-error' : ''}}">
     <label for="noa_date" class="col-md-4 control-label">{{ 'Contract Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control datepicker" name="contract_date" type="date" id="contract_date" value="{{ $pecontract->contract_date or ''}}" >
+        <input class="form-control" name="contract_date" type="date" id="contract_date" value="{{ $pecontract->contract_date or ''}}" >
         {!! $errors->first('contract_date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

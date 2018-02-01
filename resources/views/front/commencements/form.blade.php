@@ -10,16 +10,17 @@
             <input class="form-control" name="commencement_memo_date" type="date" id="commencement_memo_date" value="{{ $commencement->commencement_memo_date or ''}}" >
             {!! $errors->first('commencement_memo_date', '<p class="help-block">:message</p>') !!}
         </div>
-    </div><div class="form-group {{ $errors->has('contract_no') ? 'has-error' : ''}}">
-        <label for="contract_no" class="col-md-4 control-label">{{ 'Contract No' }}</label>
+    </div>
+    <div class="form-group {{ $errors->has('contract_id') ? 'has-error' : ''}}">
+        <label for="contract_id" class="col-md-4 control-label">{{ 'Contract Package No' }}</label>
         <div class="col-md-6">
-            <select name="contract_no" class="form-control" id="contract_no" required>
+            <select name="contract_id" class="form-control" id="contract_id" required>
                 @foreach ($contracts as $optionKey => $optionValue)
                     <option value="{{ $optionKey }}" {{ (isset($commencement->contract_no) && $commencement->contract_no == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
                 @endforeach
             </select>
             <!--<input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $commencement->contract_no or ''}}" >-->
-            {!! $errors->first('contract_no', '<p class="help-block">:message</p>') !!}
+            {!! $errors->first('contract_id', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
     <div class="form-group {{ $errors->has('contract_commencement_date') ? 'has-error' : ''}}">

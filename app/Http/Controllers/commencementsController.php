@@ -66,7 +66,10 @@ class CommencementsController extends Controller
         
         $requestData = $request->all();
         
-        Commencement::create($requestData);
+        $commencement = Commencement::create($requestData);
+
+        Contract::where('id', $commencement->contract_id)
+          ->update(['commencement_id' => $commencement->id]);
 
         return redirect('commencements')->with('flash_message', 'Commencement added!');
     }
@@ -127,6 +130,12 @@ class CommencementsController extends Controller
      */
     public function destroy($id)
     {
+        
+        $commencement = Commencement::find($id);
+
+        Contract::where('id', $commencement->contract_id)
+          ->update(['commencement_id' => NULL]);
+        
         Commencement::destroy($id);
 
         return redirect('commencements')->with('flash_message', 'Commencement deleted!');
