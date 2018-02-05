@@ -7,8 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+   
     
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
@@ -23,7 +22,7 @@
 
     <div class="container">
       
-      <div id="header" class="row">
+      <div id="header" class="row d-print-none">
         <div class="col-md-3">
           <a href="{{URL::to('/')}}"><img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo"></a>
         </div>
@@ -33,7 +32,7 @@
         </div>
       </div>
 
-      <div id="top-menu" class="row">
+      <div id="top-menu" class="row d-print-none">
               
          
               <ul class="nav nav-tabs">
@@ -134,7 +133,7 @@
           
       </div>
 
-      <div id="footer" class="row">
+      <div id="footer" class="row  d-print-none">
           <div class="container">
             <div class="row">
                 <div class="col-sm-3">

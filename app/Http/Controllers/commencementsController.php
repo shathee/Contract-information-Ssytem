@@ -49,7 +49,9 @@ class CommencementsController extends Controller
     public function create()
     {
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $contracts = Contract::where('peoffice_id',$peoffice_id)->pluck('contract_no','id');
+        $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->pluck('contract_no','id');
+
+      
 
         return view('front.commencements.create', compact('contracts'));
     }
@@ -84,8 +86,10 @@ class CommencementsController extends Controller
     public function show($id)
     {
         $commencement = Commencement::findOrFail($id);
+        $contract = Contract::where('commencement_id', $id)->first();
 
-        return view('front.commencements.show', compact('commencement'));
+        
+        return view('front.commencements.show', compact('commencement','contract'));
     }
 
     /**
@@ -99,7 +103,10 @@ class CommencementsController extends Controller
     {
         $commencement = Commencement::findOrFail($id);
 
-        return view('front.commencements.edit', compact('commencement'));
+        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->pluck('contract_no','id');
+
+        return view('front.commencements.edit', compact('commencement','contracts'));
     }
 
     /**

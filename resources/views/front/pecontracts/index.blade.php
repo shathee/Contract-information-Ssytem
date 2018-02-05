@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header">
-   Pecontracts
+   Contracts
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
@@ -44,7 +44,7 @@
                     <td>{{ $item->noa_date }}</td>
                     <td>
                         @if($item->commencement_id == NULL)
-                         <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/contracts/' . $item->id . '/edit') }}" title="Edit pecontract">
                             <button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
                         </a>
@@ -55,7 +55,7 @@
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete pecontract" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                         @else
-                       
+                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <button class="btn btn-success btn-xs">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
                             Commencement Given 

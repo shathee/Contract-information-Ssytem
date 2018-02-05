@@ -35,8 +35,9 @@
             <tbody>
             @foreach($commencements as $item)
                 <tr>
-                    <td>{{ $item->contract_no }}</td>
                     <td>{{ $loop->iteration or $item->id }}</td>
+                    <td>{{ $item->contract->contract_no }}</td>
+                    
                     <td>{{ $item->commencement_memo_no }}</td>
                     <td>{{ $item->commencement_memo_date }}</td>
 
