@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('admin/peoffices', 'PeofficesController');
 		Route::resource('admin/contracts', 'ContractsController');
 		Route::resource('admin/projects', 'ProjectsController');
+		Route::resource('admin/bills', 'BillsController');
 	});
 
 	Route::get('/', function () {
@@ -41,9 +42,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/contracts', 'PeContractsController');
 	Route::resource('commencements', 'commencementsController');
 
+
     
 });
 
-
-
-Route::resource('commencements', 'CommencementsController');
+Route::get('search', function () {
+    return 'Found Data URL';
+});

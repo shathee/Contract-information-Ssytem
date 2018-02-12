@@ -2,10 +2,10 @@
     <label for="zone_id" class="col-md-4 control-label">{{ 'Zone Id' }}</label>
     <div class="col-md-6">
         <select name="zone_id" class="form-control" id="zone_id" >
-    @foreach ($zone as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($circle->zone_id) && $circle->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
+            @foreach ($zone as $optionKey => $optionValue)
+                <option value="{{ $optionKey }}" {{ (isset($circle->zone_id) && $circle->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+            @endforeach
+        </select>
         {!! $errors->first('zone_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">

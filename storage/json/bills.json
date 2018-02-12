@@ -1,0 +1,57 @@
+{
+    "fields": [
+        {
+            "name": "contract_id",
+            "type": "string"
+        },{
+            "name": "bill_no",
+            "type": "string"
+        },
+        {
+            "name": "bill_date",
+            "type": "date"
+        },
+        {
+            "name": "net_payment",
+            "type": "string"
+        },
+        {
+            "name": "vat",
+            "type": "string"
+        },
+        {
+            "name": "ait",
+            "type": "string"
+        },
+        {
+            "name": "gross_payment",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "bill_no",
+            "rules": "required"
+        },
+        {
+            "field": "bill_date",
+            "rules": "required"
+        },
+        {
+            "field": "net_payment",
+            "rules": "required"
+        },
+        {
+            "field": "vat",
+            "rules": "required"
+        },
+        {
+            "field": "ait",
+            "rules": "required"
+        },
+        {
+            "field": "gross_payment",
+            "rules": "required"
+        }
+    ]
+} 

@@ -57,7 +57,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contract Management</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('admin/contracts')}}">Contracts</a>
-                          <a class="dropdown-item" href="#">Bills</a>
+                          <a class="dropdown-item" href="{{url('admin/bills')}}">Bills</a>
                           <a class="dropdown-item" href="#"></a>
                           <a class="dropdown-item" href="#"></a>
                         </div>
@@ -192,7 +192,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     
-    
+    <script type="text/javascript">
+    function total(){
+        var p = parseFloat($('#gross_payment').val());
+       
+        var v = parseFloat($('#vat').val());
+        
+        var t = parseFloat($('#ait').val());
+        
+        total = p+v+t;
+        //alert(total);
+        $('#net_payment').val(total);
+    }
+
+</script>
     
   </body>
 </html>
