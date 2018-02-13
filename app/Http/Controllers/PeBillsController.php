@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB; 
 use App\Model\Bill;
 use App\Model\Contract;
+use App\Model\Guser;
+use App\Model\Peoffice;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class BillsController extends Controller
+class PeBillsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,19 +26,13 @@ class BillsController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $bills = Bill::where('contract_id', 'LIKE', "%$keyword%")
-                ->orWhere('bill_no', 'LIKE', "%$keyword%")
-                ->orWhere('bill_date', 'LIKE', "%$keyword%")
-                ->orWhere('net_payment', 'LIKE', "%$keyword%")
-                ->orWhere('vat', 'LIKE', "%$keyword%")
-                ->orWhere('ait', 'LIKE', "%$keyword%")
-                ->orWhere('gross_payment', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
-        } else {
             $bills = Bill::paginate($perPage);
+        } else {
+          $bills = Bill::paginate($perPage);
+            
         }
 
-        return view('admin.bills.index', compact('bills'));
+        return view('front.bills.index', compact('bills'));
     }
 
     /**
@@ -44,8 +42,9 @@ class BillsController extends Controller
      */
     public function create()
     {
+        
         $contracts = Contract::where('commencement_id', '!=', NULL)->pluck('contract_no','id');
-        return view('admin.bills.create',compact('contracts'));
+        return view('front.bills.create',compact('contracts'));
     }
 
     /**
@@ -57,19 +56,20 @@ class BillsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
-			'bill_no' => 'required',
-			'bill_date' => 'required',
-			'net_payment' => 'required',
-			'vat' => 'required',
-			'ait' => 'required',
-			'gross_payment' => 'required'
-		]);
+            'bill_no' => 'required',
+            'bill_date' => 'required',
+            'net_payment' => 'required',
+            'vat' => 'required',
+            'ait' => 'required',
+            'gross_payment' => 'required'
+        ]);
         $requestData = $request->all();
         
         Bill::create($requestData);
 
-        return redirect('admin/bills')->with('flash_message', 'Bill added!');
+        return redirect('bills')->with('flash_message', 'Bill added!');
     }
 
     /**
@@ -82,8 +82,11 @@ class BillsController extends Controller
     public function show($id)
     {
         $bill = Bill::findOrFail($id);
+        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
 
-        return view('admin.bills.show', compact('bill'));
+        $pe = Peoffice::findOrFail($peoffice_id[0]);
+        //d/d($pe);
+        return view('front.bills.show', compact('bill','pe'));
     }
 
     /**
@@ -95,10 +98,12 @@ class BillsController extends Controller
      */
     public function edit($id)
     {
+        
         $bill = Bill::findOrFail($id);
         $contracts = Contract::where('commencement_id', '!=', NULL)->pluck('contract_no','id');
 
-        return view('admin.bills.edit', compact('bill','contracts'));
+        return view('front.bills.edit', compact('bill','contracts'));
+
     }
 
     /**
@@ -111,20 +116,22 @@ class BillsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $this->validate($request, [
-			'bill_no' => 'required',
-			'bill_date' => 'required',
-			'net_payment' => 'required',
-			'vat' => 'required',
-			'ait' => 'required',
-			'gross_payment' => 'required'
-		]);
+            'bill_no' => 'required',
+            'bill_date' => 'required',
+            'net_payment' => 'required',
+            'vat' => 'required',
+            'ait' => 'required',
+            'gross_payment' => 'required'
+        ]);
         $requestData = $request->all();
         
         $bill = Bill::findOrFail($id);
         $bill->update($requestData);
 
-        return redirect('admin/bills')->with('flash_message', 'Bill updated!');
+        return redirect('bills')->with('flash_message', 'Bill updated!');
+
     }
 
     /**
@@ -138,6 +145,6 @@ class BillsController extends Controller
     {
         Bill::destroy($id);
 
-        return redirect('admin/bills')->with('flash_message', 'Bill deleted!');
+        return redirect('bills')->with('flash_message', 'Bill deleted!');
     }
 }

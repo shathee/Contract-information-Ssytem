@@ -43,5 +43,10 @@ class Contract extends Model
     {
         return $this->hasOne('App\Model\Commencement');
     }
+    public function bill()
+    {
+        return $this->hasMany('App\Model\Bill');
+    }
+    
     
 }

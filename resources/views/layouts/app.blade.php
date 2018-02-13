@@ -91,7 +91,7 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('contracts')}}">Contracts</a>
                           <a class="dropdown-item" href="{{url('commencements')}}">Commencement/Work Order</a>
-                          <a class="dropdown-item" href="#">Bills</a>
+                          <a class="dropdown-item" href="{{url('bills')}}">Bills</a>
                           <a class="dropdown-item" href="#"></a>
                         </div>
                       </li>
@@ -193,15 +193,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     
     <script type="text/javascript">
-    function total(){
-        var p = parseFloat($('#gross_payment').val());
+    function netBill(){
+        var p = (parseFloat($('#gross_payment').val()) || 0);
        
-        var v = parseFloat($('#vat').val());
+        var v = (parseFloat($('#vat').val()) || 0);
         
-        var t = parseFloat($('#ait').val());
+        var t = (parseFloat($('#ait').val()) || 0);
         
-        total = p+v+t;
-        //alert(total);
+        total = p - v - t;
+        //alert(v,t,t);
         $('#net_payment').val(total);
     }
 
