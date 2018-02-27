@@ -26,14 +26,16 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th><th>Office Memo</th><th>Memo Date</th><th>Peoffice Id</th><th>Actions</th>
+                    <th>#</th><th>Contract Date</th><th>Contract Packag No</th><th>Peoffice Id</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($contracts as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->office_memo }}</td><td>{{ $item->memo_date }}</td><td>{{ $item->peoffice_id }}</td>
+                    <td>{{ $item->contract_date }}</td>
+                    <td>{{ $item->contract_no }}</td>
+                    <td>{{ $item->peoffice->name}}</td>
                     <td>
                         <a href="{{ url('/admin/contracts/' . $item->id) }}" title="View Contract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/admin/contracts/' . $item->id . '/edit') }}" title="Edit Contract"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -54,7 +54,7 @@ class ContractsController extends Controller
         } else {
             $contracts = Contract::paginate($perPage);
         }
-
+        
         return view('admin.contracts.index', compact('contracts'));
     }
 
@@ -101,8 +101,12 @@ class ContractsController extends Controller
     public function show($id)
     {
         $contract = Contract::findOrFail($id);
+        $bills = Contract::find($id)->bills;
 
-        return view('admin.contracts.show', compact('contract'));
+        $bills->fp = ($bills->sum('gross_payment')/$contract->original_contract_price)*100;
+        
+        
+        return view('admin.contracts.show', compact('contract','bills'));
     }
 
     /**

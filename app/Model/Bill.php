@@ -27,6 +27,7 @@ class Bill extends Model
      */
     protected $fillable = ['contract_id', 'bill_no', 'bill_date', 'net_payment', 'vat', 'ait', 'gross_payment'];
 
+    
     public function contract()
     {
         return $this->belongsTo('App\Model\Contract');

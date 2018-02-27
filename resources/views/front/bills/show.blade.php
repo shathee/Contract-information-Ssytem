@@ -48,7 +48,7 @@
                     <th> Name of Works</th><td> {{ $bill->contract->name_of_works }} </td></tr>
                     <tr><th> Bill No & Date</th><td> {{ $bill->bill_no }}, {{ $bill->bill_date }}</td></tr>
                     <tr><th> Date of Commencement 
-                    </th><td> {{ $bill->contract->commencement_memo_date }}</td></tr>
+                    </th><td> {{ $bill->contract->actual_date_of_commencement }}</td></tr>
                     <tr><th> Reference of Agreement
                     </th><td> {{ $pe->name}} Memo No - {{ $bill->contract->contract_no }}  </td></tr>
                      <tr>

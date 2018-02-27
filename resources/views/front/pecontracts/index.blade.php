@@ -28,8 +28,7 @@
                 <tr>
                     <th>#</th>
                     <th>E-GP Id</th>
-                    <th>Package No</th>
-                    <th>Contract No</th>
+                    <th>Contract/Package No</th>
                     <th>NOA Date </th>
                     <th>Actions</th>
                 </tr>
@@ -39,7 +38,6 @@
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->egp_id }}</td>
-                    <td>{{ $item->package_no }}</td>
                     <td>{{ $item->contract_no }}</td>
                     <td>{{ $item->noa_date }}</td>
                     <td>

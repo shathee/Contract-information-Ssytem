@@ -69,7 +69,7 @@ class CommencementsController extends Controller
         $commencement = Commencement::create($requestData);
 
         Contract::where('id', $commencement->contract_id)
-          ->update(['commencement_id' => $commencement->id]);
+          ->update(['commencement_id' => $commencement->id,'contract_date_of_commencement'=> $commencement->contract_commencement_date]);
 
         return redirect('commencements')->with('flash_message', 'Commencement added!');
     }
@@ -139,7 +139,7 @@ class CommencementsController extends Controller
         $commencement = Commencement::find($id);
 
         Contract::where('id', $commencement->contract_id)
-          ->update(['commencement_id' => NULL]);
+          ->update(['commencement_id' => NULL,'contract_date_of_commencement'=>NULL]);
         
         Commencement::destroy($id);
 
