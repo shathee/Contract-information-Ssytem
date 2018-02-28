@@ -58,6 +58,9 @@
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
                             Commencement Given 
                         </button>
+                        <a class="btn btn-info btn-xs" href="{{ url('payment-certificate/'.$item->id)}}">Payment Certificate</a>
+                        <a class="btn btn-info btn-xs" href="{{ url('completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                        
                         @endif
 
                         

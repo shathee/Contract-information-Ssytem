@@ -33,15 +33,15 @@
         <textarea class="form-control" rows="5" name="address" type="textarea" id="address" >{{ $peoffice->address or ''}}</textarea>
         {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('district') ? 'has-error' : ''}}">
-    <label for="district" class="col-md-4 control-label">{{ 'District' }}</label>
+</div><div class="form-group {{ $errors->has('district_id') ? 'has-error' : ''}}">
+    <label for="district_id" class="col-md-4 control-label">{{ 'District' }}</label>
     <div class="col-md-6">
-        <select name="district" class="form-control" id="district" >
-    @foreach ($district as $optionKey => $optionValue)
-        <option value="{{ $optionKey }}" {{ (isset($peoffice->district) && $peoffice->district == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-    @endforeach
-</select>
-        {!! $errors->first('district', '<p class="help-block">:message</p>') !!}
+        <select name="district_id" class="form-control" id="district_id" >
+            @foreach ($district as $d)
+                <option value="{{ $d->id }}" {{ (isset($peoffice->district_id) && $peoffice->district_id == $d->id) ? 'selected' : ''}}>{{ $d->name }}</option>
+            @endforeach
+        </select>
+        {!! $errors->first('district_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('postcode') ? 'has-error' : ''}}">
     <label for="postcode" class="col-md-4 control-label">{{ 'Postcode' }}</label>

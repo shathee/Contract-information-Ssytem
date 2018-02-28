@@ -37,6 +37,11 @@ class Peoffice extends Model
     {
         return $this->belongsTo('App\Model\Zone');
     }
+
+    public function district()
+    {
+        return $this->belongsTo('App\Model\District');
+    }
     
     
 }

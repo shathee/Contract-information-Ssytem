@@ -96,7 +96,7 @@ class PeofficesController extends Controller
     {
         $peoffice = Peoffice::findOrFail($id);
 
-        $district = District::all()->pluck('name','id');
+        $district = District::all('id','name');
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
 
@@ -116,8 +116,9 @@ class PeofficesController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($requestData);
         $peoffice = Peoffice::findOrFail($id);
+
         $peoffice->update($requestData);
 
         return redirect('admin/peoffices')->with('flash_message', 'Peoffice updated!');

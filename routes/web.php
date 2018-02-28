@@ -18,8 +18,6 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->group(function () {
-
-	
 	Route::middleware(['admin'])->group(function () {
 		Route::resource('admin/users', 'UsersController');
 		Route::resource('admin/gusers', 'GusersController');
@@ -31,6 +29,9 @@ Route::middleware(['auth'])->group(function () {
 		Route::resource('admin/contracts', 'ContractsController');
 		Route::resource('admin/projects', 'ProjectsController');
 		Route::resource('admin/bills', 'BillsController');
+
+
+
 	});
 
 	Route::get('/', function () {
@@ -42,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/contracts', 'PeContractsController');
 	Route::resource('commencements', 'commencementsController');
 	Route::resource('bills', 'PeBillsController');
+
+	Route::get('/payment-certificate/{id}', 'certificateController@paymentCertiface')->name('payment-certificate');
+	Route::get('/completion-certificate/{id}', 'certificateController@completionCertiface')->name('completion-certificate');
 
 
     

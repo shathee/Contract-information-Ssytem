@@ -92,7 +92,7 @@
                           <a class="dropdown-item" href="{{url('contracts')}}">Contracts</a>
                           <a class="dropdown-item" href="{{url('commencements')}}">Commencement/Work Order</a>
                           <a class="dropdown-item" href="{{url('bills')}}">Bills</a>
-                          <a class="dropdown-item" href="#"></a>
+                          
                         </div>
                       </li>
                       <li class="nav-item dropdown">
