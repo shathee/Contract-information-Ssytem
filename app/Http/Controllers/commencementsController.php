@@ -26,6 +26,11 @@ class CommencementsController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
+        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        $peoffice = Peoffice::where('id', $peoffice_id)->get();
+
+        $pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
+
         if (!empty($keyword)) {
             $commencements = Commencement::where('commencement_memo_no', 'LIKE', "%$keyword%")
                 ->orWhere('commencement_memo_date', 'LIKE', "%$keyword%")
@@ -35,10 +40,16 @@ class CommencementsController extends Controller
                 ->orWhere('programme_date', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $commencements = Commencement::paginate($perPage);
+
+            $commencements = Commencement::where('contract_id',$pecontracts)->get();;
         }
 
-        return view('front.commencements.index', compact('commencements'));
+        
+        //$comm = Commencement::where('contract_id',$pecontracts)->get();
+        
+        dd($commencements);
+
+        return view('front.commencements.index', compact('commencements','pecontracts'));
     }
 
     /**

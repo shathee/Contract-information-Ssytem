@@ -109,7 +109,7 @@ class CirclesController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($request->all());
         $circle = Circle::findOrFail($id);
         $circle->update($requestData);
 

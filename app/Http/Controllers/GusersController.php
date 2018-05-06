@@ -21,7 +21,7 @@ class GusersController extends Controller
     {
         $path = storage_path() . "\json\designation.json";
         $designation = json_decode(file_get_contents($path), true);
-
+        //dd($designation);
         $keyword = $request->get('search');
         $perPage = 25;
 

@@ -33,6 +33,11 @@
                 </tr>
             </thead>
             <tbody>
+               
+                @foreach($pecontracts as $item)
+                    {{$item->commencement[id]}}
+                @endforeach
+            
             @foreach($commencements as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>

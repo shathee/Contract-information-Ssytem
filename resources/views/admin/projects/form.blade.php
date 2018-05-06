@@ -31,11 +31,13 @@
 </div><div class="form-group {{ $errors->has('fund') ? 'has-error' : ''}}">
     <label for="fund" class="col-md-4 control-label">{{ 'Fund' }}</label>
     <div class="col-md-6">
+        <!--
         <select name="fund" class="form-control custom-select" id="fund" multiple>
             @foreach ($fund as $optionKey => $optionValue)
                 <option value="{{ $optionKey }}" {{ (isset($project->fund) && $project->fund == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
             @endforeach
         </select>
+    -->
         {!! $errors->first('fund', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

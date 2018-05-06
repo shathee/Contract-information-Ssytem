@@ -26,7 +26,7 @@ class PeContractsController extends Controller
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         $peoffice = Peoffice::where('id', $peoffice_id)->get();
 
-       // dd($peoffice);
+       
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -36,6 +36,8 @@ class PeContractsController extends Controller
 
             $pecontracts = Contract::where('peoffice_id',$peoffice_id)->paginate($perPage);
         }
+
+//dd($pecontracts);
 
         return view('front.pecontracts.index', compact('pecontracts'));
     }

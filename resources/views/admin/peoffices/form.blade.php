@@ -43,7 +43,8 @@
         </select>
         {!! $errors->first('district_id', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('postcode') ? 'has-error' : ''}}">
+</div>
+<div class="form-group {{ $errors->has('postcode') ? 'has-error' : ''}}">
     <label for="postcode" class="col-md-4 control-label">{{ 'Postcode' }}</label>
     <div class="col-md-6">
         <input class="form-control" name="postcode" type="text" id="postcode" value="{{ $peoffice->postcode or ''}}" >

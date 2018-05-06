@@ -58,10 +58,17 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('admin/contracts')}}">Contracts</a>
                           <a class="dropdown-item" href="{{url('admin/bills')}}">Bills</a>
-                          <a class="dropdown-item" href="#"></a>
-                          <a class="dropdown-item" href="#"></a>
                         </div>
                       </li>
+                      <!--
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certificates</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ url('payment-certificate/')}}">Payment Certificate</a>
+                          <a class="dropdown-item" href="{{ url('payment-certificate/')}}">Completion Certificate</a>
+                        </div>
+                      </li>
+                      -->
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Miscelenous</a>
                         <div class="dropdown-menu">

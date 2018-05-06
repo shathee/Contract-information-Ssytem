@@ -22,15 +22,15 @@
         {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-<div class="form-group {{ $errors->has('district') ? 'has-error' : ''}}">
-    <label for="district" class="col-md-4 control-label">{{ 'District' }}</label>
+<div class="form-group {{ $errors->has('district_id') ? 'has-error' : ''}}">
+    <label for="district_id" class="col-md-4 control-label">{{ 'District' }}</label>
     <div class="col-md-6">
-        <select name="district" class="form-control" id="district" >
+        <select name="district_id" class="form-control" id="district_id" >
     @foreach ($district as $optionKey => $optionValue)
         <option value="{{ $optionKey }}" {{ (isset($circle->district) && $circle->district == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
     @endforeach
 </select>
-        {!! $errors->first('district', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('district_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
     <label for="phone" class="col-md-4 control-label">{{ 'Phone' }}</label>
