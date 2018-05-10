@@ -34,11 +34,8 @@
             </thead>
             <tbody>
                
-                @foreach($pecontracts as $item)
-                    {{$item->commencement[id]}}
-                @endforeach
-            
-            @foreach($commencements as $item)
+                            
+            @forelse($commencements as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->contract->contract_no }}</td>
@@ -57,10 +54,12 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                    <h2>No Data Found</h2>
+            @endforelse
             </tbody>
         </table>
-        <div class="pagination-wrapper"> {!! $commencements->appends(['search' => Request::get('search')])->render() !!} </div>
+       
     </div>
    
 

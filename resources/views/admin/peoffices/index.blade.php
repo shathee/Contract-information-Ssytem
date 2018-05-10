@@ -34,8 +34,8 @@
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->zone->name }}</td>
-                    <td>{{ $item->circle->name }}</td>
+                    <td>{{ $item->zone->name or "" }}</td>
+                    <td>{{ $item->circle->name or "" }}</td>
                     
                     <td>
                         <a href="{{ url('/admin/peoffices/' . $item->id) }}" title="View Peoffice"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

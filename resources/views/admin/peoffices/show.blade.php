@@ -24,7 +24,7 @@
                 <tr>
                     <th>ID</th><td>{{ $peoffice->id }}</td>
                 </tr>
-                <tr><th> Zone Id </th><td> {{ $peoffice->zone->name }} </td></tr><tr><th> Circle Id </th><td> {{ $peoffice->circle->name }} </td></tr><tr><th> Name </th><td> {{ $peoffice->name }} </td></tr>
+                <tr><th> Zone Id </th><td> {{ $peoffice->zone->name or "N/A" }} </td></tr><tr><th> Circle Id </th><td> {{ $peoffice->circle->name or "N/A" }} </td></tr><tr><th> Name </th><td> {{ $peoffice->name }} </td></tr>
             </tbody>
         </table>
     </div>

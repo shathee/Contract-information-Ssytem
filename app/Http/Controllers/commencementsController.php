@@ -30,7 +30,7 @@ class CommencementsController extends Controller
         $peoffice = Peoffice::where('id', $peoffice_id)->get();
 
         $pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
-
+        //dd($pecontracts);
         if (!empty($keyword)) {
             $commencements = Commencement::where('commencement_memo_no', 'LIKE', "%$keyword%")
                 ->orWhere('commencement_memo_date', 'LIKE', "%$keyword%")
@@ -41,13 +41,15 @@ class CommencementsController extends Controller
                 ->paginate($perPage);
         } else {
 
-            $commencements = Commencement::where('contract_id',$pecontracts)->get();;
+           $commencements = Commencement::where('contract_id',$pecontracts)->get();
+            
+
         }
 
         
         //$comm = Commencement::where('contract_id',$pecontracts)->get();
         
-        dd($commencements);
+        //dd($commencements);
 
         return view('front.commencements.index', compact('commencements','pecontracts'));
     }

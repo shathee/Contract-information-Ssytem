@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($bills as $item)
+            @forelse($bills as $item)
                 <tr>
                     <td>{{ $item->id }}
                     @php
@@ -53,7 +53,9 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+            <h2>No bills Found</h2>
+            @endforelse
             </tbody>
         </table>
         <div class="pagination-wrapper"> {!! $bills->appends(['search' => Request::get('search')])->render() !!} </div>
