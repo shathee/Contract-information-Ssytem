@@ -118,6 +118,7 @@ class ContractsController extends Controller
      */
     public function edit($id)
     {
+
         $contract = Contract::findOrFail($id);
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
@@ -137,6 +138,7 @@ class ContractsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd();
         $this->validate($request, [
 			'name_of_works' => 'required|min:10',
 			'noa_reference' => 'required'

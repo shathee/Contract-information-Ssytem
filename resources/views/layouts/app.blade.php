@@ -103,6 +103,15 @@
                         </div>
                       </li>
                       <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certificate Management</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ url('certificates')}}">Payment Certificate</a>
+                          <a class="dropdown-item" href="{{ url('certificates')}}">Completion Certificate</a>
+                          
+                        </div>
+                      </li>
+
+                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                           <strong>{{ Auth::user()->name }}
                           <span class="fa fa-user" ></span>
@@ -143,42 +152,32 @@
       <div id="footer" class="row  d-print-none">
           <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    
-                </div>
-                <div class="col-sm-2">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-2">
+                
+                
+                <div class="col-sm-4">
                     <h5>About us</h5>
                     <ul>
-                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Officials of Contract & Procurement Cell</a></li>
                         <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
+                       
                     </ul>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <h5>Support</h5>
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-3">
-                    <button type="button" class="btn btn-default">Contact us</button>
-                    <div class="social-networks">
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                    
+                <div class="col-sm-4">
+                    <h5>For BWDB Officials Only</h5>
+                    <ul>
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="#">Sign UP</a></li>
+                    </ul>
                 </div>
+                
+                
             </div>
             <div class="footer-copyright">
                 <p>© 2018 Bangladesh Water Development Board </p>

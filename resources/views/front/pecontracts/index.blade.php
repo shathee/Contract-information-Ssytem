@@ -53,13 +53,43 @@
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete pecontract" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                         @else
-                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                        <button class="btn btn-success btn-xs">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
-                            Commencement Given 
+                        <a href="{{ url('/contracts/' . $item->id) }}" title="View pecontract">
+                            <button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
+                        </a>
+                        
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Update Commencement Date
                         </button>
-                        <a class="btn btn-info btn-xs" href="{{ url('payment-certificate/'.$item->id)}}">Payment Certificate</a>
-                        <a class="btn btn-info btn-xs" href="{{ url('completion-certificate/'.$item->id)}}">Completion Certificate</a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Actual Start/Commencement Date</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST" action="{{ url('/contracts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                    {{ method_field('PUT') }}
+                                    {{ csrf_field() }}
+                                    <input class="form-control col-md-7 datetimepicker" name="actual_date_of_commencement" type="date" id="actual_date_of_commencement" value="{{ $pecontract->actual_date_of_commencement or ''}}" >
+                                    {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
+                                   <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
                         
                         @endif
 

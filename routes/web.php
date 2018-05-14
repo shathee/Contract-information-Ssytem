@@ -34,23 +34,24 @@ Route::middleware(['auth'])->group(function () {
 
 	});
 
-	Route::get('/', function () {
-        return view('home');
-    });
+	
+	
 	
 
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('/contracts', 'PeContractsController');
-	Route::resource('commencements', 'commencementsController');
-	Route::resource('bills', 'PeBillsController');
+	Route::resource('/commencements', 'commencementsController');
+	Route::resource('/bills', 'PeBillsController');
 
-	Route::get('/payment-certificate/{id}', 'certificateController@paymentCertiface')->name('payment-certificate');
-	Route::get('/completion-certificate/{id}', 'certificateController@completionCertiface')->name('completion-certificate');
+	Route::get('certificates', 'CertificateController@index');
+	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertiface')->name('payment-certificate');
+	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertiface')->name('completion-certificate');
 
 
     
 });
 
+Route::get('/', 'SearchController@index');
 Route::get('search', function () {
     return 'Found Data URL';
 });

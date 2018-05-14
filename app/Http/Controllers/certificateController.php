@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Auth;
 
 class certificateController extends Controller
 {
+    
+    public function index(){
+       
+        $pe = Guser::where('user_id', Auth::user()->id)->first();   
+         
+        
+        $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
+        return view('admin.certificate.index', compact('contracts','pe'));
+    }
+
     public function paymentCertiface($id){
     	
     	$contract = Contract::find($id);

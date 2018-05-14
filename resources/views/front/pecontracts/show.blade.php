@@ -83,15 +83,15 @@
                 </tr>
                 <tr><th>10</th><th> Final Contract Price as Executed</th><td> {{ $pecontract->executed_contract_price }}</td>
                 </tr>
-                <tr><th></th><th> Original Contract Period</th><td> {{ $pecontract->contract_date_of_commencement }}</td>
+                <tr><th></th><th> Original Contract Period</th><td> </td>
                 </tr>
                 <tr><th></th><th> (a) Date of Commencement</th><td> {{ $pecontract->contract_date_of_commencement }}</td>
                 </tr>
                 <tr><th></th><th> (a) Date of Completion</th><td> {{ $pecontract->contract_date_of_completion }}</td>
                 </tr>
-                <tr><th></th><th> Actual Implementation Period</th><td> {{ $pecontract->actual_date_of_commencement }}</td>
+                <tr><th></th><th> Actual Implementation Period</th><td> </td>
                 </tr>
-                <tr><th></th><th> (a) Date of Actual Commencement</th><td> {{ $pecontract->actual_contract_date_of_completion }}</td>
+                <tr><th></th><th> (a) Date of Actual Commencement</th><td> {{ $pecontract->actual_date_of_commencement }}</td>
                 </tr>
                 <tr><th></th><th> (a) Date of Actual Completion</th><td> {{ $pecontract->contract_date_of_completion }}</td>
                 </tr>
