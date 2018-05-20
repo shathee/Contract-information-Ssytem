@@ -45,6 +45,9 @@ class CreateContractsTable extends Migration
             $table->integer('financial_progress')->nullable();
             $table->text('special_note')->nullable();
             $table->text('commencement_id')->nullable();
+            $table->integer('original_contract_completion_time')->nullable();
+            $table->string('certificate_issued')->default('no');
+
 
             $table->timestamps();
             });

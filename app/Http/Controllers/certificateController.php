@@ -25,7 +25,7 @@ class certificateController extends Controller
         return view('admin.certificate.index', compact('contracts','pe'));
     }
 
-    public function paymentCertiface($id){
+    public function paymentCertificate($id){
     	
     	$contract = Contract::find($id);
 
@@ -36,12 +36,12 @@ class certificateController extends Controller
     	$pe = Guser::where('user_id', Auth::user()->id)->first();	
     	}
     	
-    	//d/d($pe);
+    	//dd($pe);
 
     	return view('admin.certificate.payment', compact('contract','pe'));
     }
 
-    public function completionCertiface($id){
+    public function completionCertificate($id){
     	
     	$contract = Contract::find($id);
     	

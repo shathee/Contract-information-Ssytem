@@ -74,31 +74,38 @@
                 </tr>
                 <tr>
                     <th>07</th>
-                    <th> Reference of Noa with Date </th><td> {{ $pecontract->    noa_reference }} & {{ $pecontract->noa_date }} </td></tr>
+                    <th> Reference of Noa with Date </th><td> {{ $pecontract->noa_reference }} & {{ $pecontract->noa_date }} </td></tr>
                 <tr>
                     <th>08</th>
-                    <th> Contract Date </th><td> {{ $pecontract->contract_date }}</td></tr>
+                    <th> Contract Date </th><td> {{ $pecontract->contract_date->toDateString() }}</td></tr>
                 <tr>
                     <th>09</th><th> Original Contract Price as in NOA </th><td> {{ $pecontract->original_contract_price }}</td>
                 </tr>
                 <tr><th>10</th><th> Final Contract Price as Executed</th><td> {{ $pecontract->executed_contract_price }}</td>
                 </tr>
-                <tr><th></th><th> Original Contract Period</th><td> </td>
+                <tr><th>11</th><th> Original Contract Period</th><td> </td>
                 </tr>
                 <tr><th></th><th> (a) Date of Commencement</th><td> {{ $pecontract->contract_date_of_commencement }}</td>
                 </tr>
-                <tr><th></th><th> (a) Date of Completion</th><td> {{ $pecontract->contract_date_of_completion }}</td>
+                <tr><th></th><th> (a) Date of Completion</th>
+                    <td>
+                        @if(!empty($pecontract->contract_date_of_completion))
+                            {{ $pecontract->contract_date_of_completion->toDateString() }}
+                        @else
+                            {{ '' }}
+                        @endif
+                    </td>
                 </tr>
-                <tr><th></th><th> Actual Implementation Period</th><td> </td>
+                <tr><th>12</th><th> Actual Implementation Period</th><td> </td>
                 </tr>
                 <tr><th></th><th> (a) Date of Actual Commencement</th><td> {{ $pecontract->actual_date_of_commencement }}</td>
                 </tr>
-                <tr><th></th><th> (a) Date of Actual Completion</th><td> {{ $pecontract->contract_date_of_completion }}</td>
+                <tr><th></th><th> (a) Date of Actual Completion</th><td> {{ $pecontract->actual_contract_date_of_completion }}</td>
                 </tr>
-                <tr><th></th><th> Final Contract Price as Executed</th><td> {{ $pecontract->executed_contract_price }}</td>
+                <tr><th>13</th><th> Final Contract Price as Executed</th><td> {{ $pecontract->executed_contract_price }}</td>
                 </tr>
-                <tr><th></th><th> Physical Progress </th><td> {{ $pecontract->physical_progress }} </td></tr>
-                <tr><th></th><th> Financial Progress </th><td> {{ $pecontract->financial_progress }} </td></tr>
+                <tr><th>14</th><th> Physical Progress </th><td> {{ $pecontract->physical_progress }} </td></tr>
+                <tr><th>15</th><th> Financial Progress </th><td> {{ $pecontract->financial_progress }} </td></tr>
 
             </tbody>
         </table>

@@ -44,8 +44,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/bills', 'PeBillsController');
 
 	Route::get('certificates', 'CertificateController@index');
-	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertiface')->name('payment-certificate');
-	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertiface')->name('completion-certificate');
+	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertificate')->name('payment-certificate');
+	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertificate')->name('completion-certificate');
 
 
     

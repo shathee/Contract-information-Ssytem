@@ -13,22 +13,23 @@
   </div>  
   <div class="card-body">
     <div class="text-center row">
-    	<div class="col-md-4">
+    	<div class="col-md-3">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name}}-{{ $contract->peoffice->postcode}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
 	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
 	        </address>
     	</div>
-    	<div class="col-md-4">
+    	<div class="col-md-6">
+            <h3>Bangladesh Water Development Board</h3>
     		<img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
     	</div>
-    	<div class="col-md-4">
+    	<div class="col-md-3">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name}}-{{ $contract->peoffice->postcode}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
 	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
 	        </address>
     	</div>

@@ -28,14 +28,14 @@ class PeBillsController extends Controller
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         $peoffice = Peoffice::where('id', $peoffice_id)->get();
         $pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
-        
+        //dd($pecontracts);
         if (!empty($keyword)) {
             $bills = Bill::paginate($perPage);
         } else {
           $bills = Bill::where('contract_id', $pecontracts)->paginate($perPage);
             
         }
-
+        //dd($bills);
         return view('front.bills.index', compact('bills'));
     }
 

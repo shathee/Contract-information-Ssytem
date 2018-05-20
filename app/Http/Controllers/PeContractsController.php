@@ -12,6 +12,7 @@ use App\Model\Circle;
 use App\Model\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PeContractsController extends Controller
 {
@@ -86,7 +87,16 @@ class PeContractsController extends Controller
     public function show($id)
     {
         $pecontract = Contract::findOrFail($id);
-
+        
+        if($pecontract->contract_date_of_commencement !=null){
+            $contract_date_of_commencement = $pecontract->contract_date_of_commencement;
+            $pecontract->contract_date_of_completion = $contract_date_of_commencement->addDays($pecontract->original_contract_completion_time);
+            
+            $actual_date_of_commencement = $pecontract->actual_date_of_commencement;
+            $pecontract->actual_contract_date_of_completion = $actual_date_of_commencement->addDays($pecontract->original_contract_completion_time);
+        }
+        
+        
         return view('front.pecontracts.show', compact('pecontract'));
     }
 

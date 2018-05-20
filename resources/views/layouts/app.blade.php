@@ -173,12 +173,10 @@
                     <h5>For BWDB Officials Only</h5>
                     <ul>
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="#">Sign UP</a></li>
+                        <li><a href="{{ route('register') }}">Sign UP</a></li>
                     </ul>
                 </div>
-                
-                
-            </div>
+           </div>
             <div class="footer-copyright">
                 <p>© 2018 Bangladesh Water Development Board </p>
             </div>

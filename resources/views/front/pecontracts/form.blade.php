@@ -93,6 +93,13 @@
         {!! $errors->first('original_contract_price', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('original_contract_completion_time') ? 'has-error' : ''}}">
+    <label for="original_contract_completion_time" class="col-md-4 control-label">{{ 'Contract Completion Time(in Days)' }}</label>
+    <div class="col-md-6">
+        <input class="form-control" name="original_contract_completion_time" type="text" id="original_contract_completion_time" value="{{ $pecontract->original_contract_completion_time or ''}}" >
+        {!! $errors->first('original_contract_completion_time', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">

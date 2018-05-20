@@ -5,7 +5,7 @@
 <div class="card">
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
-	   		<a href="{{ url('contracts') }}" title="Back">
+	   		<a href="{{ url('certificates') }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
 	       <button class="btn btn-info" onClick="window.print()">Print</button>
@@ -13,13 +13,15 @@
   </div>  
   <div class="card-body">
    	<div class="text-center">
+   		<h3>Bangladesh Water Development Board</h3>
         <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+
     </div>
     <div class="text-center">
         <address>
           <strong>{{ $contract->peoffice->name}}</strong><br>
           {{ $contract->peoffice->address}}<br>
-          {{ $contract->peoffice->district->name}}-{{ $contract->peoffice->postcode}}<br>
+          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
           <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
         </address>
     </div>
