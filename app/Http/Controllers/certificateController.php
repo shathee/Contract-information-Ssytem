@@ -16,12 +16,16 @@ use Illuminate\Support\Facades\Auth;
 class certificateController extends Controller
 {
     
-    public function index(){
-       
-        $pe = Guser::where('user_id', Auth::user()->id)->first();   
-         
+    public function index($type = null){
+        $pe = Guser::where('user_id', Auth::user()->id)->first();
+        if($type='payment-certificate'){
+            $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
+        }elseif($type = 'completion-certificate'){
+            $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
+        }else{
+            echo "Please Select a Certificate Time";
+        }
         
-        $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
         return view('admin.certificate.index', compact('contracts','pe'));
     }
 
