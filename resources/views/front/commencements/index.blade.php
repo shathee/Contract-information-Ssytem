@@ -33,8 +33,6 @@
                 </tr>
             </thead>
             <tbody>
-               
-                            
             @forelse($commencements as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>

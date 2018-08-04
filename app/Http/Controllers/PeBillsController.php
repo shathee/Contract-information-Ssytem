@@ -32,8 +32,12 @@ class PeBillsController extends Controller
         if (!empty($keyword)) {
             $bills = Bill::paginate($perPage);
         } else {
-          $bills = Bill::where('contract_id', $pecontracts)->paginate($perPage);
-            
+
+            if ($pecontracts->count() > 0) {
+                $bills = Bill::where('contract_id', $pecontracts)->paginate($perPage);
+            }else{
+                $bills = [];
+            }
         }
         //dd($bills);
         return view('front.bills.index', compact('bills'));
@@ -74,7 +78,7 @@ class PeBillsController extends Controller
             'gross_payment' => 'required'
         ]);
         $requestData = $request->all();
-        
+        //dd($requestData);
         Bill::create($requestData);
 
         return redirect('bills')->with('flash_message', 'Bill added!');

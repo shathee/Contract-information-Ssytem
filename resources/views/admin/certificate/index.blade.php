@@ -31,7 +31,8 @@
                     <td>{{ $item->noa_date }}</td>
                     <td>
                     <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/'.$item->id)}}">Payment Certificate</a>
-                          <a class="btn btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                    {{ $o['type'] }}
+                    <a class="btn btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
 
                         
                     </td>

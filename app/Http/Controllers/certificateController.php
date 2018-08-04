@@ -18,6 +18,7 @@ class certificateController extends Controller
     
     public function index($type = null){
         $pe = Guser::where('user_id', Auth::user()->id)->first();
+        $o['type'] = $type;
         if($type='payment-certificate'){
             $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
         }elseif($type = 'completion-certificate'){
@@ -26,13 +27,14 @@ class certificateController extends Controller
             echo "Please Select a Certificate Time";
         }
         
-        return view('admin.certificate.index', compact('contracts','pe'));
+        return view('admin.certificate.index', compact('contracts','pe','o'));
     }
 
     public function paymentCertificate($id){
     	
     	$contract = Contract::find($id);
 
+       // dd($contract);
     	if(Auth::user()->role =="ADMIN"){
   
     	$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
