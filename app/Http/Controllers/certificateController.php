@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Auth;
 class certificateController extends Controller
 {
     
-    public function index($type = null){
+    public function index($type){
+        
         $pe = Guser::where('user_id', Auth::user()->id)->first();
         $o['type'] = $type;
         if($type='payment-certificate'){
@@ -24,9 +25,9 @@ class certificateController extends Controller
         }elseif($type = 'completion-certificate'){
             $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
         }else{
-            echo "Please Select a Certificate Time";
+            echo "Please Select a Certificate Type";
         }
-        
+        //dd($o);
         return view('admin.certificate.index', compact('contracts','pe','o'));
     }
 

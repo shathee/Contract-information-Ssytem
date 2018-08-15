@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('certificates', 'certificateController@index');
 	Route::get('certificates/{type}', 'certificateController@index');
-	Route::get('certificates/{type}', 'certificateController@index');
+	Route::get('certificates/{type}', 'certificateController@index')              ;
 	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertificate')->name('payment-certificate');
 	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertificate')->name('completion-certificate');
 
