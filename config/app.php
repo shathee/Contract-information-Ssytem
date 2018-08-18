@@ -179,6 +179,10 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Matriphe\Format\FormatServiceProvider::class,
+
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -230,6 +234,9 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
+
+        'Format' => Matriphe\Format\Facades\FormatFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

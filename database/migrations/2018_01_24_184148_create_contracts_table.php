@@ -32,8 +32,8 @@ class CreateContractsTable extends Migration
             $table->string('noa_reference');
             $table->date('noa_date')->nullable();
             $table->date('contract_date')->nullable();
-            $table->integer('original_contract_price')->nullable();
-            $table->integer('executed_contract_price')->nullable();
+            $table->float('original_contract_price')->nullable();
+            $table->float('executed_contract_price')->nullable();
             $table->date('contract_date_of_commencement')->nullable();
             $table->date('contract_date_of_completion')->nullable();
             $table->date('actual_date_of_commencement')->nullable();

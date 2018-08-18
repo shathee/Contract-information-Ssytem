@@ -117,8 +117,99 @@
     line-height: 25px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     #footer {
         text-align: center;
     }
+
+    
+}
+
+
+@media print {
+    address {
+        margin: 0px;
+    }
+    @page { size: auto;  margin: 5mm; }
+    #completion-certificate {
+        width: 768px;
+        float: left;
+        font-size: 11px;
+        font-style: normal;
+        padding-left: 1px;
+        padding-right: 2px;
+    }
+    #logo{
+        width: 80px;
+        height: 80px;
+    }
+    
+    
+    #completion-certificate-table tr > td{
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    #completion-certificate-table tr > th{
+         padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    /*
+    .certificate-top-left{
+        width: 200px;
+        float: left;
+    }
+    .certificate-top-right{
+        width: 200px;
+        float: left;
+    }
+    .certificate-top-middle{
+        width: 368px;
+        float: left;
+    }
+*/
+
+   .certificate-top-middle h3{
+        font-size: 14px;
+   }
+   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+   }
+   .col-md-12 {
+        width: 100%;
+   }
+   .col-md-11 {
+        width: 91.66666667%;
+   }
+   .col-md-10 {
+        width: 83.33333333%;
+   }
+   .col-md-9 {
+        width: 75%;
+   }
+   .col-md-8 {
+        width: 66.66666667%;
+   }
+   .col-md-7 {
+        width: 58.33333333%;
+   }
+   .col-md-6 {
+        width: 50%;
+   }
+   .col-md-5 {
+        width: 41.66666667%;
+   }
+   .col-md-4 {
+        width: 33.33333333%;
+   }
+   .col-md-3 {
+        width: 25%;
+   }
+   .col-md-2 {
+        width: 16.66666667%;
+   }
+   .col-md-1 {
+        width: 8.33333333%;
+   }
 }

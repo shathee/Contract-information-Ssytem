@@ -34,7 +34,13 @@
                         @if($o['type']=='payment-certificate')
                         <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/'.$item->id)}}">Payment Certificate</a>
                         @elseif($o['type']=='completion-certificate')
-                        <a class="btn btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                       
+                            @if($item->certificate_issued == 'no')
+                            <a class="btn btn-xs" href="{{ url('certificates/finalize-completion-certificate/'.$item->id)}}">Finalize Info</a>
+                            @else
+                             <a class="btn btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                            @endif
+                        
                         @else
                         {{'No Type Selected'}}
                         @endif

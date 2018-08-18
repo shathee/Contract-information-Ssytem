@@ -10,11 +10,11 @@
    
     
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    
 
 
     <link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    
+    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 
     <title>CPC</title>
   </head>

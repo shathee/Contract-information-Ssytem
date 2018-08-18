@@ -5,15 +5,15 @@
 <div class="card">
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
-	   		<a href="{{ url('contracts') }}" title="Back">
+	   		<a href="{{ url('certificates/completion-certificate') }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
 	       <button class="btn btn-info" onClick="window.print()">Print</button>
 	    </h5>
   </div>  
-  <div class="card-body">
+  <div class="card-body" id="completion-certificate">
     <div class="text-center row">
-    	<div class="col-md-3">
+    	<div class="col-md-3 col-sm-3 certificate-top-left">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
@@ -21,11 +21,12 @@
 	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
 	        </address>
     	</div>
-    	<div class="col-md-6">
+    	<div class="col-md-6 col-sm-6 certificate-top-middle">
+            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
             <h3>Bangladesh Water Development Board</h3>
-    		<img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+    		
     	</div>
-    	<div class="col-md-3">
+    	<div class="col-md-3 col-sm-3 certificate-top-right">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
@@ -36,13 +37,26 @@
     	
     </div>
     <hr>
+    <div class="text-center row">
+        <div class="col-md-4 col-sm-4">
+            Office Memo No. : {{ $contract->office_memo}}
+        </div>
+        <div class="col-md-4 col-sm-4">
+            &nbsp;
+            
+        </div>
+        <div class="col-md-4 col-sm-4">
+           Date:{{ $contract->memo_date}}
+        </div>
+        
+    </div>
     <h3 class="text-center">COMPLETION CERTIFICATE</h3>
    <div class="table-responsive">
-        <table class="table table-bordered">
+        <table id="completion-certificate-table" class="table table-bordered">
             <tbody>
                 <tr>
-                    <th>01</th>
-                    <th>Procuring Entity Details</th><td></td>
+                    <th width="3%">01</th>
+                    <th width="30%">Procuring Entity Details</th><td></td>
                 </tr>
                 <tr>
                     <th></th>
@@ -88,28 +102,76 @@
                 <tr>
                     <th>08</th><th> Original Contract Price as in NOA </th><td> {{ $contract->original_contract_price }}</td>
                 </tr>
-                <tr><th>09</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
+                <tr>
+                    <th>09</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
                 </tr>
-                <tr><th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                <tr>
+                    <th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>
                 </tr>
-                <tr><th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                <tr>
+                    <th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
                 </tr>
-                <tr><th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                <tr>
+                    <th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
                 </tr>
-                <tr><th>11</th><th> Actual Implementation Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
+                <tr>
+                    <th>11</th><th> Actual Implementation Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
                 </tr>
-                <tr><th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date }}</td>
+                <tr>
+                    <th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date or null }}</td>
                 </tr>
-                <tr><th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                <tr>
+                    <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
                 </tr>
-                <tr><th>12</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
+                <tr>
+                    <th>12</th><th>Days/Months Contract Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>
                 </tr>
-                <tr><th></th><th> Physical Progress </th><td> {{ $contract->physical_progress }} </td></tr>
-                <tr><th></th><th> Financial Progress </th><td> {{number_format($contract->fp, 2, '.', ',')}} %</td></tr>
+                <tr>
+                    <th>13</th><th>Amount of Bonus for Early Completion</th><td> {{ $contract->amount_bonus_early_completion }}</td>
+                </tr>
+                <tr>
+                    <th>14</th><th>Amount of LD for Delayed Completion</th><td> {{ $contract->amount_ld_delayed_completion }}</td>
+                </tr>
+                <tr>
+                    <th>15</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
+                </tr>
+                <tr>
+                    <th>16</th><th> Physical Progress in Percent (in terms of value) </th><td> {{ $contract->physical_progress }} </td>
+                </tr>
+                <tr>
+                    <th>17</th><th>Financial Progress in Amount (in terms of payment)</th><td> {{number_format($contract->fp, 2, '.', ',')}} %</td>
+                </tr>
+                <tr>
+                    <th>18</th><th> Special Note (if any)</th><td> </td>
+                </tr>
             </tbody>
         </table>
     </div>
-   
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p>
+                Certified that the Works under the Contract has been executed and completed in all respects in strict compliance with the provisions of the Contract including all plans, designs, drawings, specifications and all modifications thereof as per direction and satisfaction of the Project Manager/Engineer-in Charge/Other (specify). All defects in workmanship and materials reported during construction have been duly corrected.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            &nbsp; 
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <p>
+                {{ $pe->name }}
+                </br>{{ $pe->designation }}
+               </br> Date:{{date('Y-m-d')}}</p> 
+        </div>
+    </div>
 
     
 

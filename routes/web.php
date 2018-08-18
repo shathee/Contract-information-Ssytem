@@ -48,7 +48,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('certificates/{type}', 'certificateController@index')              ;
 	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertificate')->name('payment-certificate');
 	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertificate')->name('completion-certificate');
+	Route::get('certificates/finalize-completion-certificate/{id}', 'certificateController@finalizeCompletionCertificateForm');
+	Route::post('certificates/store-completion-certificate/{id}', 'certificateController@finalizeCompletionCertificateStore');
 
+	Route::get('certificates/pdf-completion-certificate/{id}', 'certificateController@makeCompletionCertificatePdf');
 
     
 });
