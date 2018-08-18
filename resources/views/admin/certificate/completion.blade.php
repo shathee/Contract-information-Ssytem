@@ -100,10 +100,10 @@
                     <th></th>
                     <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
                 <tr>
-                    <th>08</th><th> Original Contract Price as in NOA </th><td> {{ $contract->original_contract_price }}</td>
+                    <th>08</th><th> Original Contract Price as in NOA </th><td> {{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
                 </tr>
                 <tr>
-                    <th>09</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
+                    <th>09</th><th> Final Contract Price as Executed</th><td> {{Format::number($contract->executed_contract_price,3, ".", ",") }}</td>
                 </tr>
                 <tr>
                     <th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>

@@ -302,7 +302,7 @@
     </tr>
     <tr>
         <td>
-            <label for="days_contract_period_extended" class="col-md-8 control-label">{{ 'Days Contract Period Extended' }}</label>
+            <label for="days_contract_period_extended" class="col-md-8 control-label">{{ 'Days/Months Contract Period Extended' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('days_contract_period_extended') ? 'has-error' : ''}}">
@@ -345,7 +345,7 @@
     </tr>
     <tr>
         <td>
-            <label for="physical_progress" class="col-md-8 control-label">{{ 'Physical Progress' }}</label>
+            <label for="physical_progress" class="col-md-8 control-label">{{ 'Physical Progress in Percent (in terms of value)' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('physical_progress') ? 'has-error' : ''}}">
@@ -359,7 +359,7 @@
     </tr>
     <tr>
         <td>
-            <label for="financial_progress" class="col-md-8 control-label">{{ 'Financial Progress' }}</label>
+            <label for="financial_progress" class="col-md-8 control-label">{{ 'Financial Progress in Amount(in terms of payment)' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('financial_progress') ? 'has-error' : ''}}">
@@ -374,7 +374,7 @@
     </tr>
     <tr>
         <td>
-            <label for="special_note" class="col-md-8 control-label">{{ 'Special Note' }}</label>
+            <label for="special_note" class="col-md-8 control-label">{{ 'Special Note (if any)' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('special_note') ? 'has-error' : ''}}">

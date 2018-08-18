@@ -14,14 +14,14 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('office_memo')->nullable();
+            $table->string('office_memo', 25)->nullable();
             $table->date('memo_date')->nullable();
             $table->string('project_id')->nullable();
            
             $table->string('peoffice_id')->nullable();
             $table->string('circle_id')->nullable();
             $table->string('zone_id')->nullable();
-            $table->string('others')->nullable();
+            $table->text('others')->nullable();
             $table->text('name_of_works');
             $table->string('contract_no')->nullable();
             $table->string('egp_id')->nullable();
@@ -29,7 +29,7 @@ class CreateContractsTable extends Migration
             $table->string('contractors_legal_title')->nullable();
             $table->text('contractors_contact_details')->nullable();
             $table->text('contractors_trade_license_details')->nullable();
-            $table->string('noa_reference');
+            $table->string('noa_reference', 25);
             $table->date('noa_date')->nullable();
             $table->date('contract_date')->nullable();
             $table->float('original_contract_price')->nullable();
@@ -38,11 +38,11 @@ class CreateContractsTable extends Migration
             $table->date('contract_date_of_completion')->nullable();
             $table->date('actual_date_of_commencement')->nullable();
             $table->date('actual_contract_date_of_completion')->nullable();
-            $table->integer('days_contract_period_extended')->nullable();
-            $table->integer('amount_bonus_early_completion')->nullable();
-            $table->integer('amount_ld_delayed_completion')->nullable();
-            $table->integer('physical_progress')->nullable();
-            $table->integer('financial_progress')->nullable();
+            $table->string('days_contract_period_extended', 15)->default('N/A');
+            $table->float('amount_bonus_early_completion')->nullable();
+            $table->float('amount_ld_delayed_completion')->nullable();
+            $table->float('physical_progress')->nullable();
+            $table->float('financial_progress')->nullable();
             $table->text('special_note')->nullable();
             $table->text('commencement_id')->nullable();
             $table->integer('original_contract_completion_time')->nullable();

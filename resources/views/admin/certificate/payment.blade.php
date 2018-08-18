@@ -11,22 +11,35 @@
 	       <button class="btn btn-info" onClick="window.print()">Print</button>
 	    </h5>
   </div>  
-  <div class="card-body">
-   	<div class="text-center">
-   		<h3>Bangladesh Water Development Board</h3>
-        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-
+  <div class="card-body" id="payment-certificate">
+   	<div class="text-center row">
+    	<div class="col-md-3 col-sm-3 certificate-top-left">
+    		<address>
+	          <strong>{{ $contract->peoffice->name}}</strong><br>
+	          {{ $contract->peoffice->address}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+	        </address>
+    	</div>
+    	<div class="col-md-6 col-sm-6 certificate-top-middle">
+            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+            <h3>Bangladesh Water Development Board</h3>
+    		
+    	</div>
+    	<div class="col-md-3 col-sm-3 certificate-top-right">
+    		<address>
+	          <strong>{{ $contract->peoffice->name}}</strong><br>
+	          {{ $contract->peoffice->address}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+	        </address>
+    	</div>
+    	
     </div>
-    <div class="text-center">
-        <address>
-          <strong>{{ $contract->peoffice->name}}</strong><br>
-          {{ $contract->peoffice->address}}<br>
-          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-        </address>
-    </div>
-   <div class="table-responsive">
-        <table class="table table-bordered">
+    <hr>
+    <h3 class="text-center">PAYMENT CERTIFICATE</h3>
+   <div class="table-responsive"> 
+        <table class="table table-bordered " id="payment-certificate-table">
 	            <tbody>
 	                <tr>
 	                    <th>01</th>
@@ -74,14 +87,15 @@
 	                    <th></th>
 	                    <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
 	                <tr>
-	                    <th>08</th><th> Original Contract Price as in NOA </th><td> {{ $contract->original_contract_price }}</td>
+	                    <th>08</th><th> Original Contract Price as in NOA </th>
+	                    <td>{{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
 	                </tr>
 	                                
 	            </tbody>
 	        </table>
 	        
-	        <table class="table table-bordered">
-	        	<thead class="thead-dark">
+	        <table class="table table-bordered payment-certificate-table">
+	        	<thead id="#pc-footer" class="thead-dark">
 	        		<tr>
 	        			<th colspan="6">
 	        				<h4 class="">Payment Information</h4>
@@ -103,10 +117,12 @@
 	        		<tr>
 		        		<td>{{ $bill->bill_no }}</td>
 		        		<td>{{ $bill->bill_date }}</td>
-		        		<td>{{ $bill->net_payment }}</td>
-		        		<td>{{ $bill->vat }}</td>
-		        		<td>{{ $bill->ait }}</td>
-		        		<td>{{ $bill->gross_payment }}</td>
+		        		<td>
+		        			{{Format::number($bill->net_payment,3, ".", ",") }}
+		        		</td>
+		        		<td>{{Format::number($bill->vat,3, ".", ",") }}</td>
+		        		<td>{{Format::number($bill->ait,3, ".", ",") }}</td>
+		        		<td>{{Format::number($bill->gross_payment,3, ".", ",") }}</td>
 		        	
 		        	</tr>
 	        	@empty
@@ -117,19 +133,18 @@
 	        	@endforelse
 	        		<tr class="bg-secondary">
 		        		<td colspan="2">Cumilitive Up to Last Bill</td>
-		        		<td>{{ $contract->bills->sum('net_payment') }}</td>
-		        		<td>{{ $contract->bills->sum('vat') }}</td>
-		        		<td>{{ $contract->bills->sum('ait') }}</td>
-		        		<td>{{ $contract->bills->sum('gross_payment') }}</td>
+		        		<td>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</td>
+		        		<td>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</td>
+		        		<td>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</td>
+		        		<td>{{Format::number($contract->bills->sum('gross_payment'),3, ".", ",") }}</td>
+		        		
 		        	
 		        	</tr>
 		        	
 		        	<tr>
 	                    <td>&nbsp;</td>
 	                </tr>
-		        	<tr>
-	                    <td></td>
-	                </tr>
+		        	
 		        	<tr>
 	                    <td></td>
 	                    <td colspan="5" class="text-right">

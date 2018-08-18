@@ -131,7 +131,23 @@
         margin: 0px;
     }
     @page { size: auto;  margin: 5mm; }
-    #completion-certificate {
+    #completion-certificate{
+        width: 768px;
+        float: left;
+        font-size: 11px;
+        font-style: normal;
+        padding-left: 1px;
+        padding-right: 2px;
+    }
+    #payment-certificate{
+        width: 768px;
+        float: left;
+        font-size: 11px;
+        font-style: normal;
+        padding-left: 1px;
+        padding-right: 2px;
+    }
+    .payment-certificate{
         width: 768px;
         float: left;
         font-size: 11px;
@@ -154,7 +170,27 @@
          padding-top: 2px;
         padding-bottom: 2px;
     }
+    #payment-certificate-table tr > td{
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 
+    #payment-certificate-table tr > th{
+         padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+
+    .payment-certificate-table tr > td{
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    .payment-certificate-table tr > th{
+         padding-top: 2px;
+        padding-bottom: 2px;
+        color: #000;
+    }
     /*
     .certificate-top-left{
         width: 200px;
@@ -169,6 +205,7 @@
         float: left;
     }
 */
+
 
    .certificate-top-middle h3{
         font-size: 14px;
