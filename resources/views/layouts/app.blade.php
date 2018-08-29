@@ -157,7 +157,7 @@
                 <div class="col-sm-4">
                     <h5>About us</h5>
                     <ul>
-                        <li><a href="#">Officials of Contract & Procurement Cell</a></li>
+                        <li><a href="{{url('pubs/staff')}}">Officials of Contract & Procurement Cell</a></li>
                         <li><a href="#">Contact us</a></li>
                        
                     </ul>

@@ -10,4 +10,8 @@ class SearchController extends Controller
 
     	return view('search');
     }
+    public function staff(){
+
+    	return view('pubs.staff');
+    }
 }
