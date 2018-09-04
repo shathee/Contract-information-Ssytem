@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-   
+	
     
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     
@@ -149,12 +149,12 @@
           
       </div>
 
-      <div id="footer" class="row  d-print-none">
+      <div id="footer" class="row  col-md-12 d-print-none">
           <div class="container">
             <div class="row">
                 
                 
-                <div class="col-sm-4">
+                <div class="col-sm-4 col-md-4">
                     <h5>About us</h5>
                     <ul>
                         <li><a href="{{url('pubs/staff')}}">Officials of Contract & Procurement Cell</a></li>
@@ -162,14 +162,14 @@
                        
                     </ul>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 col-md-4">
                     <h5>Support</h5>
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help desk</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 col-md-4">
                     <h5>For BWDB Officials Only</h5>
                     <ul>
                         <li><a href="{{ route('login') }}">Login</a></li>
