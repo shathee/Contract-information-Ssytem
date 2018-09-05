@@ -29,7 +29,7 @@
             </div>
             <!-- ./Team member -->
 		</div>
-		
+		</hr>
 		 <div class="row">
 			<!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4 offset-md-2">

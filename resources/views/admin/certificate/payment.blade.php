@@ -5,7 +5,7 @@
 <div class="card">
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
-	   		<a href="{{ url('certificates') }}" title="Back">
+	   		<a href="{{ url('certificates/payment-certificate/') }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
 	       <button class="btn btn-info" onClick="window.print()">Print</button>
@@ -149,9 +149,10 @@
 	                    <td></td>
 	                    <td colspan="5" class="text-right">
 	                        <p>&nbsp;</p>
-	                        <p>{{ $pe->name }}</p>
-	                        <p>{{ $pe->designation }}</p>
-	                        <p>Date:{{date('Y-m-d')}}</p>
+	                        <p>&nbsp;</p>
+	                        <p>{{ $pe->name }}
+	                        </br>{{ $designations[$pe->designation] }}
+	                        </br>Date:{{date('Y-m-d')}}</p>
 	                    </td>
                		</tr>
 	        	</tbody>

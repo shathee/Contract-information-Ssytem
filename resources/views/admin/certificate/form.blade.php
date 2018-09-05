@@ -41,7 +41,7 @@
         <td>
             <div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
                 <div class="col-md-10">
-                    <select name="peoffice_id" class="form-control" id="peoffice_id" >
+                    <select name="peoffice_id" class="form-control disabled" id="peoffice_id" >
                         @foreach ($peoffice as $optionKey => $optionValue)
                             <option value="{{ $optionKey }}" {{ (isset($contract->peoffice_id) && $contract->peoffice_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
                         @endforeach
@@ -59,7 +59,7 @@
             <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
     
             <div class="col-md-10">
-                <select name="circle_id" class="form-control" id="circle_id" >
+                <select name="circle_id" class="form-control disabled" id="circle_id" >
             @foreach ($circle as $optionKey => $optionValue)
                 <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
             @endforeach
@@ -77,7 +77,7 @@
             <div class="form-group {{ $errors->has('zone_id') ? 'has-error' : ''}}">
     
                 <div class="col-md-10">
-                    <select name="zone_id" class="form-control" id="zone_id" >
+                    <select name="zone_id" class="form-control disabled" id="zone_id">
                         @foreach ($zone as $optionKey => $optionValue)
                             <option value="{{ $optionKey }}" {{ (isset($contract->zone_id) && $contract->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
                         @endforeach
@@ -237,7 +237,7 @@
             <div class="form-group {{ $errors->has('executed_contract_price') ? 'has-error' : ''}}">
                
                 <div class="col-md-10">
-                    <input class="form-control" name="executed_contract_price" type="number" id="executed_contract_price" value="{{ $contract->executed_contract_price or ''}}" >
+                    <input class="form-control" name="executed_contract_price" type="text" id="executed_contract_price" value="{{ $contract->executed_contract_price or ''}}" >
                     <span class="text-info">Bill Paid: {{  Format::number($contract->bills->sum('gross_payment'),3, ".", ",")}}</span>
                     {!! $errors->first('executed_contract_price', '<p class="help-block">:message</p>') !!}
                 </div>

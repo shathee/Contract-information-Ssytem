@@ -12,6 +12,7 @@ use App\Model\Guser;
 use App\Model\Peoffice;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Format;
 
 class PeBillsController extends Controller
 {

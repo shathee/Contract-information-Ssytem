@@ -260,3 +260,7 @@
 	width:125px;
 }
 
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}

@@ -36,7 +36,9 @@ class certificateController extends Controller
     public function paymentCertificate($id){
     	
     	$contract = Contract::find($id);
-
+		
+		$designation_path = storage_path() . "/json/designation.json";
+        $designations = json_decode(file_get_contents($designation_path), true);
        // dd($contract);
     	if(Auth::user()->role =="ADMIN"){
   
@@ -47,7 +49,7 @@ class certificateController extends Controller
     	
     	//dd($pe);
 
-    	return view('admin.certificate.payment', compact('contract','pe'));
+    	return view('admin.certificate.payment', compact('contract','pe','designations'));
     }
 
     public function completionCertificate($id){
