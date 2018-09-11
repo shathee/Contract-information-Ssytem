@@ -26,7 +26,7 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th><th>Contract Id</th><th>Bill No</th><th>Bill Date</th><th>Actions</th>
+                    <th>#</th><th>Contract Package / e-GP Id</th><th>Bill No</th><th>Bill Date</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +39,7 @@
                     echo $nf->format($item->id);
                     @endphp
                     </td>
-                    <td>{{ $item->contract->contract_no }}</td>
+                    <td>{{ $item->contract->contract_no }} / {{ $item->contract->egp_id }}</td>
                     <td>{{ $item->bill_no }}</td>
                     <td>{{ $item->bill_date }}</td>
                     <td>

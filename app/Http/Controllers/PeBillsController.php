@@ -35,7 +35,7 @@ class PeBillsController extends Controller
         } else {
 
             if ($pecontracts->count() > 0) {
-                $bills = Bill::where('contract_id', $pecontracts)->paginate($perPage);
+                $bills = Bill::whereIn('contract_id', $pecontracts)->paginate($perPage);
             }else{
                 $bills = [];
             }
@@ -56,7 +56,9 @@ class PeBillsController extends Controller
         //$pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
 
         $contracts = Contract::where('commencement_id', '!=', NULL)
-            ->where('peoffice_id', '=', $peoffice_id)->pluck('contract_no','id');
+            ->where('peoffice_id', '=', $peoffice_id)->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
+			
+		
         return view('front.bills.create',compact('contracts'));
     }
 

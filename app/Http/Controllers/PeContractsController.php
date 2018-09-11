@@ -133,7 +133,7 @@ class PeContractsController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($requestData, $id);
         $pecontract = Contract::findOrFail($id);
         $pecontract->update($requestData);
 

@@ -19,26 +19,40 @@
         </form>
     </h5>
     
-    <div class="text-center">
-        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-    </div>
-    <div class="text-center">
-        <address>
-          <strong>{{ $contract->peoffice->name}}</strong><br>
-          {{ $contract->peoffice->address}}<br>
-          {{ $contract->peoffice->district_id}}-{{ $contract->peoffice->postcode}}<br>
-          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-        </address>
+    <div class="text-center row">
+    	<div class="col-md-3 col-sm-3 certificate-top-left">
+    		<address>
+	          <strong>{{ $contract->peoffice->name}}</strong><br>
+	          {{ $contract->peoffice->address}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+	        </address>
+    	</div>
+    	<div class="col-md-6 col-sm-6 certificate-top-middle">
+            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+            <h3>Bangladesh Water Development Board</h3>
+    		
+    	</div>
+    	<div class="col-md-3 col-sm-3 certificate-top-right">
+    		<address>
+	          <strong>{{ $contract->peoffice->name}}</strong><br>
+	          {{ $contract->peoffice->address}}<br>
+	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+	        </address>
+    	</div>
+    	
     </div>
     <div class="table-responsive">
         <table class="table table-borderless">
             
-                <tr class="text-center">
-                    <th colspan="2"><h3>Commencement of Works</h3></th>
-                </tr>
+                
                 <tr>
                     <td>Office Memo:{{ $commencement->commencement_memo_no }} </td>
                     <td class="text-right">Date: {{ $commencement->commencement_memo_date }} </td>
+                </tr>
+				<tr class="text-center">
+                    <th colspan="2"><h3>Commencement of Works</h3></th>
                 </tr>
                 <tr>
                     <td colspan="2">

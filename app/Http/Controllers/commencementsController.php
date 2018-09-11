@@ -45,7 +45,9 @@ class CommencementsController extends Controller
         } else {
 
             if ($pecontracts->count() > 0) {
-                $commencements = Commencement::where('contract_id',$pecontracts)->get();
+				
+                $commencements = Commencement::whereIn('contract_id',$pecontracts)->get();
+				//dd($commencements);
             }else{
                 $commencements = [];
             }
