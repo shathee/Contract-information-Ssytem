@@ -47,6 +47,9 @@ class CreateContractsTable extends Migration
             $table->text('commencement_id')->nullable();
             $table->integer('original_contract_completion_time')->nullable();
             $table->string('certificate_issued')->default('no');
+            $table->string('issuers_name')->nullable();
+            $table->string('issuers_designation')->nullable();
+            $table->string('certificate_no')->nullable();
 
 
             $table->timestamps();
