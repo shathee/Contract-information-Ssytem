@@ -57,6 +57,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', 'SearchController@index');
+Route::get('search/cc', 'SearchController@search_completion');
+Route::get('search/cc/{id}', 'SearchController@search_completion_show');
+Route::post('search/cc', 'SearchController@search_completion');
+Route::get('search/pc', 'SearchController@search_payment');
+Route::post('search/pc', 'SearchController@search_payment');
+
+
 Route::get('search', function () {
     return 'Found Data URL';
 });

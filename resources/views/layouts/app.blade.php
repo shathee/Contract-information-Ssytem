@@ -162,14 +162,21 @@
                        
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-2 col-md-2">
                     <h5>Support</h5>
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help desk</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-3 col-md-3">
+                    <h5>APPS</h5>
+                    <ul>
+                        <li><a href="#">Verify Certificate</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-md-3">
                     <h5>For BWDB Officials Only</h5>
                     <ul>
                         <li><a href="{{ route('login') }}">Login</a></li>
