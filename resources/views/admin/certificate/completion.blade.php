@@ -42,8 +42,11 @@
             Office Memo No. : {{ $contract->office_memo}}
         </div>
         <div class="col-md-4 col-sm-4">
+           <span style="color: #c40000;">
+            Certificate No. : {{ $contract->certificate_no }}    
+           </span>
            
-            
+           
         </div>
         <div class="col-md-4 col-sm-4">
            Date:{{ $contract->memo_date}}
@@ -167,8 +170,8 @@
         </div>
         <div class="col-md-4 col-sm-4">
             <p>
-                {{ $pe->name }}
-                </br>{{ $pe->designation }}
+                {{ $contract->issuers_name }}
+                </br>{{ $contract->issuers_designation }}
                </br> Date:{{date('Y-m-d')}}</p> 
         </div>
     </div>

@@ -42,7 +42,11 @@
                     <td>{{ $item->contract->contract_no }} / {{ $item->contract->egp_id }}</td>
                     <td>{{ $item->bill_no }}</td>
                     <td>{{ $item->bill_date }}</td>
+                    
                     <td>
+                        @if($item->contract->certificate_issued=='yes')
+                        <button class="btn-info"> Completion Certificate Issued</button>
+                        @else
                         <a href="{{ url('/bills/' . $item->id) }}" title="View Bill"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/bills/' . $item->id . '/edit') }}" title="Edit Bill"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
@@ -51,6 +55,7 @@
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete Bill" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
             @empty

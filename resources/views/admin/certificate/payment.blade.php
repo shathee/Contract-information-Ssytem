@@ -47,23 +47,23 @@
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Peoffice Id </th><td> {{ $contract->peoffice->name }} </td>
+	                    <th> PE Office Name </th><td> {{ $contract->peoffice->name }} </td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Circle Id </th><td> {{ $contract->circle->name }} </td>
+	                    <th> Circle Office Name </th><td> {{ $contract->circle->name }} </td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Zone Id </th><td> {{ $contract->zone->name }} </td>
+	                    <th> Zone Office Name </th><td> {{ $contract->zone->name }} </td>
 	                </tr>
 	                <tr>
 	                    <th>02</th>
-	                    <th> name of the works </th><td> {{ $contract->name_of_works }} </td>
+	                    <th> Name of the Works </th><td> {{ $contract->name_of_works }} </td>
 	                </tr>
 	                <tr>
 	                    <th>03</th>
-	                    <th> EGP ID </th><td> {{ $contract->egp_id }} </td>
+	                    <th> e-GP ID </th><td> {{ $contract->egp_id }} </td>
 	                </tr>
 	                <tr>
 	                    <th></th>
@@ -82,7 +82,7 @@
 	                </tr>
 	                <tr>
 	                    <th>07</th>
-	                    <th> Reference of Noa with Date </th><td> {{ $contract->    noa_reference }} & {{ $contract->noa_date }} </td></tr>
+	                    <th> Reference of NOA with Date </th><td> {{ $contract->    noa_reference }} & {{ $contract->noa_date }} </td></tr>
 	                <tr>
 	                    <th></th>
 	                    <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
@@ -132,7 +132,7 @@
 		        	</tr>
 	        	@endforelse
 	        		<tr class="bg-secondary">
-		        		<td colspan="2">Cumilitive Up to Last Bill</td>
+		        		<td colspan="2">Cumulative Up to Last Bill</td>
 		        		<td>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</td>
 		        		<td>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</td>
 		        		<td>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</td>

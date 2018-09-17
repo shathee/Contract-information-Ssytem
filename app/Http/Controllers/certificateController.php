@@ -98,7 +98,22 @@ class certificateController extends Controller
         ]);
         $requestData = $request->all();
         
+        if(Auth::user()->role =="ADMIN"){
+        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+        }else{
+        $pe = Guser::where('user_id', Auth::user()->id)->first();   
+        }
+
+        $designation_path = storage_path() . "/json/designation.json";
+        $designations = json_decode(file_get_contents($designation_path), true);
+
+
+
         $requestData['certificate_issued'] ='yes';
+        $requestData['issuers_name'] = $pe->name;
+        $requestData['issuers_designation'] =$designations[$pe->designation];
+        $requestData['certificate_no'] ="4201051";
+
         //dd($requestData);
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);

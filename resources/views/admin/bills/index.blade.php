@@ -36,6 +36,7 @@
                     <td>{{ $item->contract->contract_no }}</td>
                     <td>{{ $item->bill_no }}</td>
                     <td>{{ $item->bill_date }}</td>
+                    <td>{{ $item->contract->id }}</td>
                     <td>
                         <a href="{{ url('/admin/bills/' . $item->id) }}" title="View Bill"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/admin/bills/' . $item->id . '/edit') }}" title="Edit Bill"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -25,7 +25,7 @@ class SearchController extends Controller
         
 		
         if (!empty($keyword)) {
-            $contract = Contract::where('id', '=', $keyword)
+            $contract = Contract::where('certificate_no', '=', $keyword)
                 ->Where('certificate_issued', '=', "yes")->get();
 			//dd($contract);
 			return view('search.completion', compact('contract'));

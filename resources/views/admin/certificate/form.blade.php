@@ -351,7 +351,7 @@
             <div class="form-group {{ $errors->has('physical_progress') ? 'has-error' : ''}}">
                 
                 <div class="col-md-10">
-                    <input class="form-control" name="physical_progress" type="number" id="physical_progress" value="{{ $contract->physical_progress or ''}}" required >
+                    <input class="form-control" name="physical_progress" type="text" id="physical_progress" value="{{ $contract->physical_progress or ''}}" required >
                     {!! $errors->first('physical_progress', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -365,7 +365,7 @@
             <div class="form-group {{ $errors->has('financial_progress') ? 'has-error' : ''}}">
                 
                 <div class="col-md-10">
-                    <input class="form-control" name="financial_progress" type="number" id="financial_progress" value="{{ $contract->financial_progress or ''}}" required >
+                    <input class="form-control" name="financial_progress" type="text" id="financial_progress" value="{{ $contract->financial_progress or ''}}" required >
 
                     {!! $errors->first('financial_progress', '<p class="help-block">:message</p>') !!}
                 </div>
