@@ -63,15 +63,15 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Peoffice Id </th><td> {{ $contract->peoffice->name }} </td>
+                    <th> Division/Name of Office </th><td> {{ $contract->peoffice->name }} </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Circle Id </th><td> {{ $contract->circle->name }} </td>
+                    <th> Circle </th><td> {{ $contract->circle->name }} </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Zone Id </th><td> {{ $contract->zone->name }} </td>
+                    <th> Zone </th><td> {{ $contract->zone->name }} </td>
                 </tr>
                 <tr>
                     <th>02</th>

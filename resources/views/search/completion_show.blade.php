@@ -4,12 +4,7 @@
     
 <div class="card">
   <div class="card-header d-print-none">
-	   <h5 class="card-title text-right">
-	   		<a href="{{ url('certificates/completion-certificate') }}" title="Back">
-	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-	   		</a> 
-	       <button class="btn btn-info" onClick="window.print()">Print</button>
-	    </h5>
+	 
   </div>  
   <div class="card-body" id="completion-certificate">
     <div class="text-center row">
@@ -42,7 +37,9 @@
             Office Memo No. : {{ $contract->office_memo}}
         </div>
         <div class="col-md-4 col-sm-4">
-           
+           <span style="color: #c40000;">
+            Certificate No. : {{ $contract->certificate_no }}    
+           </span>
             
         </div>
         <div class="col-md-4 col-sm-4">
@@ -60,19 +57,19 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Peoffice Id </th><td> {{ $contract->peoffice->name }} </td>
+                    <th> Division/Name of Office </th><td> {{ $contract->peoffice->name }} </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Circle Id </th><td> {{ $contract->circle->name }} </td>
+                    <th> Circle </th><td> {{ $contract->circle->name }} </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Zone Id </th><td> {{ $contract->zone->name }} </td>
+                    <th> Zone</th><td> {{ $contract->zone->name }} </td>
                 </tr>
                 <tr>
                     <th>02</th>
-                    <th> name of the works </th><td> {{ $contract->name_of_works }} </td>
+                    <th> Name of the works </th><td> {{ $contract->name_of_works }} </td>
                 </tr>
                 <tr>
                     <th>03</th>

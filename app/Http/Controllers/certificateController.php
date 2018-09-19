@@ -107,14 +107,14 @@ class certificateController extends Controller
         $designation_path = storage_path() . "/json/designation.json";
         $designations = json_decode(file_get_contents($designation_path), true);
 
-
+        $peoffice = Peoffice::find( $requestData['peoffice_id'] );
 
         $requestData['certificate_issued'] ='yes';
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
-        $requestData['certificate_no'] ="4201051";
+        $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'07'.str_pad($id, 4, '0', STR_PAD_LEFT);
 
-        //dd($requestData);
+        dd($requestData);
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);
 

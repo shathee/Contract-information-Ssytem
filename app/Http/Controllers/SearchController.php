@@ -54,25 +54,55 @@ class SearchController extends Controller
 	
 	public function search_payment(Request $request)
     {	
-		/*
-        $keyword = $request->get('search');
-        $perPage = 25;
-
+		$keyword = $request->get('search');
+        
+        
         if (!empty($keyword)) {
-            $bills = Bill::where('contract_id', 'LIKE', "%$keyword%")
-                ->orWhere('bill_no', 'LIKE', "%$keyword%")
-                ->orWhere('bill_date', 'LIKE', "%$keyword%")
-                ->orWhere('net_payment', 'LIKE', "%$keyword%")
-                ->orWhere('vat', 'LIKE', "%$keyword%")
-                ->orWhere('ait', 'LIKE', "%$keyword%")
-                ->orWhere('gross_payment', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
+            $contract = Contract::where('certificate_no', '=', $keyword)
+                ->Where('certificate_issued', '=', "yes")->get();
+            //dd($contract);
+            return view('search.payment', compact('contract'));
         } else {
-            $bills = Bill::paginate($perPage);
+            return view('search.payment');
         }
-		*/
+        
 
-        return view('search.payment', compact(''));
+        return view('search.payment', compact('contract','pe','designations'));
+
+        $contract = Contract::find($id);
+        
+        $designation_path = storage_path() . "/json/designation.json";
+        $designations = json_decode(file_get_contents($designation_path), true);
+       // dd($contract);
+        if(Auth::user()->role =="ADMIN"){
+  
+        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+        }else{
+        $pe = Guser::where('user_id', Auth::user()->id)->first();   
+        }
+
+
+
+
+    }
+
+    public function search_work_in_hand(Request $request)
+    {   
+        $keyword = $request->get('search');
+        $perpage = 25;
+        
+        if (!empty($keyword)) {
+            
+            $contract = Contract::where('contractors_legal_title', 'LIKE', "%$keyword%")->paginate($perpage);
+          
+           
+        } else {
+            $contract = [];
+        }
+        
+        
+        return view('search.work_in_hand', compact('contract'));
+
     }
 	
 	
