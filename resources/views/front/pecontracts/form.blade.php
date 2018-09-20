@@ -1,5 +1,18 @@
+<div class="form-group {{ $errors->has('contract_type') ? 'has-error' : ''}}">
+        <label for="contract_type" class="col-md-4 control-label">{{ 'Procurement Type'.$pecontract->contract_type }}</label>
+        <div class="col-md-6">
+            <select name="contract_type" class="form-control" id="contract_type" required>
+                <option value="works" {{ (isset($pecontract->contract_type) && $pecontract->contract_type == 'works') ? 'selected' : ''}}>Works</option>
+                <option value="goods" {{ (isset($pecontract->contract_type) && $pecontract->contract_type == 'goods') ? 'selected' : ''}}>Goods/Supply</option>
+                <option value="services" {{ (isset($pecontract->contract_type) && $pecontract->contract_type == 'services') ? 'selected' : ''}}>Services</option>
+                <option value="physical_services" {{ (isset($pecontract->contract_type) && $pecontract->contract_type == 'physical_services') ? 'selected' : ''}}>Physical Services</option>
+            </select>
+            <!--<input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $commencement->contract_no or ''}}" >-->
+            {!! $errors->first('contract_id', '<p class="help-block">:message</p>') !!}
+        </div>
+    </div>
 <div class="form-group {{ $errors->has('peoffice_id') ? 'has-error' : ''}}">
-    <label for="peoffice_id" class="col-md-4 control-label">{{ 'Peoffice Id' }}</label>
+    <label for="peoffice_id" class="col-md-4 control-label">{{ 'Procuring Entity/Division' }}</label>
     <div class="col-md-6">
     <label class="form-control">{{ $peoffice->name or ''}}</label>
     <input class="form-control" name="peoffice_id" type="hidden" id="peoffice_id" readonly="readonly" value="{{ $peoffice->id or ''}}" >

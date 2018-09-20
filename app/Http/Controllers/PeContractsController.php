@@ -56,6 +56,7 @@ class PeContractsController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffices = Peoffice::all()->pluck('name','id');
+        
         return view('front.pecontracts.create', compact('zone','circle','peoffices','peoffice')); 
         
     }

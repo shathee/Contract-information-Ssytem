@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
 	
 	
+	Route::get('user/profile', 'HomeController@profile')->name('profile');
 	
 
 	Route::get('/home', 'HomeController@index')->name('home');

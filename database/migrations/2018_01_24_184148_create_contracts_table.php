@@ -25,7 +25,7 @@ class CreateContractsTable extends Migration
             $table->text('name_of_works');
             $table->string('contract_no')->nullable();
             $table->string('egp_id')->nullable();
-            //$table->string('package_no')->nullable();
+            $table->string('contract_type')->deafalt('');
             $table->string('contractors_legal_title')->nullable();
             $table->text('contractors_contact_details')->nullable();
             $table->text('contractors_trade_license_details')->nullable();
@@ -39,8 +39,8 @@ class CreateContractsTable extends Migration
             $table->date('actual_date_of_commencement')->nullable();
             $table->date('actual_contract_date_of_completion')->nullable();
             $table->string('days_contract_period_extended', 15)->default('N/A');
-            $table->double('amount_bonus_early_completion')->nullable();
-            $table->double('amount_ld_delayed_completion')->nullable();
+            $table->double('amount_bonus_early_completion')->default(0);
+            $table->double('amount_ld_delayed_completion')->default(0);
             $table->double('physical_progress')->nullable();
             $table->double('financial_progress')->nullable();
             $table->text('special_note')->nullable();

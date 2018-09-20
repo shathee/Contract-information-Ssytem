@@ -95,6 +95,7 @@ class SearchController extends Controller
             
             $contract = Contract::where('contractors_legal_title', 'LIKE', "%$keyword%")->paginate($perpage);
           
+          
            
         } else {
             $contract = [];

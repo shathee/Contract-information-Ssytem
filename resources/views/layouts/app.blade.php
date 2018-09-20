@@ -86,8 +86,8 @@
                           <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="#">Edit Password</a>
+                          <a class="dropdown-item" href="{{url('user/profile')}}">Profile</a>
+                          <a class="dropdown-item" href="">Edit Password</a>
                           <a class="dropdown-item" href="#">Something else here</a>
                           
                         </div>

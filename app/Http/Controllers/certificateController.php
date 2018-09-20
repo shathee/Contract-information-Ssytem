@@ -75,7 +75,6 @@ class certificateController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffice = Peoffice::all()->pluck('name','id');
-
         
         if(Auth::user()->role =="ADMIN"){
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
@@ -90,7 +89,6 @@ class certificateController extends Controller
     }
 
     public function finalizeCompletionCertificateStore($id, Request $request){
-        
         
         $this->validate($request, [
             'name_of_works' => 'required|min:10',
@@ -113,17 +111,12 @@ class certificateController extends Controller
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
         $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'07'.str_pad($id, 4, '0', STR_PAD_LEFT);
-
-        dd($requestData);
+        
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);
 
         return redirect('certificates/completion-certificate/'.$requestData->id)->with('flash_message', 'Information Updated!');
-
-        
-
     }
-
 
     function makeCompletionCertificatePdf($id){
         $contract = Contract::find($id);
@@ -136,10 +129,8 @@ class certificateController extends Controller
 
         $contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
 
-        //return view('admin.certificate.completion', compact('contract','pe'));
-       $html = view('admin.certificate.completion', compact('contract','pe'));
-        
-        
+        $html = view('admin.certificate.completion', compact('contract','pe'));
+                
         PDF::loadHTML($html)->setWarnings(false)->save('public/pdf/'.$contract->id.'.pdf');
     }
     
