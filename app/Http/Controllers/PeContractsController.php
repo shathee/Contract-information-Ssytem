@@ -50,13 +50,13 @@ class PeContractsController extends Controller
      */
     public function create()
     {
-        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $peoffice = Peoffice::where('id',$peoffice_id)->first();;
+        $peoffice_id = Guser::where('user_id', Auth::id())->first();
+        $peoffice = Peoffice::where('id',$peoffice_id->peoffice_id)->first();
 
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffices = Peoffice::all()->pluck('name','id');
-        
+        //tdd($peoffice);
         return view('front.pecontracts.create', compact('zone','circle','peoffices','peoffice')); 
         
     }

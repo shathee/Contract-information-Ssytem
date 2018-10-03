@@ -26,7 +26,7 @@ class UsersController extends Controller
                 ->orWhere('email', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $users = User::paginate($perPage);
+            $users = User::orderBy('email')->paginate($perPage);
         }
 
         return view('admin.users.index', compact('users'));

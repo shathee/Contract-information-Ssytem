@@ -11,9 +11,11 @@ use App\Model\Circle;
 use App\Model\Peoffice;
 use App\Model\Bill;
 use App\Model\Guser;
+use App\Model\PaymentCertificates;
 use Format;
 use PDF;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class certificateController extends Controller
 {
@@ -21,7 +23,9 @@ class certificateController extends Controller
     public function index($type){
         
         $pe = Guser::where('user_id', Auth::user()->id)->first();
+        
         $o['type'] = $type;
+        
         if($type='payment-certificate'){
             $contracts = Contract::where('peoffice_id',$pe->peoffice->id)->paginate(10);
         }elseif($type = 'completion-certificate'){
@@ -51,6 +55,56 @@ class certificateController extends Controller
 
     	return view('admin.certificate.payment', compact('contract','pe','designations'));
     }
+
+    public function paymentCertificates($id){
+        
+        $contract = PaymentCertificates::where('contract_id', $id)->groupBy('certificate_no')->get();
+        
+          
+        return view('admin.certificate.payments', compact('contract','pe','designations'));
+    }
+
+
+
+    public function storePaymentCertificates($id, Request $request){
+        
+        $requestData = $request->all();
+        
+        $certificate_no = Carbon::now()->timestamp; 
+        foreach($requestData['bill_id'] as $key=>$value){
+            $create['contract_id'] = $requestData['contract_id'];
+            $create['bill_id'] = $requestData['bill_id'][$key];
+            $create['certificate_no'] = $certificate_no;
+            $create['issuer_name'] = $requestData['issuer_name'];
+           
+            PaymentCertificates::create($create);
+        }
+         //dd($create);
+       
+
+        return redirect('certificates/payment-certificate')->with('flash_message', 'Payment Certificate Generated!');
+    }
+
+     public function showPaymentCertificate($id){
+        
+        
+        $payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
+        $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
+
+
+        $contract = Contract::where('id', $payment_certificate_contract_id->contract_id)->with('Peoffice')->first();
+        $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
+        
+       //dd($bills);
+        
+        $designation_path = storage_path() . "/json/designation.json";
+        $designations = json_decode(file_get_contents($designation_path), true);
+        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+        //dd($pe);
+
+        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id'));
+    }
+
 
     public function completionCertificate($id){
     	

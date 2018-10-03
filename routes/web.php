@@ -46,8 +46,14 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('certificates', 'certificateController@index');
 	Route::get('certificates/{type}', 'certificateController@index');
-	Route::get('certificates/{type}', 'certificateController@index')              ;
+	Route::get('certificates/{type}', 'certificateController@index');
+
 	Route::get('certificates/payment-certificate/{id}', 'certificateController@paymentCertificate')->name('payment-certificate');
+	Route::get('certificates/payment-certificates/{id}', 'certificateController@paymentCertificates')->name('payment-certificates');
+	Route::post('certificates/store-payment-certificate/{id}', 'certificateController@storePaymentCertificates')->name('store-payment-certificate');
+	Route::get('certificates/payment-certificate/view/{id}', 'certificateController@showPaymentCertificate')->name('show-payment-certificate');
+	
+
 	Route::get('certificates/completion-certificate/{id}', 'certificateController@completionCertificate')->name('completion-certificate');
 	Route::get('certificates/finalize-completion-certificate/{id}', 'certificateController@finalizeCompletionCertificateForm');
 	Route::post('certificates/store-completion-certificate/{id}', 'certificateController@finalizeCompletionCertificateStore');

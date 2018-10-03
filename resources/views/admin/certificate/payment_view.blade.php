@@ -116,7 +116,7 @@
 	        		</tr>
 	        	</thead>
 	        	<tbody>
-	        	@forelse($contract->bills as $bill)
+	        	@forelse($bills as $bill)
 	        		<tr>
 		        		<td>{{ $bill->bill_no }}</td>
 		        		<td>{{ $bill->bill_date }}</td>
@@ -153,27 +153,18 @@
 	                    <td colspan="5" class="text-right">
 	                        <p>&nbsp;</p>
 	                        <p>&nbsp;</p>
-	                        <p>{{ $pe->name }}
+	                        <p>{{ $payment_certificate_contract_id->issuer_name }}
 	                        </br>{{ $designations[$pe->designation] }}
 	                        </br>Date:{{date('Y-m-d')}}</p>
 	                    </td>
                		</tr>
                		
 		        	<tr>
-	                    <td></td>
-	                    <td colspan="5" class="text-right">
-	                        <form method="POST" action="{{ url('certificates/store-payment-certificate/' . $contract->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-				                {{ csrf_field() }}
-						        
-						        <input class="form-control" name="contract_id" type="hidden" id="contract_id" value="{{ $contract->id }}" required >
-						        @foreach($contract->bills as $bill)
-					        		
-						        	<input class="form-control" name="bill_id[]" type="hidden" id="bill_id" value="{{ $bill->id}}" required >
-						        	
-					        	@endforeach
-					        	<input class="form-control" name="issuer_name" type="hidden" id="bill_id" value="{{ $pe->name}}" required >
-					        	<input onclick="ConfirmBox('Are you Sure')" class="btn btn-primary" type="submit" value="{{ $submitButtonText or 'Generate' }}">
-						    </form>
+	                    
+	                    <td colspan="6" class="">
+	                        <p class="info">
+	                        	This is an electronically generated certificate
+	                        </p>
 	                    </td>
                		</tr>
                		

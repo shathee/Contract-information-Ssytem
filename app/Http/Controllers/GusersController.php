@@ -33,6 +33,10 @@ class GusersController extends Controller
                 ->paginate($perPage);
         } else {
             $gusers = Guser::paginate($perPage);
+           //$gusers = Guser::join('users', 'users.id', '=', 'gusers.user_id') // or leftJoin
+            //->orderBy('users.email', 'asc')
+            //->paginate($perPage);
+           // dd($gusers);
         }
 
         return view('admin.gusers.index', compact('gusers','designation'));
@@ -102,6 +106,7 @@ class GusersController extends Controller
         $path = storage_path() . "\json\designation.json";
         $designation = json_decode(file_get_contents($path), true); 
 
+
         return view('admin.gusers.edit', compact('guser','designation','peoffices'));
     }
 
@@ -117,9 +122,10 @@ class GusersController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($id);
         $guser = Guser::findOrFail($id);
         $guser->update($requestData);
+
 
         return redirect('admin/gusers')->with('flash_message', 'Guser updated!');
     }

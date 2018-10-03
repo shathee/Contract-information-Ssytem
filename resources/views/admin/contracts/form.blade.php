@@ -56,12 +56,12 @@
         <td>
             <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
     
-            <div class="col-md-10">
+            <div class="col-md-10">;
                 <select name="circle_id" class="form-control" id="circle_id" >
-            @foreach ($circle as $optionKey => $optionValue)
-                <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-            @endforeach
-        </select>
+                    @foreach ($circle as $optionKey => $optionValue)
+                        <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+                    @endforeach
+                </select>
                 {!! $errors->first('circle_id', '<p class="help-block">:message</p>') !!}
             </div>
         </div>

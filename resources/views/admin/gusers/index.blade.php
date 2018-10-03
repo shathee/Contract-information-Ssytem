@@ -62,7 +62,8 @@
             @endforeach
             </tbody>
         </table>
-        <div class="pagination-wrapper"> {!! $gusers->appends(['search' => Request::get('search')])->render() !!} </div>
+        <!--<div class="pagination-wrapper"> { $gusers->appends(['search' => Request::get('search')])->render() } </div>-->
+        <div class="pagination-wrapper"> {!! $gusers->links() !!} </div>
     </div>
 
 

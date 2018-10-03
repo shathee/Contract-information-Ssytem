@@ -51,14 +51,20 @@ class PeBillsController extends Controller
      */
     public function create()
     {
-        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        
+
+
+        $peoffice_id = Guser::where('user_id', Auth::id())->first();
         //$peoffice = Peoffice::where('id', $peoffice_id)->get();
         //$pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
 
+        //dd($peoffice_id);
+
         $contracts = Contract::where('commencement_id', '!=', NULL)
-            ->where('peoffice_id', '=', $peoffice_id)->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
+            ->where('peoffice_id', '=', $peoffice_id->peoffice_id)->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
 			
-		
+		//dd($peoffice_id->peoffice_id);
+
         return view('front.bills.create',compact('contracts'));
     }
 

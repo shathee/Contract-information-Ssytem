@@ -32,7 +32,8 @@
                     <td>{{ $item->noa_date }}</td>
                     <td>
                         @if($o['type']=='payment-certificate')
-                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/'.$item->id)}}">Payment Certificate</a>
+                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/'.$item->id)}}">Generate</a>
+                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificates/'.$item->id)}}">Payment Certificates</a>
                         @elseif($o['type']=='completion-certificate')
                        
                             @if($item->certificate_issued == 'no')
