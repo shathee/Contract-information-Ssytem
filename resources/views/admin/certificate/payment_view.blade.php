@@ -41,6 +41,7 @@
     </div>
     <hr>
     <h3 class="text-center">PAYMENT CERTIFICATE</h3>
+    <h5 class="text-center">Certificate-No.:{{ $payment_certificate_no }}</h5>
    <div class="table-responsive"> 
         <table class="table table-bordered " id="payment-certificate-table">
 	            <tbody>

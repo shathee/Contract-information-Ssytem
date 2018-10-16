@@ -5,10 +5,7 @@
 <div class="card">
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
-	   		<a href="{{ url('certificates/payment-certificate/') }}" title="Back">
-	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-	   		</a> 
-	       <button class="btn btn-info" onClick="window.print()">Print</button>
+	   		
 	    </h5>
   </div>  
   <div class="card-body" id="payment-certificate">
@@ -38,6 +35,11 @@
     </div>
     <hr>
     <h3 class="text-center">PAYMENT CERTIFICATE</h3>
+    <h6 class="text-center">
+    	<span style="color: #c40000;">
+                        Certificate No. : {{ $payment_certificate_no }}    
+                       </span>
+    </h6>
    <div class="table-responsive"> 
         <table class="table table-bordered " id="payment-certificate-table">
 	            <tbody>
@@ -113,7 +115,7 @@
 	        		</tr>
 	        	</thead>
 	        	<tbody>
-	        	@forelse($contract->bills as $bill)
+	        	@forelse($bills as $bill)
 	        		<tr>
 		        		<td>{{ $bill->bill_no }}</td>
 		        		<td>{{ $bill->bill_date }}</td>

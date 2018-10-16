@@ -69,6 +69,7 @@ Route::get('search/cc/{id}', 'SearchController@search_completion_show');
 Route::post('search/cc', 'SearchController@search_completion');
 Route::get('search/pc', 'SearchController@search_payment');
 Route::post('search/pc', 'SearchController@search_payment');
+Route::get('search/pc/{id}', 'SearchController@search_payment_show');
 Route::get('search/cwh', 'SearchController@search_work_in_hand');
 Route::post('search/cwh', 'SearchController@search_work_in_hand');
 

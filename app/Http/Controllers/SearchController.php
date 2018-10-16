@@ -9,6 +9,8 @@ use App\Model\Guser;
 use App\Model\Peoffice;
 use App\Model\Circle;
 use App\Model\Zone;
+use App\Model\PaymentCertificates;
+use App\Model\Bill;
 
 class SearchController extends Controller
 {
@@ -58,33 +60,46 @@ class SearchController extends Controller
         
         
         if (!empty($keyword)) {
-            $contract = Contract::where('certificate_no', '=', $keyword)
-                ->Where('certificate_issued', '=', "yes")->get();
-            //dd($contract);
-            return view('search.payment', compact('contract'));
+            
+            $contract = PaymentCertificates::where('certificate_no', '=', $keyword)->first();
+
+            //return view('search.payment', compact('contract'));
+            if($contract){
+                return redirect('search/pc/'.$contract->certificate_no);
+            }else{
+                return view('search.payment');
+            }
+            
         } else {
             return view('search.payment');
         }
         
-
-        return view('search.payment', compact('contract','pe','designations'));
-
-        $contract = Contract::find($id);
         
-        $designation_path = storage_path() . "/json/designation.json";
-        $designations = json_decode(file_get_contents($designation_path), true);
-       // dd($contract);
-        if(Auth::user()->role =="ADMIN"){
-  
-        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
-        }else{
-        $pe = Guser::where('user_id', Auth::user()->id)->first();   
-        }
-
-
-
 
     }
+
+    public function search_payment_show($id)
+    {
+        
+        $payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
+        $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
+
+        //dd($payment_certificate_contract_id);
+        $contract = Contract::where('id', $payment_certificate_contract_id->contract_id)->with('Peoffice')->first();
+        $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
+        
+       //dd($bills);
+        $payment_certificate_no = $id;
+        $designation_path = storage_path() . "/json/designation.json";
+        $designations = json_decode(file_get_contents($designation_path), true);
+        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+
+        return view('search.payment_show', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no'));
+        
+
+        
+    }
+    
 
     public function search_work_in_hand(Request $request)
     {   

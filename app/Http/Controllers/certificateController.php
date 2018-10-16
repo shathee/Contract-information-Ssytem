@@ -96,13 +96,14 @@ class certificateController extends Controller
         $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
         
        //dd($bills);
+        $payment_certificate_no = $id;
         
         $designation_path = storage_path() . "/json/designation.json";
         $designations = json_decode(file_get_contents($designation_path), true);
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
         //dd($pe);
 
-        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id'));
+        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no'));
     }
 
 
