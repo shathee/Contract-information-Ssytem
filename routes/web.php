@@ -78,3 +78,4 @@ Route::get('search', function () {
     return 'Found Data URL';
 });
 Route::get('pubs/staff', 'SearchController@staff');
+Route::get('pubs/contact', 'SearchController@contact');

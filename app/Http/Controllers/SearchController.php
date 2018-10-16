@@ -127,4 +127,10 @@ class SearchController extends Controller
 
     	return view('pubs.staff');
     }
+
+  
+    public function contact(){
+
+        return view('pubs.contact');
+    }
 }

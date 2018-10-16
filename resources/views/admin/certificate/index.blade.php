@@ -32,14 +32,19 @@
                     <td>{{ $item->noa_date }}</td>
                     <td>
                         @if($o['type']=='payment-certificate')
-                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/'.$item->id)}}">Generate</a>
-                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificates/'.$item->id)}}">Payment Certificates</a>
+                        <a href="{{ url('certificates/payment-certificate/'.$item->id)}}"><button class="btn btn-xs btn-success">Generate</button></a>
+                        <a href="{{ url('certificates/payment-certificates/'.$item->id)}}">
+                            <button class="btn btn-xs btn-info">Payment Certificates</button>
+                        </a>
                         @elseif($o['type']=='completion-certificate')
                        
                             @if($item->certificate_issued == 'no')
-                            <a class="btn btn-xs" href="{{ url('certificates/finalize-completion-certificate/'.$item->id)}}">Finalize Info</a>
+                            <a href="{{ url('certificates/finalize-completion-certificate/'.$item->id)}}">
+                                <button class="btn btn-xs btn-success">Finalize Info</button>
+                            </a>
                             @else
-                             <a class="btn btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                             <a href="{{ url('certificates/completion-certificate/'.$item->id)}}">
+                                <button class="btn btn-xs btn-info">Completion Certificate</button></a>
                             @endif
                         
                         @else

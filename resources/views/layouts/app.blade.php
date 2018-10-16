@@ -158,7 +158,7 @@
                     <h5>About us</h5>
                     <ul>
                         <li><a href="{{url('pubs/staff')}}">Officials of Contract & Procurement Cell</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{url('pubs/contact')}}">Contact us</a></li>
                        
                     </ul>
                 </div>
