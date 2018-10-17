@@ -4,16 +4,19 @@
 
     @if (Auth::check())
         <div class="panel panel-default">
-                <div class="panel-heading"><h3>Welcome</h3></div>
+                <div class="panel-heading">
+                    <h3 class="text-center">Welcome <span class="text-primary"> {{ Auth::user()->name}} </span></h3>
+                     <h4 class="text-center">You have logged in!</h4>
+                </div>
 
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+                            {{ session('status') }} 
                         </div>
                     @endif
 
-                    <h4>You are logged in!</h4>
+                   
                     @if (Auth::user()->status=='deactive')
                         <div class="alert alert-warning">
                             Your account is not activated yet. Please Contact with the Application Administrator

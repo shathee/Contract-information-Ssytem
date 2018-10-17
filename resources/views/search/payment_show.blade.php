@@ -97,10 +97,10 @@
 	        </table>
 	        
 	        <table class="table table-bordered payment-certificate-table">
-	        	<thead id="#pc-footer" class="thead-dark">
+	        	<thead id="#pc-footer"">
 	        		<tr>
 	        			<th colspan="6">
-	        				<h4 class="">Payment Information</h4>
+	        				<h4 class="text-primary text-center">Payment Information</h4>
 	        			</th>
 	        		</tr>
 	        		<tr>
@@ -133,28 +133,33 @@
 		        	
 		        	</tr>
 	        	@endforelse
-	        		<tr class="bg-secondary">
-		        		<td colspan="2">Cumilitive Up to Last Bill</td>
-		        		<td>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</td>
-		        		<td>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</td>
-		        		<td>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</td>
-		        		<td>{{Format::number($contract->bills->sum('gross_payment'),3, ".", ",") }}</td>
+	        		<tr>
+	        			
+		        		<td class="" colspan="2"><b>Cumilitive Up to Last Bill</b></td>
+		        		<td><b>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</b</td>
+		        		<td><b>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</b</td>
+		        		<td><b>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</b</td>
+		        		<td><b>{{Format::number($contract->bills->sum('gross_payment'),3, ".", ",") }}</b</td>
 		        		
 		        	
 		        	</tr>
 		        	
 		        	<tr>
-	                    <td>&nbsp;</td>
+	                    <td colspan="6">&nbsp;</td>
 	                </tr>
 		        	
 		        	<tr>
-	                    <td></td>
-	                    <td colspan="5" class="text-right">
+	                  
+	                    <td class="border-0" colspan="4"></td>
+	                    
+	                    <td colspan="2" class="text-center border-0">
 	                        <p>&nbsp;</p>
 	                        <p>&nbsp;</p>
-	                        <p>{{ $pe->name }}
+	                        <strong>
+	                        <p>{{ $payment_certificate_issuer->issuer_name }}
 	                        </br>{{ $designations[$pe->designation] }}
 	                        </br>Date:{{date('Y-m-d')}}</p>
+	                    	</strong>
 	                    </td>
                		</tr>
 	        	</tbody>

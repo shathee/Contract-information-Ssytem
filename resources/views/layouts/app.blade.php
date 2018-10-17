@@ -20,10 +20,8 @@
   </head>
   <body>
 
-    <div class="container">
-      
       <div id="header" class="row d-print-none">
-        <div class="col-md-3">
+        <div class="col-md-2 offset-md-1">
           <a href="{{URL::to('/')}}"><img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo"></a>
         </div>
         <div class="col-md-9">
@@ -32,9 +30,9 @@
         </div>
       </div>
 
+    <div class="container">
+      
       <div id="top-menu" class="row d-print-none">
-              
-         
               <ul class="nav nav-tabs">
                 
                 @if (Auth::check())

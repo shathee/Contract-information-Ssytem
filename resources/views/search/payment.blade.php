@@ -14,6 +14,13 @@
 			
 			
 		</div>
+		<div class="col-md-12" style="min-height: 300px;">
+			
+			 
+			
+			
+			
+		</div>
     </div>
     
 @endsection

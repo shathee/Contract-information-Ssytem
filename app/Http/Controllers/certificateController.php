@@ -89,6 +89,7 @@ class certificateController extends Controller
         
         
         $payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
+        $payment_certificate_issuer = PaymentCertificates::where('certificate_no',$id)->first();
         $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
 
 
@@ -103,7 +104,7 @@ class certificateController extends Controller
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
         //dd($pe);
 
-        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no'));
+        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no','payment_certificate_issuer'));
     }
 
 

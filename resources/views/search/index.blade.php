@@ -6,7 +6,7 @@
 			<a href="{{url('search/pc')}}"><button type="button" class="btn btn-secondary btn-lg">Verify Payment Certificate </button></a>
 		-->
     <div class="row">
-		<div class="col-md-9 text-center">
+		<div class="col-md-8 text-center">
 			
 
 				<div id="home_quicklinks">
@@ -37,7 +37,8 @@
 	                               
 
 	                                <div class="clear"></div>
-	                            </div>
+
+                </div>
 	                            
 
 
@@ -45,8 +46,24 @@
    
 		
     	
-    	<div class="col-md-3">
-
+    	<div class="col-md-4">
+    		 @if(Auth::check())
+    		 <div id="home_quicklinks">
+	            <a class="quicklink link3" href="{{url('search/cwh')}}">
+	            <span class="ql_caption">
+	                <span class="outer">
+	                    <span class="inner">
+	                        <h2>Check Work in Hand</h2>
+	                    </span>
+	                </span>
+	            </span>
+	            <span class="ql_top"></span>
+	            <span class="ql_bottom"></span>
+	            </a>
+	            <div class="clear"></div>
+	         </div>
+	     
+    		@else
 				<h1 class="form-heading">login Form</h1>
 				<div class="login-form">
 				
@@ -86,9 +103,9 @@
 
 				    </form>
 			   
-				
 				</div>
-			</div>
+			@endif
+		</div>
     	</div>
     </div>
             
