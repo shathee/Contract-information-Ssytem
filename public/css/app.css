@@ -5,6 +5,14 @@
 #header{
     padding-top: 20px;
 	padding-bottom: 20px;
+  background-color: #062c13;
+}
+h1.org-title{
+  color: antiqueWhite;
+  padding-top:20px
+}
+h2.office-title{
+  color: blanchedalmond; 
 }
 #top-menu ul{
 	margin-top: 5px;

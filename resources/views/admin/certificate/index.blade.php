@@ -4,13 +4,14 @@
     
 <div class="card">
   <div class="card-header d-print-none">
-	   <h5 class="card-title text-right">
-            {{ $o['type'] }}
+	   <div class="card-title text-right">
+            <span class="">{{ $o['type'] }}</span>
 	   		<a href="{{ url('certificates/'.$o['type']) }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
-	       <button class="btn btn-info" onClick="window.print()">Print</button>
-	    </h5>
+            
+	       <!--<button class="btn btn-info" onClick="window.print()">Print</button>-->
+	    </div>
   </div>  
   <div class="card-body">
         <table class="table table-borderless">

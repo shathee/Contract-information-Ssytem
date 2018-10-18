@@ -6,7 +6,7 @@
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
             
-	   		<a href="{{ url('certificates') }}" title="Back">
+	   		<a href="{{ url('certificates/payment-certificate') }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
 	       <button class="btn btn-info" onClick="window.print()">Print</button>
@@ -23,8 +23,8 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($contract as $item)
-                <tr>
+                @forelse ($contract as $item)
+                    <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->certificate_no }}</td>
                     <td>{{ $item->contract->contract_no }}</td>
@@ -32,8 +32,11 @@
                         <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/view/'.$item->certificate_no)}}">View</a>
                         
                     </td>
-                </tr>
-            @endforeach
+                    </tr>
+                @empty
+                    <p class="info">No Payment Certificate Issued for this contract</p>
+                @endforelse
+           
             </tbody>
         </table>
        

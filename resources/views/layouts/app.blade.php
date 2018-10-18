@@ -22,11 +22,11 @@
 
       <div id="header" class="row d-print-none">
         <div class="col-md-2 offset-md-1">
-          <a href="{{URL::to('/')}}"><img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo"></a>
+          <a href="{{URL::to('/')}}"><img id="logo" src={{asset('img/bcms-bwdb-logo.png')}} alt="Logo"></a>
         </div>
-        <div class="col-md-9">
-          <h1>Bangladesh Water Development Board</h1>
-          <h2>Contract & Procurement Cell</h2>
+        <div class="col-md-8 text-right">
+          <h1 class="org-title">Bangladesh Water Development Board</h1>
+          <h2 class="office-title">Contract & Procurement Cell</h2>
         </div>
       </div>
 
