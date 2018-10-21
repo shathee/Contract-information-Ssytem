@@ -153,7 +153,7 @@
 	                    <td class="border-0" colspan="4"></td>
 	                    
 	                    <td colspan="2" class="text-center border-0">
-	                        <p>&nbsp;</p>
+	                        <p>Electronically Signed By</p>
 	                        <p>&nbsp;</p>
 	                        <strong>
 	                        <p>{{ $payment_certificate_issuer->issuer_name }}

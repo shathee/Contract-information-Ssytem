@@ -37,7 +37,7 @@
                 
                 @if (Auth::check())
                       <li class="nav-item">
-                        <a class="nav-link active" href="{{ url('/home') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
                       </li>
                       @if (Auth::user()->role=='ADMIN' && Auth::user()->status=='active')
                       <li class="nav-item dropdown">
@@ -85,8 +85,10 @@
                         </a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{url('user/profile')}}">Profile</a>
+                        <!--
                           <a class="dropdown-item" href="">Edit Password</a>
                           <a class="dropdown-item" href="#">Something else here</a>
+                        -->
                           
                         </div>
                       </li>
@@ -116,9 +118,12 @@
                           <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{{ Auth::user()->name }}">Profile</a>
-                          <a class="dropdown-item" href="#">Edit Password</a>
+                          <a class="dropdown-item" href="#">Profile</a>
+                          <!--
+                          <a class="dropdown-item" href="">Edit Password</a>
                           <a class="dropdown-item" href="#">Something else here</a>
+                        -->
+                          
                           
                         </div>
                       </li>

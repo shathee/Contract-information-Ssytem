@@ -19,6 +19,8 @@
                     <th>#</th>
                     <th>Certificate-No</th>
                     <th>Contract/Package No</th>
+                    <th>Issue Date</th>
+                    <th>Actions</th>
                     
                 </tr>
             </thead>
@@ -28,8 +30,11 @@
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->certificate_no }}</td>
                     <td>{{ $item->contract->contract_no }}</td>
+                    <td>{{ $item->contract->created_at }}</td>
                     <td>
-                        <a class="btn btn-xs" href="{{ url('certificates/payment-certificate/view/'.$item->certificate_no)}}">View</a>
+                        <a href="{{ url('certificates/payment-certificate/view/'.$item->certificate_no)}}">
+                        <button class="btn btn-xs btn-info">View</button>
+                        </a>
                         
                     </td>
                     </tr>

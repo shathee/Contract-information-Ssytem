@@ -84,7 +84,8 @@ class SearchController extends Controller
         $payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
         $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
 
-        //dd($payment_certificate_contract_id);
+        $payment_certificate_issuer = PaymentCertificates::where('certificate_no',$id)->first();
+
         $contract = Contract::where('id', $payment_certificate_contract_id->contract_id)->with('Peoffice')->first();
         $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
         
@@ -94,7 +95,7 @@ class SearchController extends Controller
         $designations = json_decode(file_get_contents($designation_path), true);
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
 
-        return view('search.payment_show', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no'));
+        return view('search.payment_show', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no','payment_certificate_issuer'));
         
 
         
