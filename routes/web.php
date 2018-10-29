@@ -60,6 +60,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('certificates/pdf-completion-certificate/{id}', 'certificateController@makeCompletionCertificatePdf');
 
+
+	Route::resource('certificate-files', 'CertificateFilesController');
     
 });
 
@@ -79,3 +81,5 @@ Route::get('search', function () {
 });
 Route::get('pubs/staff', 'SearchController@staff');
 Route::get('pubs/contact', 'SearchController@contact');
+
+Route::resource('uploads', 'UploadsController');

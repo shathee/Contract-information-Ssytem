@@ -107,6 +107,7 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{ url('certificates/payment-certificate')}}">Payment Certificate</a>
                           <a class="dropdown-item" href="{{ url('certificates/completion-certificate')}}">Completion Certificate</a>
+                          <a class="dropdown-item" href="{{ url('certificate-files')}}">Upload Scanned Certificate</a>
                           
                         </div>
                       </li>
