@@ -24,9 +24,24 @@
                 <tr>
                     <th>ID</th><td>{{ $certificatefile->id }}</td>
                 </tr>
-                <tr><th> Id </th><td> {{ $certificatefile->id }} </td></tr><tr><th> Certificate No </th><td> {{ $certificatefile->certificate_no }} </td></tr><tr><th> File Path </th><td> {{ $certificatefile->file_path }} </td></tr>
+                <tr><th> Id </th><td> {{ $certificatefile->id }} </td></tr>
+                <tr>
+                    <th> Certificate No </th><td> {{ $certificatefile->certificate_no }} </td></tr><tr><th> File Path </th><td> {{ $certificatefile->file_path }} </td>
+                </tr>
+
+                <tr>
+
+                    <td colspan="2"> 
+                        
+                    </td>
+                    }
+                </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-md-10">
+        <iframe width="800" height="1000" src="http://docs.google.com/gview?url={{env('APP_URL')}}{{ '/uploads/'.$certificatefile->file_path }}&embedded=true"></iframe> 
+
     </div>
    
 

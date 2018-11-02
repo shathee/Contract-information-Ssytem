@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Model\CertificateFile;
 use Illuminate\Http\Request;
+use Storage;
 
 class CertificateFilesController extends Controller
 {
@@ -56,7 +57,7 @@ class CertificateFilesController extends Controller
         $requestData = $request->all();
                 if ($request->hasFile('file_path')) {
             $requestData['file_path'] = $request->file('file_path')
-                ->store('uploads', 'public');
+                ->store('certificates','public_uploads');
         }
 
         CertificateFile::create($requestData);
@@ -74,7 +75,7 @@ class CertificateFilesController extends Controller
     public function show($id)
     {
         $certificatefile = CertificateFile::findOrFail($id);
-
+         
         return view('front.certificate-files.show', compact('certificatefile'));
     }
 
