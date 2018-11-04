@@ -53,7 +53,14 @@ class CertificateFilesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //dd($request->all());
+        $this->validate($request, [
+            'certificate_no' => 'required|unique:certificate_files,certificate_no',
+            'file_path' => 'required|mimes:pdf|max:1000',
+            'type' => 'required'
+            
+        ]);
+
         $requestData = $request->all();
                 if ($request->hasFile('file_path')) {
             $requestData['file_path'] = $request->file('file_path')
