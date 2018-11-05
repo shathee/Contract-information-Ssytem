@@ -43,6 +43,7 @@
         <iframe width="800" height="1000" src="http://docs.google.com/gview?url={{env('APP_URL')}}{{ '/uploads/'.$certificatefile->file_path }}&embedded=true"></iframe> 
 
     </div>
+
    
 
   </div>

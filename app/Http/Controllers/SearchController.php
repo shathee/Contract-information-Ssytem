@@ -11,6 +11,7 @@ use App\Model\Circle;
 use App\Model\Zone;
 use App\Model\PaymentCertificates;
 use App\Model\Bill;
+use App\Model\CertificateFile;
 
 class SearchController extends Controller
 {
@@ -44,11 +45,14 @@ class SearchController extends Controller
 		
         $contract = Contract::find($id);
 		
-    	$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+    	//$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
 		//dd($pe);
-    	$contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
-
-    	return view('search.completion_show', compact('contract','pe'));
+    	//$contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
+        
+        $certificatefile = CertificateFile::where('certificate_no',$contract->certificate_no)->first();
+         //dd($certificatefile);
+        
+    	return view('search.completion_show', compact('contract','pe','certificatefile'));
 		
 
         

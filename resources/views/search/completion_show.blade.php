@@ -8,7 +8,7 @@
   </div>  
   <div class="card-body" id="completion-certificate">
     <div class="text-center row">
-    	<div class="col-md-3 col-sm-3 certificate-top-left">
+    	<!-- <div class="col-md-3 col-sm-3 certificate-top-left">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
@@ -30,8 +30,8 @@
 	        </address>
     	</div>
     	
-    </div>
-    <hr>
+    </div> -->
+    <!-- <hr>
     <div class="text-center row">
         <div class="col-md-4 col-sm-4">
             Office Memo No. : {{ $contract->office_memo}}
@@ -46,8 +46,8 @@
            Date:{{ $contract->memo_date}}
         </div>
         
-    </div>
-    <h3 class="text-center">COMPLETION CERTIFICATE</h3>
+    </div> -->
+    <!--<h3 class="text-center">COMPLETION CERTIFICATE</h3>
    <div class="table-responsive">
         <table id="completion-certificate-table" class="table table-bordered">
             <tbody>
@@ -143,34 +143,36 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="row">
+    </div> -->
+
+    <!-- <div class="row">
         <div class="col-md-12 col-sm-12">
             <p>
                 Certified that the Works under the Contract has been executed and completed in all respects in strict compliance with the provisions of the Contract including all plans, designs, drawings, specifications and all modifications thereof as per direction and satisfaction of the Project Manager/Engineer-in Charge/Other (specify). All defects in workmanship and materials reported during construction have been duly corrected.
             </p>
         </div>
-    </div>
-    <div class="row">
+    </div> -->
+    <!-- <div class="row">
         <div class="col-md-8 col-sm-8">
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                    
         </div>
-    </div>
-    <div class="row">
+    </div> -->
+    <!-- <div class="row">
         <div class="col-md-8 col-sm-8">
             &nbsp; 
         </div>
         <div class="col-md-4 col-sm-4">
             <p>
-                {{ $pe->name }}
-                </br>{{ $pe->designation }}
-               </br> Date:{{date('Y-m-d')}}</p> 
+                      </p> 
         </div>
-    </div>
+    </div> -->
 
-    
+    <div class="col-md-10">
+        <iframe width="1000" height="1000" src="http://docs.google.com/gview?url={{env('APP_URL')}}{{ '/uploads/'.$certificatefile->file_path }}&embedded=true"></iframe> 
+
+    </div>
 
   </div>
 </div>
