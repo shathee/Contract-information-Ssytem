@@ -20,7 +20,7 @@
             <div class="form-group {{ $errors->has('memo_date') ? 'has-error' : ''}} ">
                 <label for="memo_date" class="col-md-10 control-label">{{ 'Memo Date' }}</label>
                 <div class="col-md-10 float-right">
-                    <input class="form-control" name="memo_date" type="date" id="memo_date" value="{{ $contract->memo_date or ''}}" >
+                    <input class="form-control date_picker" name="memo_date" type="date" id="memo_date" value="{{ $contract->memo_date or ''}}" >
                     {!! $errors->first('memo_date', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -206,7 +206,7 @@
             <div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
                
                 <div class="col-md-10">
-                    <input class="form-control" name="noa_date" type="date" id="noa_date" value="{{ $contract->noa_date or ''}}" >
+                    <input class="form-control date_picker" name="noa_date" type="date" id="noa_date" value="{{ $contract->noa_date or ''}}" >
                     {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

@@ -72,7 +72,7 @@ class PeContractsController extends Controller
     {
         
         $requestData = $request->all();
-        //dd($requestData);
+        dd($requestData);
         Contract::create($requestData);
 
         return redirect('/contracts')->with('flash_message', 'Contract added!');

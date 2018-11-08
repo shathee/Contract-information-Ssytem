@@ -11,9 +11,9 @@
     
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
-    <link href="https://cdn.jsdelivr.net/gh/atatanasov/gijgo@1.8.0/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 
     <title>CPC</title>
@@ -206,7 +206,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
     
+
+
     <script type="text/javascript">
     function netBill(){
         var p = (parseFloat($('#gross_payment').val()) || 0);
@@ -219,6 +222,25 @@
         //alert(v,t,t);
         $('#net_payment').val(total);
     }
+
+    // $(".date_picker").datepicker({
+    //          uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome',
+    //          format: 'dd/mm/yyyy',
+    //          //modal: true, 
+    //          header: true,
+    //          // footer: true,
+    //          size: 'default' 
+    //     });
+    $(document).on('focus', '.date_picker',function(){
+            $(this).datepicker({
+                uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome',
+             format: 'yyyy-mm-dd',
+             //modal: true, 
+             header: true,
+             // footer: true,
+             size: 'default' 
+            })
+        });
 
 </script>
     

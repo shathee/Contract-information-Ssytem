@@ -76,7 +76,7 @@
                                 <form method="POST" action="{{ url('/contracts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                     {{ method_field('PUT') }}
                                     {{ csrf_field() }}
-                                    <input class="form-control col-md-7 datetimepicker" name="actual_date_of_commencement" type="date" id="actual_date_of_commencement" value="{{ $pecontract->actual_date_of_commencement or ''}}" >
+                                    <input class="form-control col-md-7 date_picker" name="actual_date_of_commencement" type="text" id="actual_date_of_commencement" value="{{ $pecontract->actual_date_of_commencement or ''}}" >
                                     {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </form>

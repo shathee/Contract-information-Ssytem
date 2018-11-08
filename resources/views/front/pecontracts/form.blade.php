@@ -91,14 +91,14 @@
 <div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
     <label for="noa_date" class="col-md-4 control-label">{{ 'Noa Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control datetimepicker" name="noa_date" type="date" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
+        <input class="form-control date_picker" name="noa_date" type="text" id="noa_date" value="{{ $pecontract->noa_date or ''}}" >
         {!! $errors->first('noa_date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('contract_date') ? 'has-error' : ''}}">
     <label for="noa_date" class="col-md-4 control-label">{{ 'Contract Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control" name="contract_date" type="date" id="contract_date" value="{{ $pecontract->contract_date or ''}}" >
+        <input class="form-control date_picker" name="contract_date" type="text" id="contract_date" value="{{ $pecontract->contract_date or ''}}" >
         {!! $errors->first('contract_date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

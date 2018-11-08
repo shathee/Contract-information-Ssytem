@@ -19,7 +19,7 @@
 <div class="form-group {{ $errors->has('bill_date') ? 'has-error' : ''}}">
     <label for="bill_date" class="col-md-4 control-label">{{ 'Bill Date' }}</label>
     <div class="col-md-6">
-        <input class="form-control" name="bill_date" type="date" id="bill_date" value="{{ $bill->bill_date or ''}}" required>
+        <input class="form-control date_picker" name="bill_date" type="text" id="bill_date" value="{{ $bill->bill_date or ''}}" required>
         {!! $errors->first('bill_date', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

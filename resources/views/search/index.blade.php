@@ -7,8 +7,6 @@
 		-->
     <div class="row">
 		<div class="col-md-8 text-center">
-			
-
 				<div id="home_quicklinks">
 	                                <a class="quicklink link1" href="{{url('search/cc')}}">
 	                                    <span class="ql_caption">
@@ -47,6 +45,11 @@
 		
     	
     	<div class="col-md-4">
+    		<div class="text-center alert alert-danger" role="alert">
+		      <p><b>!!! Dear Users this Application is still under development. !!!</b></p>
+		      <p>Currently You can Use this only for test purposes</p>
+		      <p>For further information please contact programmer.cpc@bwdb.gov.bd</p>
+		    </div>
     		 @if(Auth::check())
     		 <div id="home_quicklinks">
 	            <a class="quicklink link3" href="{{url('search/cwh')}}">

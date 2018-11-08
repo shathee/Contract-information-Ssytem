@@ -5,6 +5,7 @@
 
 <div class="content col-md-12">
     
+    
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 

@@ -70,7 +70,7 @@ class certificateController extends Controller
         
         $requestData = $request->all();
         
-        $certificate_no = Carbon::now()->timestamp; 
+        $certificate_no = '420107'.Carbon::now()->timestamp; 
         foreach($requestData['bill_id'] as $key=>$value){
             $create['contract_id'] = $requestData['contract_id'];
             $create['bill_id'] = $requestData['bill_id'][$key];
@@ -166,8 +166,9 @@ class certificateController extends Controller
         $requestData['certificate_issued'] ='yes';
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
-        $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'07'.str_pad($id, 4, '0', STR_PAD_LEFT);
-        
+        $requestData['certificate_no'] ="420107".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).str_pad($id, 4, '0', STR_PAD_LEFT);
+        //$requestData['membership_no'] = "GM" . date("Ymd") . sprintf('%06d', $id);
+        //dd($requestData['certificate_no']);
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);
 
