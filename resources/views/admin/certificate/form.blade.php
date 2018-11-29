@@ -59,11 +59,17 @@
             <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
     
             <div class="col-md-10">
+                @if(!empty($pecontract->circle->name)) 
                 <select name="circle_id" class="form-control disabled" id="circle_id" >
-            @foreach ($circle as $optionKey => $optionValue)
-                <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-            @endforeach
-        </select>
+                        @foreach ($circle as $optionKey => $optionValue)
+                            <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+                        @endforeach
+                </select>
+                @else
+                    
+                    <input class="form-control"  name="circle_id" type="text" id="circle_id" value="{{''}}" disabled >
+                @endif
+                
                 {!! $errors->first('circle_id', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
@@ -77,11 +83,16 @@
             <div class="form-group {{ $errors->has('zone_id') ? 'has-error' : ''}}">
     
                 <div class="col-md-10">
+                    @if(!empty($pecontract->circle->name)) 
                     <select name="zone_id" class="form-control disabled" id="zone_id">
                         @foreach ($zone as $optionKey => $optionValue)
                             <option value="{{ $optionKey }}" {{ (isset($contract->zone_id) && $contract->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
                         @endforeach
                     </select>
+                    @else
+                        <input class="form-control"  name="zone_id" type="text" id="zone_id" value="{{''}}" disabled >
+                    @endif
+                    
                     {!! $errors->first('zone_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

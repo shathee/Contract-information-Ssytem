@@ -43,11 +43,23 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Circle Id </th><td> {{ $pecontract->circle->name }} </td>
+                    <th> Circle Id </th>
+                        <td>
+                        @if(!empty($pecontract->circle->name)) 
+                        {{ $pecontract->circle->name }}
+                        @else
+                            {{'N/A'}}
+                        @endif
+                         </td>
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Zone Id </th><td> {{ $pecontract->zone->name }} </td>
+                    <th> Zone Id </th>
+                    <td> @if(!empty($pecontract->circle->name)) 
+                        {{ $pecontract->zone->name }}
+                        @else
+                            {{'N/A'}}
+                        @endif </td>
                 </tr>
                 <tr>
                     <th>02</th>
@@ -77,7 +89,7 @@
                     <th> Reference of Noa with Date </th><td> {{ $pecontract->noa_reference }} & {{ $pecontract->noa_date }} </td></tr>
                 <tr>
                     <th>08</th>
-                    <th> Contract Date </th><td> {{ $pecontract->contract_date->toDateString() }}</td></tr>
+                    <th> Contract Date </th><td> {{ $pecontract->contract_date }}</td></tr>
                 <tr>
                     <th>09</th><th> Original Contract Price as in NOA </th><td> {{ $pecontract->original_contract_price }}</td>
                 </tr>

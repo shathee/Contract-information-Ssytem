@@ -24,12 +24,12 @@ class GusersController extends Controller
         //dd($designation);
         $keyword = $request->get('search');
         $perPage = 25;
-
+        //dd($keyword);
         if (!empty($keyword)) {
             $gusers = Guser::where('name', 'LIKE', "%$keyword%")
-                ->orWhere('office', 'LIKE', "%$keyword%")
-                ->orWhere('designation', 'LIKE', "%$keyword%")
-                ->orWhere('mobile', 'LIKE', "%$keyword%")
+                //->orWhere('office', 'LIKE', "%$keyword%")
+                //->orWhere('designation', 'LIKE', "%$keyword%")
+                //->orWhere('mobile', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
             $gusers = Guser::paginate($perPage);

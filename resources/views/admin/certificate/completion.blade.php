@@ -70,11 +70,17 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <th>  Circle/Directorate </th><td> {{ $contract->circle->name }} </td>
+                                <th>  Circle/Directorate </th><td> @if(!empty($pecontract->circle->name)) {{ $contract->circle->name }}
+                                @else
+                                {{'N/A'}}
+                                @endif  </td>
                             </tr>
                             <tr>
                                 <th></th>
-                                <th> Zone </th><td> {{ $contract->zone->name }} </td>
+                                <th> Zone </th><td> @if(!empty($pecontract->zone->name)) {{ $contract->zone->name }}
+                                @else
+                                {{'N/A'}}
+                                @endif  </td>
                             </tr>
                             <tr>
                                 <th>02</th>
@@ -236,11 +242,21 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <th>  Circle/Directorate </th><td> {{ $contract->circle->name }} </td>
+                                <th>  Circle/Directorate </th>
+                                <td> @if(!empty($pecontract->circle->name)) {{ $contract->circle->name }}
+                                @else
+                                {{'N/A'}}
+                                @endif </td>
                             </tr>
                             <tr>
                                 <th></th>
-                                <th> Zone </th><td> {{ $contract->zone->name }} </td>
+                                <th> Zone </th>
+                                    <td> 
+                                    @if(!empty($pecontract->zone->name)) {{ $contract->zone->name }} 
+                                    @else
+                                    {{'N/A'}}
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>02</th>

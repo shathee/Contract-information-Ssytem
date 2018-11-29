@@ -52,7 +52,7 @@ class PeContractsController extends Controller
     {
         $peoffice_id = Guser::where('user_id', Auth::id())->first();
         $peoffice = Peoffice::where('id',$peoffice_id->peoffice_id)->first();
-
+        
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffices = Peoffice::all()->pluck('name','id');
@@ -72,7 +72,8 @@ class PeContractsController extends Controller
     {
         
         $requestData = $request->all();
-        dd($requestData);
+        
+        //dd($requestData);
         Contract::create($requestData);
 
         return redirect('/contracts')->with('flash_message', 'Contract added!');

@@ -54,11 +54,19 @@
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Circle Office Name </th><td> {{ $contract->circle->name }} </td>
+	                    <th> Circle Office Name </th><td> @if(!empty($pecontract->circle->name)) 
+                        {{ $pecontract->circle->name }}
+                        @else
+                            {{'N/A'}}
+                        @endif </td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Zone Office Name </th><td> {{ $contract->zone->name }} </td>
+	                    <th> Zone Office Name </th><td> @if(!empty($pecontract->circle->name)) 
+                        {{ $pecontract->zone->name }}
+                        @else
+                            {{'N/A'}}
+                        @endif</td>
 	                </tr>
 	                <tr>
 	                    <th>02</th>

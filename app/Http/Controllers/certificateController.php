@@ -172,7 +172,8 @@ class certificateController extends Controller
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);
 
-        return redirect('certificates/completion-certificate/'.$requestData->id)->with('flash_message', 'Information Updated!');
+        return redirect('certificates/completion-certificate/')->with('flash_message', 'Information Updated!');
+        //.$requestData->id
     }
 
     function makeCompletionCertificatePdf($id){

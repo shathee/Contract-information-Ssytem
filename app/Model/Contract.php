@@ -20,7 +20,7 @@ class Contract extends Model
     */
     protected $primaryKey = 'id';
 
-    protected $dates = ['memo_date','noa_date','contract_date_of_commencement','actual_date_of_commencement','contract_date','actual_contract_date_of_completion'];
+    //protected $dates = ['memo_date','noa_date','contract_date_of_commencement','actual_date_of_commencement','contract_date','actual_contract_date_of_completion'];
     /**
      * Attributes that should be mass-assignable.
      *
