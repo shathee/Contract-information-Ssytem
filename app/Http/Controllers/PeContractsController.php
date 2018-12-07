@@ -72,8 +72,8 @@ class PeContractsController extends Controller
     {
         
         $requestData = $request->all();
-        
-        //dd($requestData);
+        $requestData['user_id'] = Auth::id();
+       // dd($requestData);
         Contract::create($requestData);
 
         return redirect('/contracts')->with('flash_message', 'Contract added!');
@@ -90,13 +90,13 @@ class PeContractsController extends Controller
     {
         $pecontract = Contract::findOrFail($id);
         
-        if($pecontract->contract_date_of_commencement !=null){
-            $contract_date_of_commencement = $pecontract->contract_date_of_commencement;
-            $pecontract->contract_date_of_completion = $contract_date_of_commencement->addDays($pecontract->original_contract_completion_time);
+        // if($pecontract->contract_date_of_commencement !=null){
+        //     $contract_date_of_commencement = $pecontract->contract_date_of_commencement;
+        //     $pecontract->contract_date_of_completion = $contract_date_of_commencement->addDays($pecontract->original_contract_completion_time);
             
-            $actual_date_of_commencement = $pecontract->actual_date_of_commencement;
-            $pecontract->actual_contract_date_of_completion = $actual_date_of_commencement->addDays($pecontract->original_contract_completion_time);
-        }
+        //     $actual_date_of_commencement = $pecontract->actual_date_of_commencement;
+        //     $pecontract->actual_contract_date_of_completion = $actual_date_of_commencement->addDays($pecontract->original_contract_completion_time);
+        // }
         
         
         return view('front.pecontracts.show', compact('pecontract'));

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Model\Peoffice;
 use App\Model\Circle;
 use App\Model\Zone;
+use App\Model\User;
 
 class CommencementsController extends Controller
 {
@@ -26,10 +27,10 @@ class CommencementsController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $peoffice = Peoffice::where('id', $peoffice_id)->get();
+        // $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        // $peoffice = Peoffice::where('id', $peoffice_id)->get();
 
-        $pecontracts = Contract::where('peoffice_id',$peoffice_id)->pluck('id');
+        $pecontracts = Contract::where('user_id', Auth::id())->pluck('id');
        
         
       
@@ -71,8 +72,9 @@ class CommencementsController extends Controller
      */
     public function create()
     {
-        $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->pluck('contract_no','id');
+        // $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
+        // $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
+        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
 
         return view('front.commencements.create', compact('contracts'));
     }
@@ -106,6 +108,8 @@ class CommencementsController extends Controller
      */
     public function show($id)
     {
+        
+
         $commencement = Commencement::findOrFail($id);
         $contract = Contract::where('commencement_id', $id)->first();
 

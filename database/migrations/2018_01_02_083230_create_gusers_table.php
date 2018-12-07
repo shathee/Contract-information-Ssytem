@@ -15,7 +15,7 @@ class CreateGusersTable extends Migration
         Schema::create('gusers', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
             $table->string('name')->nullable();
             $table->string('peoffice_id')->nullable();
             $table->string('designation')->nullable();

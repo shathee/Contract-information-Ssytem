@@ -34,4 +34,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Model\Guser');
     }
+    public function contract()
+    {
+        return $this->hasMany('App\Model\Contract');
+    }
 }

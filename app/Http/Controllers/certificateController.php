@@ -131,7 +131,7 @@ class certificateController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffice = Peoffice::all()->pluck('name','id');
-        
+        //dd($circle);
         if(Auth::user()->role =="ADMIN"){
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
         }else{

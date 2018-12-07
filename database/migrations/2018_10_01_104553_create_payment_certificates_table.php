@@ -16,7 +16,8 @@ class CreatePaymentCertificatesTable extends Migration
         Schema::create('payment_certificates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('certificate_no');
-            $table->string('contract_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('contract_id');
             $table->string('bill_id');
             $table->string('issuer_name');
             $table->timestamps();

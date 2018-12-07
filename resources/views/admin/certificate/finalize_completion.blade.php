@@ -13,9 +13,9 @@
   </div>  
   <div class="card-body">
     
-    <h5 class="card-title text-right">
+    <!-- <h5 class="card-title text-right">
        <a href="{{ url('') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a> 
-    </h5>
+    </h5> -->
     
     @if ($errors->any())
         <ul class="alert alert-danger">
@@ -28,8 +28,11 @@
     <form method="POST" action="{{ url('certificates/store-completion-certificate/' . $contract->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
         
         {{ csrf_field() }}
-
-        @include ('admin.certificate.form', ['submitButtonText' => 'Finalize'])
+        @if($contract->contract_type=='works')
+          @include ('admin.certificate.form_works', ['submitButtonText' => 'Finalize'])
+        @elseif($contract->contract_type=='goods')
+          @include ('admin.certificate.form_goods', ['submitButtonText' => 'Finalize'])
+        @endif
 
     </form>
    

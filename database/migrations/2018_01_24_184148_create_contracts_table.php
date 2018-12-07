@@ -16,11 +16,12 @@ class CreateContractsTable extends Migration
             $table->increments('id');
             $table->string('office_memo')->nullable();
             $table->date('memo_date')->nullable();
-            $table->string('project_id')->nullable();
+            $table->unsignedInteger('project_id')->nullable();
+            $table->unsignedInteger('user_id');
            
-            $table->string('peoffice_id')->nullable();
-            $table->string('circle_id')->nullable();
-            $table->string('zone_id')->nullable();
+            $table->unsignedInteger('peoffice_id')->nullable();
+            $table->unsignedInteger('circle_id')->nullable();
+            $table->unsignedInteger('zone_id')->nullable();
             $table->text('others')->nullable();
             $table->text('name_of_works');
             $table->string('contract_no')->nullable();

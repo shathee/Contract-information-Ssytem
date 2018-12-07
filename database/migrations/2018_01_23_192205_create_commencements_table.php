@@ -15,7 +15,8 @@ class CreateCommencementsTable extends Migration
         Schema::create('commencements', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->string('contract_id')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('contract_id');
             $table->string('commencement_memo_no')->nullable();
             $table->date('commencement_memo_date')->nullable();
             $table->string('contract_no')->nullable();

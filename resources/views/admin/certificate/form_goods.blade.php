@@ -6,7 +6,9 @@
         </a>
     </div>
 -->
+
 </div>
+
 <table class="table">
     <tr>
         <td>
@@ -30,7 +32,7 @@
     </tr>
 </table>
 
-<h4 class="text-center">COMPLETION CERTIFICATE</h4>
+<h4 class="text-center">ACCEPTANCE CERTIFICATE</h4>
 
 <table class="table  table-bordered ">
     <tr>
@@ -114,7 +116,7 @@
     </tr>
     <tr>
         <td>
-            <label for="name_of_works" class="col-md-8 control-label">{{ 'Name Of Works' }}</label>
+            <label for="name_of_works" class="col-md-8 control-label">{{ 'Name Of the Supply' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('name_of_works') ? 'has-error' : ''}}">
@@ -157,7 +159,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_legal_title" class="col-md-8 control-label">{{ 'Contractors Legal Title' }}</label>
+            <label for="contractors_legal_title" class="col-md-8 control-label">{{ 'Suppliers Legal Title' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_legal_title') ? 'has-error' : ''}}">
@@ -171,7 +173,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_contact_details" class="col-md-8 control-label">{{ 'Contractors Contact Details' }}</label>
+            <label for="contractors_contact_details" class="col-md-8 control-label">{{ 'Supplier’s Contact Details' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_contact_details') ? 'has-error' : ''}}">
@@ -185,7 +187,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_trade_license_details" class="col-md-8 control-label">{{ 'Contractorstrade License Details' }}</label>
+            <label for="contractors_trade_license_details" class="col-md-8 control-label">{{ 'Supplier’s Trade License/Enlishment/Registration  Details' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_trade_license_details') ? 'has-error' : ''}}">
@@ -242,7 +244,7 @@
     </tr>
     <tr>
         <td>
-             <label for="executed_contract_price" class="col-md-10 control-label">{{ 'Executed Contract Price' }}</label>
+             <label for="executed_contract_price" class="col-md-10 control-label">{{ 'Final Contract Price as Delivered' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('executed_contract_price') ? 'has-error' : ''}}">
@@ -257,7 +259,7 @@
     </tr>
     <tr>
         <td>
-             <label for="contract_date_of_commencement" class="col-md-8 control-label">{{ 'Contract Date Of Commencement' }}</label>
+             <label for="contract_date_of_commencement" class="col-md-8 control-label">{{ 'Date Of Commencement' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contract_date_of_commencement') ? 'has-error' : ''}}">
@@ -271,7 +273,7 @@
     </tr>
     <tr>
         <td>
-             <label for="contract_date_of_completion" class="col-md-8 control-label">{{ 'Contract Date Of Completion' }}</label>
+             <label for="contract_date_of_completion" class="col-md-8 control-label">{{ 'Date Of Completion' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contract_date_of_completion') ? 'has-error' : ''}}">
@@ -299,7 +301,7 @@
     </tr>
     <tr>
         <td>
-            <label for="actual_contract_date_of_completion" class="col-md-8 control-label">{{ 'Actual Contract Date Of Completion' }}</label>
+            <label for="actual_contract_date_of_completion" class="col-md-8 control-label">{{ 'Actual Date Of Completion' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('actual_contract_date_of_completion') ? 'has-error' : ''}}">
@@ -313,7 +315,7 @@
     </tr>
     <tr>
         <td>
-            <label for="days_contract_period_extended" class="col-md-8 control-label">{{ 'Days/Months Contract Period Extended' }}</label>
+            <label for="days_contract_period_extended" class="col-md-8 control-label">{{ 'Days/Months Delivery Period Extended' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('days_contract_period_extended') ? 'has-error' : ''}}">
@@ -326,7 +328,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>
             <label for="amount_bonus_early_completion" class="col-md-8 control-label">{{ 'Amount Bonus Early Completion' }}</label>
         </td>
@@ -339,10 +341,10 @@
                 </div>
             </div>
         </td>
-    </tr>
+    </tr> -->
     <tr>
         <td>
-            <label for="amount_ld_delayed_completion" class="col-md-8 control-label">{{ 'Amount Ld Delayed Completion' }}</label>
+            <label for="amount_ld_delayed_completion" class="col-md-8 control-label">{{ 'Amount of LD for Delayed Delivery' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('amount_ld_delayed_completion') ? 'has-error' : ''}}">
@@ -354,7 +356,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>
             <label for="physical_progress" class="col-md-8 control-label">{{ 'Physical Progress in Percent (in terms of value)' }}</label>
         </td>
@@ -382,7 +384,7 @@
                 </div>
             </div>
         </td>
-    </tr>
+    </tr> -->
     <tr>
         <td>
             <label for="special_note" class="col-md-8 control-label">{{ 'Special Note (if any)' }}</label>
@@ -409,6 +411,7 @@
         <td></td>
     </tr>
 </table>
+
 
 <script type="text/javascript">
 
