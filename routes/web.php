@@ -82,4 +82,4 @@ Route::get('search', function () {
 Route::get('pubs/staff', 'SearchController@staff');
 Route::get('pubs/contact', 'SearchController@contact');
 
-Route::resource('uploads', 'UploadsController');
+//Route::resource('uploads', 'UploadsController');

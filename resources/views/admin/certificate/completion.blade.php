@@ -243,7 +243,7 @@
                             <tr>
                                 <th></th>
                                 <th>  Circle/Directorate </th>
-                                <td> @if(!empty($pecontract->circle->name)) {{ $contract->circle->name }}
+                                <td> @if(!empty($contract->circle->name)) {{ $contract->circle->name }}
                                 @else
                                 {{'N/A'}}
                                 @endif </td>
@@ -252,7 +252,7 @@
                                 <th></th>
                                 <th> Zone </th>
                                     <td> 
-                                    @if(!empty($pecontract->zone->name)) {{ $contract->zone->name }} 
+                                    @if(!empty($contract->zone->name)) {{ $contract->zone->name }} 
                                     @else
                                     {{'N/A'}}
                                     @endif

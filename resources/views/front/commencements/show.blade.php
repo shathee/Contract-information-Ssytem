@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header d-print-none">
-    Commencement {{ $commencement->id }}
+    Commencement Detail
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right d-print-none">

@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header">
-    pecontract {{ $pecontract->id }}
+    Contract {{ $pecontract->id }}
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">

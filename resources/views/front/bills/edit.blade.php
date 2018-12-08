@@ -4,7 +4,7 @@
 
 <div class="card">
   <div class="card-header">
-    Edit Bill #{{ $bill->id }}
+    Edit Bill Information
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">

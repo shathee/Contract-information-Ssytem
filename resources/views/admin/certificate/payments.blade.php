@@ -9,7 +9,7 @@
 	   		<a href="{{ url('certificates/payment-certificate') }}" title="Back">
 	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 	   		</a> 
-	       <button class="btn btn-info" onClick="window.print()">Print</button>
+	       <!-- <button class="btn btn-info" onClick="window.print()">Print</button> -->
 	    </h5>
   </div>  
   <div class="card-body">

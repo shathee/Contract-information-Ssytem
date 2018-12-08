@@ -4,7 +4,7 @@
 
 <div class="card">
   <div class="card-header">
-    Edit pecontract #{{ $pecontract->id }}
+    Edit Contract Information
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">

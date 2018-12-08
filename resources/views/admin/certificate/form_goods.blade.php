@@ -61,7 +61,7 @@
             <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
     
             <div class="col-md-10">
-                @if(!empty($pecontract->circle->name)) 
+                @if(!empty($contract->circle->name)) 
                 <select name="circle_id" class="form-control disabled" id="circle_id" >
                         @foreach ($circle as $optionKey => $optionValue)
                             <option value="{{ $optionKey }}" {{ (isset($contract->circle_id) && $contract->circle_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
@@ -85,7 +85,7 @@
             <div class="form-group {{ $errors->has('zone_id') ? 'has-error' : ''}}">
     
                 <div class="col-md-10">
-                    @if(!empty($pecontract->circle->name)) 
+                    @if(!empty($contract->circle->name)) 
                     <select name="zone_id" class="form-control disabled" id="zone_id">
                         @foreach ($zone as $optionKey => $optionValue)
                             <option value="{{ $optionKey }}" {{ (isset($contract->zone_id) && $contract->zone_id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
@@ -207,7 +207,7 @@
             <div class="form-group {{ $errors->has('noa_reference') ? 'has-error' : ''}}">
             
             <div class="col-md-10">
-                <input class="form-control" name="noa_reference" type="text" id="noa_reference" value="{{ $contract->noa_reference or ''}}" readonly required>
+                <input class="form-control" name="noa_reference" type="text" id="noa_reference" value="{{ $contract->noa_reference or ''}}" readonly >
                 {!! $errors->first('noa_reference', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
@@ -279,7 +279,7 @@
             <div class="form-group {{ $errors->has('contract_date_of_completion') ? 'has-error' : ''}}">
                
                 <div class="col-md-10">
-                    <input class="form-control" name="contract_date_of_completion" type="date" id="contract_date_of_completion" value="{{ $contract->contract_date_of_completion or ''}}" required>
+                    <input class="form-control date_picker" name="contract_date_of_completion" type="text" id="contract_date_of_completion" value="{{ $contract->contract_date_of_completion or ''}}" required>
                     {!! $errors->first('contract_date_of_completion', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -293,7 +293,7 @@
             <div class="form-group {{ $errors->has('actual_date_of_commencement') ? 'has-error' : ''}}">
                 
                 <div class="col-md-10">
-                    <input class="form-control" name="actual_date_of_commencement" type="text" id="actual_date_of_commencement" value="{{ $contract->actual_date_of_commencement or ''}}" required readonly>
+                    <input class="form-control date_picker" name="actual_date_of_commencement" type="text" id="actual_date_of_commencement" value="{{ $contract->actual_date_of_commencement or ''}}" required readonly>
                     {!! $errors->first('actual_date_of_commencement', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -307,7 +307,7 @@
             <div class="form-group {{ $errors->has('actual_contract_date_of_completion') ? 'has-error' : ''}}">
                 
                 <div class="col-md-10">
-                    <input class="form-control" name="actual_contract_date_of_completion" type="date" id="actual_contract_date_of_completion" value="{{ $contract->actual_contract_date_of_completion or ''}}" >
+                    <input class="form-control date_picker" name="actual_contract_date_of_completion" type="text" id="actual_contract_date_of_completion" value="{{ $contract->actual_contract_date_of_completion or ''}}" >
                     {!! $errors->first('actual_contract_date_of_completion', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

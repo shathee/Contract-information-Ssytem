@@ -4,22 +4,25 @@
     
 <div class="card">
   <div class="card-header d-print-none">
-	   <div class="card-title text-right">
-            <span class="">{{ $o['type'] }}</span>
-	   		<a href="{{ url('certificates/'.$o['type']) }}" title="Back">
-	   			<button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-	   		</a> 
-            
-	       <!--<button class="btn btn-info" onClick="window.print()">Print</button>-->
-	    </div>
+        <span class="">{{ title_case($o['type']) }}s</span>
+	   
   </div>  
   <div class="card-body">
+        <div class="card-title text-right">
+            
+            <a href="{{ url('certificates/'.$o['type']) }}" title="Back">
+                <button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+            </a> 
+            
+           <!--<button class="btn btn-info" onClick="window.print()">Print</button>-->
+        </div>
         <table class="table table-borderless">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>E-GP Id</th>
                     <th>Contract/Package No</th>
+                    <th>Type</th>
                     <th>NOA Date </th>
                     <th>Actions</th>
                 </tr>
@@ -30,6 +33,7 @@
                     <td>{{ $loop->iteration or $item->id }}</td>
                     <td>{{ $item->egp_id }}</td>
                     <td>{{ $item->contract_no }}</td>
+                    <td>{{ title_case($item->contract_type) }}</td>
                     <td>{{ $item->noa_date }}</td>
                     <td>
                         @if($o['type']=='payment-certificate')
