@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\User;
 use App\Model\Contract;
 use App\Model\Guser;
 use App\Model\Peoffice;
@@ -73,7 +74,12 @@ class PeContractsController extends Controller
         
         $requestData = $request->all();
         $requestData['user_id'] = Auth::id();
-       // dd($requestData);
+        if($requestData['contract_type']!='works'){
+            $requestData['commencement_id'] = "na";
+        }else{
+            $requestData['commencement_id'] = NULL;
+        }
+       //dd($requestData);
         Contract::create($requestData);
 
         return redirect('/contracts')->with('flash_message', 'Contract added!');
@@ -97,7 +103,8 @@ class PeContractsController extends Controller
         //     $actual_date_of_commencement = $pecontract->actual_date_of_commencement;
         //     $pecontract->actual_contract_date_of_completion = $actual_date_of_commencement->addDays($pecontract->original_contract_completion_time);
         // }
-        
+        //dd($pecontract);
+        abort_if($pecontract->user_id != Auth::id(), 403);
         
         return view('front.pecontracts.show', compact('pecontract'));
     }
@@ -112,6 +119,7 @@ class PeContractsController extends Controller
     public function edit($id)
     {
         $pecontract = Contract::findOrFail($id);
+        abort_if($pecontract->user_id != Auth::id(), 403);
 
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         $peoffice = Peoffice::where('id',$peoffice_id)->first();;
@@ -137,6 +145,7 @@ class PeContractsController extends Controller
         $requestData = $request->all();
         //dd($requestData, $id);
         $pecontract = Contract::findOrFail($id);
+        abort_if($pecontract->user_id != Auth::id(), 403);
         $pecontract->update($requestData);
 
         return redirect('contracts')->with('flash_message', 'Contract updated!');
@@ -151,8 +160,10 @@ class PeContractsController extends Controller
      */
     public function destroy($id)
     {
+        $pecontract = Contract::findOrFail($id);
+        abort_if($pecontract->user_id != Auth::id(), 403);
         Contract::destroy($id);
 
-        return redirect('pecontracts')->with('flash_message', 'Contract deleted!');
+        return redirect('contracts')->with('flash_message', 'Contract deleted!');
     }
 }

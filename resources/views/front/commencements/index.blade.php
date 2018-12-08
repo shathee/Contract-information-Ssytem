@@ -7,6 +7,9 @@
    Commencements
   </div>  
   <div class="card-body">
+    @if(Session::has('flash_message'))
+    <p class="alert alert-info"> {{ Session::get('flash_message') }}</p>
+    @endif
     <h5 class="card-title text-right">
     <a href="{{ url('/commencements/create') }}" class="btn btn-success btn-sm" title="Add New Commencement">
         <i class="fa fa-plus" aria-hidden="true"></i> Add New

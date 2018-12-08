@@ -25,7 +25,7 @@ class Commencement extends Model
      *
      * @var array
      */
-    protected $fillable = ['commencement_memo_no', 'commencement_memo_date', 'contract_id', 'contract_commencement_date', 'insurance_policy_date', 'programme_date'];
+    protected $fillable = ['user_id','commencement_memo_no', 'commencement_memo_date', 'contract_id', 'contract_commencement_date', 'insurance_policy_date', 'programme_date'];
 
     
     public function contract()

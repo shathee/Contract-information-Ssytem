@@ -129,7 +129,14 @@
 		        		<td>{{Format::number($bill->gross_payment,3, ".", ",") }}</td>
 		        	
 		        	</tr>
-		        	<tr class="">
+		        	
+	        	@empty
+	        		<tr>
+		        		<td colspan="6">No Data Found</td>
+		        	
+		        	</tr>
+	        	@endforelse
+	        		<tr class="">
 		        		<td colspan="2"><b>Cumulative Up to Last Bill</b></td>
 		        		<td><b>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</b></td>
 		        		<td><b>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</b></td>
@@ -163,13 +170,6 @@
 	                        </p>
 	                    </td>
                		</tr>
-	        	@empty
-	        		<tr>
-		        		<td colspan="6">No Data Found</td>
-		        	
-		        	</tr>
-	        	@endforelse
-	        		
                		
 	        	</tbody>
 	        	

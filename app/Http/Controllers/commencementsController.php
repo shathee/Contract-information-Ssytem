@@ -32,9 +32,6 @@ class CommencementsController extends Controller
 
         $pecontracts = Contract::where('user_id', Auth::id())->pluck('id');
        
-        
-      
-
         if (!empty($keyword)) {
             $commencements = Commencement::where('commencement_memo_no', 'LIKE', "%$keyword%")
                 ->orWhere('commencement_memo_date', 'LIKE', "%$keyword%")
@@ -90,7 +87,7 @@ class CommencementsController extends Controller
     {
         
         $requestData = $request->all();
-        
+        $requestData['user_id'] = Auth::id();
         $commencement = Commencement::create($requestData);
 
         Contract::where('id', $commencement->contract_id)
@@ -111,6 +108,7 @@ class CommencementsController extends Controller
         
 
         $commencement = Commencement::findOrFail($id);
+        abort_if($commencement->user_id != Auth::id(), 403);
         $contract = Contract::where('commencement_id', $id)->first();
 
         
@@ -127,9 +125,10 @@ class CommencementsController extends Controller
     public function edit($id)
     {
         $commencement = Commencement::findOrFail($id);
+        abort_if($commencement->user_id != Auth::id(), 403);
 
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->pluck('contract_no','id');
+        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
 
         return view('front.commencements.edit', compact('commencement','contracts'));
     }
@@ -148,6 +147,7 @@ class CommencementsController extends Controller
         $requestData = $request->all();
         
         $commencement = Commencement::findOrFail($id);
+        abort_if($commencement->user_id != Auth::id(), 403);
         $commencement->update($requestData);
 
         return redirect('commencements')->with('flash_message', 'Commencement updated!');
@@ -164,7 +164,7 @@ class CommencementsController extends Controller
     {
         
         $commencement = Commencement::find($id);
-
+        abort_if($commencement->user_id != Auth::id(), 403);
         Contract::where('id', $commencement->contract_id)
           ->update(['commencement_id' => NULL,'contract_date_of_commencement'=>NULL]);
         

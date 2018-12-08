@@ -39,7 +39,13 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Peoffice Id </th><td> {{ $pecontract->peoffice->name }} </td>
+                    <th> Peoffice Id </th><td> 
+                        @if(!empty($pecontract->peoffice->name)) 
+                        {{ $pecontract->peoffice->name }}
+                        @else
+                            {{'N/A'}}
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th></th>

@@ -12,13 +12,18 @@
         </div>
     </div>
     <div class="form-group {{ $errors->has('contract_id') ? 'has-error' : ''}}">
-        <label for="contract_id" class="col-md-4 control-label">{{ 'Contract Package No' }}</label>
+        <label for="contract_id" class="col-md-4 control-label">{{ 'Contract Package No'}}</label>
         <div class="col-md-6">
+            @if(isset($commencement->contract->id) &&  $commencement->contract->id!=NULL)
+            <span><small>{{ $commencement->contract->contract_no }}</small></span>
+            @else
             <select name="contract_id" class="form-control" id="contract_id" required>
                 @foreach ($contracts as $optionKey => $optionValue)
-                    <option value="{{ $optionKey }}" {{ (isset($commencement->contract_no) && $commencement->contract_no == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+                    <option value="{{ $optionKey }}" >{{ $optionValue }}</option>
                 @endforeach
             </select>
+            @endif
+            
             <!--<input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $commencement->contract_no or ''}}" >-->
             {!! $errors->first('contract_id', '<p class="help-block">:message</p>') !!}
         </div>

@@ -22,15 +22,30 @@
         <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
     </div>
     <div class="text-center">
-        <address>
-          <strong>{{ $pe->name}}</strong><br>
-          <strong>{{ $pe->address}}</strong><br>
-          <strong>{{ $pe->postcode}}</strong><br>
-          <strong></strong><br>
-          <br>
-          <abbr title="Phone"></abbr> 
-        </address>
-        <h3>Payment Certificate</h3>
+        <div class="text-center row">
+        <div class="col-md-3 col-sm-3 certificate-top-left">
+          <address>
+              <strong>{{ $bill->contract->peoffice->name}}</strong><br>
+              {{ $bill->contract->peoffice->address}}<br>
+              {{ $bill->contract->peoffice->district->name or ''}}-{{ $bill->contract->peoffice->postcode or ''}}<br>
+              <abbr title="Phone">P:</abbr> {{ $bill->contract->peoffice->phone}}
+            </address>
+        </div>
+        <div class="col-md-6 col-sm-6 certificate-top-middle">
+              <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+              <h3>Bangladesh Water Development Board</h3>
+          
+        </div>
+        <div class="col-md-3 col-sm-3 certificate-top-right">
+          <address>
+              <strong>{{ $bill->contract->peoffice->name}}</strong><br>
+              {{ $bill->contract->peoffice->address}}<br>
+              {{ $bill->contract->peoffice->district->name or ''}}-{{ $bill->contract->peoffice->postcode or ''}}<br>
+              <abbr title="Phone">P:</abbr> {{ $bill->contract->peoffice->phone}}
+            </address>
+        </div>
+        
+      </div>
     </div>
     <div class="table-responsive">
         <table class="table table-borderless">

@@ -137,7 +137,14 @@
 		        	
 		        	</tr>
 
-		        	<tr class="bg-secondary">
+		        	
+	        	@empty
+	        		<tr>
+		        		<td colspan="6">No Data Found</td>
+		        	
+		        	</tr>
+	        	@endforelse
+	        		<tr class="bg-secondary">
 		        		<td colspan="2">Cumulative Up to Last Bill</td>
 		        		<td>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</td>
 		        		<td>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</td>
@@ -150,8 +157,7 @@
 		        	<tr>
 	                    <td>&nbsp;</td>
 	                </tr>
-		        	
-		        	<tr>
+	        		<tr>
 	                    <td></td>
 	                    <td colspan="5" class="text-right">
 	                        <p>&nbsp;</p>
@@ -161,8 +167,7 @@
 	                        </br>Date:{{date('Y-m-d')}}</p>
 	                    </td>
                		</tr>
-               		
-		        	<tr>
+               		<tr>
 	                    <td></td>
 	                    <td colspan="5" class="text-right">
 	                        <form method="POST" action="{{ url('certificates/store-payment-certificate/' . $contract->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
@@ -175,19 +180,10 @@
 						        	
 					        	@endforeach
 					        	<input class="form-control" name="issuer_name" type="hidden" id="bill_id" value="{{ $pe->name}}" required >
-					        	<input onclick="ConfirmBox('Are you Sure')" class="btn btn-primary" type="submit" value="{{ $submitButtonText or 'Generate' }}">
+					        	<input onClick="confSubmit(this.form);" type="button" value="{{ $submitButtonText or 'Generate' }}">
 						    </form>
 	                    </td>
                		</tr>
-
-		        	
-	        	@empty
-	        		<tr>
-		        		<td colspan="6">No Data Found</td>
-		        	
-		        	</tr>
-	        	@endforelse
-	        		
                		
 	        	</tbody>
 	        	
@@ -201,11 +197,17 @@
 </div>
 
 <script type="text/javascript">
-
-function ConfirmBox() {
-    alert("Are you sure that you want to generate Payment Certificate?");
-    
+function confSubmit(form) {
+if (confirm("Are you sure you want to submit the form?")) {
+form.submit();
 }
+
+else {
+alert("You decided to not submit the form!");
+return false;
+}
+}
+
 </script>
 
 
