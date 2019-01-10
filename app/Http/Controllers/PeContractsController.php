@@ -103,7 +103,8 @@ class PeContractsController extends Controller
         //     $actual_date_of_commencement = $pecontract->actual_date_of_commencement;
         //     $pecontract->actual_contract_date_of_completion = $actual_date_of_commencement->addDays($pecontract->original_contract_completion_time);
         // }
-        //dd($pecontract);
+        //dd($pecontract->user_id);
+
         abort_if($pecontract->user_id != Auth::id(), 403);
         
         return view('front.pecontracts.show', compact('pecontract'));

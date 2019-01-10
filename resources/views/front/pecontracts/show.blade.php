@@ -108,7 +108,7 @@
                 <tr><th></th><th> (a) Date of Completion</th>
                     <td>
                         @if(!empty($pecontract->contract_date_of_completion))
-                            {{ $pecontract->contract_date_of_completion->toDateString() }}
+                            {{ $pecontract->contract_date_of_completion }}
                         @else
                             {{ '' }}
                         @endif

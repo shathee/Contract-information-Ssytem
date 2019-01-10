@@ -84,10 +84,12 @@ class CommencementsController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
-    {
+    {   
+        ///dd($request->all());
         
         $requestData = $request->all();
         $requestData['user_id'] = Auth::id();
+
         $commencement = Commencement::create($requestData);
 
         Contract::where('id', $commencement->contract_id)
@@ -108,6 +110,7 @@ class CommencementsController extends Controller
         
 
         $commencement = Commencement::findOrFail($id);
+        dd($commencement);
         abort_if($commencement->user_id != Auth::id(), 403);
         $contract = Contract::where('commencement_id', $id)->first();
 

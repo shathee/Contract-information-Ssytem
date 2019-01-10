@@ -81,8 +81,19 @@
                         <p>
                             <ol>
                             <li>Commence execution of  the Works, in accordance with GCC Sub Clause 1.1(nn), within <strong>{{ $commencement->contract_commencement_date}}</strong>;</li>
-                            <li>Submit Insurance Policy Documents, in accordance with GCC Sub Clause 36.2, within <strong>{{ $commencement->insurance_policy_date}}</strong> </li>
-                            <li>Submit Programme of Works, in accordance with GCC Sub Clause 41.1, within <strong>{{ $commencement->programme_date}}</strong></li>
+                            @if(!empty($commencement->insurance_policy_date)) 
+                                <li>Submit Insurance Policy Documents, in accordance with GCC Sub Clause 36.2, within <strong>{{ $commencement->insurance_policy_date}}</strong> </li>
+                            @else
+                                {{''}}
+                            @endif 
+
+                            @if(!empty($commencement->programme_date)) 
+                                <li>Submit Programme of Works, in accordance with GCC Sub Clause 41.1, within <strong>{{ $commencement->programme_date}}</strong></li>
+                            @else
+                                {{''}}
+                            @endif 
+                            
+                            
                         </p>
                     </td>
                 </tr>
