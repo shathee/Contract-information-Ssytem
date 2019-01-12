@@ -36,17 +36,20 @@
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="checkbox" name="commencement_condition_1" aria-label="Checkbox for following text input" default=""> &nbsp; (i) the Contract Agreement has been signed;
+                  <input type="hidden" name="commencement_condition_1"value="" >
+                  <input type="checkbox" name="commencement_condition_1" aria-label="Checkbox for following text input" default="" value="{{'on'}}"  @if(isset($commencement->commencement_condition_1) && $commencement->commencement_condition_1=='on')) checked=checked @endif > &nbsp; (i) the Contract Agreement has been signed;
                 </div>
               </div>
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="checkbox" name="commencement_condition_2" aria-label="Checkbox for following text input"> &nbsp; (ii) the possession of the Site has been given;
+                  <input type="hidden" name="commencement_condition_2"value="" >
+                  <input type="checkbox" name="commencement_condition_2" aria-label="Checkbox for following text input" value="{{'on'}}"  @if(isset($commencement->commencement_condition_2) && $commencement->commencement_condition_2=='on')) checked=checked @endif> &nbsp; (ii) the possession of the Site has been given;
                 </div>
               </div>
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="checkbox" name="commencement_condition_3" aria-label="Checkbox for following text input"> &nbsp; (iii) the advance payment has been made.
+                    <input type="hidden" name="commencement_condition_3" value="">
+                  <input type="checkbox" name="commencement_condition_3" aria-label="Checkbox for following text input" value="{{'on'}}"  @if(isset($commencement->commencement_condition_3) && $commencement->commencement_condition_3=='on')) checked=checked @endif> &nbsp; (iii) the advance payment has been made.
                 </div>
               </div>
               

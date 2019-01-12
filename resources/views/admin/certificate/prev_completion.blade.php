@@ -15,33 +15,10 @@
 
 
   </div> 
-
-  <div class="card-body" id="completion-certificate">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
-                        <h3 class="text-center">Bangladesh Water Development Board</h3>
-                        
-                    </div>
-                </div>
+    @if($contract->contract_type=='works')
+            <div class="card-body" id="completion-certificate">
                 <div class="text-center row">
-                    
-                    <div class="col-md-4 col-sm-4 certificate-top-left">
-                        <address>
-                          <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
-
-                          {{ __($contract->peoffice->address,[],'bn') }}<br>
-                          {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
-                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-                        </address>
-                       
-                    </div>
-                    <div class="col-md-4 col-sm-4 certificate-top-middle">
-                        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-                        
-                        
-                    </div>
-                    <div class="col-md-4 col-sm-4 certificate-top-right">
+                    <div class="col-md-3 col-sm-3 certificate-top-left">
                         <address>
                           <strong>{{ $contract->peoffice->name}}</strong><br>
                           {{ $contract->peoffice->address}}<br>
@@ -49,7 +26,20 @@
                           <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
                         </address>
                     </div>
-                  
+                    <div class="col-md-6 col-sm-6 certificate-top-middle">
+                        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+                        <h3>Bangladesh Water Development Board</h3>
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 certificate-top-right">
+                        <address>
+                          <strong>{{ $contract->peoffice->name}}</strong><br>
+                          {{ $contract->peoffice->address}}<br>
+                          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                        </address>
+                    </div>
+                    
                 </div>
                 <hr>
                 <div class="text-center row">
@@ -63,13 +53,11 @@
                        
                        
                     </div>
-                    <div class="col-md-4 col-sm-4 text-right">
-                       Date:&nbsp;{{ app_date_format($contract->memo_date,'d-m-Y') }}
+                    <div class="col-md-4 col-sm-4">
+                       Date:{{ $contract->memo_date}}
                     </div>
                     
                 </div>
-                @if($contract->contract_type=='works')
-                        
                 <h3 class="text-center">COMPLETION CERTIFICATE</h3>
                 <div class="table-responsive">
                     <table id="completion-certificate-table" class="table table-bordered">
@@ -168,7 +156,7 @@
                                 <th>17</th><th>Financial Progress in Amount (in terms of payment)</th><td> {{number_format($contract->fp, 2, '.', ',')}} %</td>
                             </tr>
                             <tr>
-                                <th>18</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
+                                <th>18</th><th> Special Note (if any)</th><td> </td>
                             </tr>
                         </tbody>
                     </table>
@@ -180,11 +168,84 @@
                         </p>
                     </div>
                 </div>
-                
-                            
-                      
-                @elseif($contract->contract_type=='goods')
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                               
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        &nbsp; 
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <p>
+                            {{ $contract->issuers_name }}
+                            <br>{{ $contract->issuers_designation }}
+                           <br> Date:{{date('Y-m-d')}}</p> 
+                    </div>
+                </div>
+          </div>
+    @elseif($contract->contract_type=='goods')
+            <div class="card-body" id="completion-certificate">
+                <div class="row">
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
+                        <h3 class="text-center">Bangladesh Water Development Board</h3>
                         
+                    </div>
+                </div>
+                <div class="text-center row">
+                    
+                    <div class="col-md-3 col-sm-3 certificate-top-left">
+                        <address>
+
+                            
+                        <address>
+                          <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
+
+                          {{ __($contract->peoffice->address,[],'bn') }}<br>
+                          {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
+                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                        </address>
+                       
+                    </div>
+                    <div class="col-md-6 col-sm-6 certificate-top-middle">
+                        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+                        
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 certificate-top-right">
+                        <address>
+                          <strong>{{ $contract->peoffice->name}}</strong><br>
+                          {{ $contract->peoffice->address}}<br>
+                          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                        </address>
+                    </div>
+                   
+                     
+                   
+                </div>
+                <hr>
+                <div class="text-center row">
+                    <div class="col-md-4 col-sm-4">
+                        Office Memo No. : {{ $contract->office_memo}}
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                       <span style="color: #c40000;">
+                        Certificate No. : {{ $contract->certificate_no }}    
+                       </span>
+                       
+                       
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                       Date:&nbsp;{{ app_date_format($contract->memo_date,'d-m-Y') }}
+                    </div>
+                    
+                </div>
                 <h3 class="text-center">ACCEPTANCE CERTIFICATE</h3>
                 <div class="table-responsive">
                     <table id="completion-certificate-table" class="table table-bordered">
@@ -277,7 +338,7 @@
                             </tr>
                             
                             <tr>
-                                <th>14</th><th> Special Note (if any)</th><td> {{ $contract->special_note }}</td>
+                                <th>14</th><th> Special Note (if any)</th><td> </td>
                             </tr>
                         </tbody>
                     </table>
@@ -289,11 +350,6 @@
                         </p>
                     </div>
                 </div>
-                            
-                @elseif($contract->contract_type=='services')
-
-                @endif 
-
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
@@ -309,11 +365,14 @@
                         <p>
                             {{ $contract->issuers_name }}
                             <br>{{ $contract->issuers_designation }}
-                           <br> Date:&nbsp;{{ app_date_format($contract->memo_date,'dS F, Y') }}
+                           <br> Date:{{date('Y-m-d')}}
                         </p> 
                     </div>
                 </div>
             </div>
+    @elseif($contract->contract_type=='services')
+
+    @endif 
   
 </div>
 

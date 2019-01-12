@@ -85,7 +85,7 @@ class CommencementsController extends Controller
      */
     public function store(Request $request)
     {   
-        ///dd($request->all());
+        //dd($request->all());
         
         $requestData = $request->all();
         $requestData['user_id'] = Auth::id();
@@ -110,7 +110,7 @@ class CommencementsController extends Controller
         
 
         $commencement = Commencement::findOrFail($id);
-        dd($commencement);
+        //dd($commencement);
         abort_if($commencement->user_id != Auth::id(), 403);
         $contract = Contract::where('commencement_id', $id)->first();
 
@@ -148,9 +148,10 @@ class CommencementsController extends Controller
     {
         
         $requestData = $request->all();
-        
+        //dd($requestData);
         $commencement = Commencement::findOrFail($id);
         abort_if($commencement->user_id != Auth::id(), 403);
+        
         $commencement->update($requestData);
 
         return redirect('commencements')->with('flash_message', 'Commencement updated!');

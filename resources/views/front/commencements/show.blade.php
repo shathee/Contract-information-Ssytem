@@ -6,7 +6,7 @@
   <div class="card-header d-print-none">
     Commencement Detail
   </div>  
-  <div class="card-body">
+  <div class="card-body"  id="commencement-certificate">
     <h5 class="card-title text-right d-print-none">
         <button class="btn btn-info" onClick="window.print()">Print</button>
         <a href="{{ url('/commencements') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -19,39 +19,48 @@
         </form>
     </h5>
     
-    <div class="text-center row">
-    	<div class="col-md-3 col-sm-3 certificate-top-left">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	<div class="col-md-6 col-sm-6 certificate-top-middle">
-            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-            <h3>Bangladesh Water Development Board</h3>
-    		
-    	</div>
-    	<div class="col-md-3 col-sm-3 certificate-top-right">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	
-    </div>
-    <div class="table-responsive">
-        <table class="table table-borderless">
-            
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
+                    <h3 class="text-center">Bangladesh Water Development Board</h3>
+                    
+                </div>
+            </div>
+            <div class="text-center row">
                 
-                <tr>
+                <div class="col-md-4 col-sm-4 certificate-top-left">
+                    <address>
+                      <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
+
+                      {{ __($contract->peoffice->address,[],'bn') }}<br>
+                      {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
+                      <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                    </address>
+                   
+                </div>
+                <div class="col-md-4 col-sm-4 certificate-top-middle">
+                    <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+                    
+                    
+                </div>
+                <div class="col-md-4 col-sm-4 certificate-top-right">
+                    <address>
+                      <strong>{{ $contract->peoffice->name}}</strong><br>
+                      {{ $contract->peoffice->address}}<br>
+                      {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+                      <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                    </address>
+                </div>
+              
+            </div>
+                <hr>
+    <div class="table-responsive">
+        <table class="">
+               <tr>
                     <td>Office Memo:{{ $commencement->commencement_memo_no }} </td>
                     <td class="text-right">Date: {{ $commencement->commencement_memo_date }} </td>
                 </tr>
-				<tr class="text-center">
+                <tr class="text-center">
                     <th colspan="2"><h3>Commencement of Works</h3></th>
                 </tr>
                 <tr>
@@ -68,19 +77,28 @@
                 <tr>
                     <td colspan="2">
                         <p>
+                            Dear Sir,
+                        </p>
+                        <p>
                             Pursuant to GCC Sub Clause 39.1 of the above mentioned Contract Agreement, this is to notify you that the following precedent conditions have been duly fulfilled:
                         </p>
                         <p>
-                            <ul class="list-unstyled">
-                              <li>(i) the Contract Agreement has been signed;</li>
-                              <li>(ii) the possession of the Site has been given; and</li>
-                              <li>(iii) the advance payment has been made(delete if not appropriate).</li>
-                            </ul>
+                            <ol type="i">
+                              @if($commencement->commencement_condition_1 =='on')
+                              <li>the Contract Agreement has been signed;</li>
+                              @endif
+                              @if($commencement->commencement_condition_2 =='on')
+                              <li>the possession of the Site has been given; and</li>
+                              @endif
+                              @if($commencement->commencement_condition_3 =='on')
+                              <li>the advance payment has been made(delete if not appropriate).</li>
+                              @endif
+                            </ol>
                         </p>
                         <p>You are therefore requested to:</p>
                         <p>
                             <ol>
-                            <li>Commence execution of  the Works, in accordance with GCC Sub Clause 1.1(nn), within <strong>{{ $commencement->contract_commencement_date}}</strong>;</li>
+                            <li>Commence execution of  the Works, in accordance with GCC Sub Clause {{ $commencement->commencement_clause_no }}, within <strong>{{ $commencement->contract_commencement_date}}</strong>;</li>
                             @if(!empty($commencement->insurance_policy_date)) 
                                 <li>Submit Insurance Policy Documents, in accordance with GCC Sub Clause 36.2, within <strong>{{ $commencement->insurance_policy_date}}</strong> </li>
                             @else
@@ -93,7 +111,19 @@
                                 {{''}}
                             @endif 
                             
-                            
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Contract Description:
+                            <ol type="i">
+                            <li>Contract Package No. {{ $contract->contract_no }}</li>
+                            <li>Completion date: {{ $contract->contract_date_of_completion }}</li>
+                            <li>Name of Works: {{ $contract->name_of_works}}</li>
+                            <li>Contract Amount: Tk. {{ $contract->original_contract_price}}</li>
+                            </ol>
                         </p>
                     </td>
                 </tr>
@@ -102,18 +132,15 @@
                     <td class="text-right">
                         <p>Signed</p>
                         <p>Duly authorised to sign for and on behalf of {{ Auth::user()->name}}</p>
-                        <p>Date:{{date('Y-m-d')}}</p>
+                        <p>Date:&nbsp;{{ app_date_format($commencement->commencement_memo_date,'dS F, Y') }}</p>
+
                     </td>
                 </tr>
-               
-
-
-
-            </tbody>
+           
         </table>
     </div>
    
-
+<!-- ccc -->
   </div>
 </div>
 

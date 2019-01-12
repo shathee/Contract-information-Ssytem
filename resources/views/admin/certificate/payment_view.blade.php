@@ -15,31 +15,43 @@
 	    </h5>
   </div>  
   <div class="card-body" id="payment-certificate">
-   	<div class="text-center row">
-    	<div class="col-md-3 col-sm-3 certificate-top-left">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	<div class="col-md-6 col-sm-6 certificate-top-middle">
-            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-            <h3>Bangladesh Water Development Board</h3>
-    		
-    	</div>
-    	<div class="col-md-3 col-sm-3 certificate-top-right">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	
-    </div>
-    <hr>
+   	<div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
+                        <h3 class="text-center">Bangladesh Water Development Board</h3>
+                        
+                    </div>
+                </div>
+                <div class="text-center row">
+                    
+                    <div class="col-md-4 col-sm-4 certificate-top-left">
+                        <address>
+                          <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
+
+                          {{ __($contract->peoffice->address,[],'bn') }}<br>
+                          {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
+                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                        </address>
+                       
+                    </div>
+                    <div class="col-md-4 col-sm-4 certificate-top-middle">
+                        <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+                        
+                        
+                    </div>
+                    <div class="col-md-4 col-sm-4 certificate-top-right">
+                        <address>
+                          <strong>{{ $contract->peoffice->name}}</strong><br>
+                          {{ $contract->peoffice->address}}<br>
+                          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                        </address>
+                    </div>
+                  
+                </div>
+                <hr>
+
+   	
     <h3 class="text-center">PAYMENT CERTIFICATE</h3>
     <h5 class="text-center">Certificate-No.:{{ $payment_certificate_no }}</h5>
    <div class="table-responsive"> 

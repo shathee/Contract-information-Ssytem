@@ -166,7 +166,7 @@ class certificateController extends Controller
         $requestData['certificate_issued'] ='yes';
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
-        $requestData['certificate_no'] ="420107".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).str_pad($id, 4, '0', STR_PAD_LEFT);
+        $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'07'.str_pad($id, 4, '0', STR_PAD_LEFT);
         //$requestData['membership_no'] = "GM" . date("Ymd") . sprintf('%06d', $id);
         //dd($requestData['certificate_no']);
         $contract = Contract::findOrFail($id);
