@@ -37,5 +37,9 @@ class PaymentCertificates extends Model
     {
         return $this->hasMany('App\Model\Bill');
     }
+    public function payment_certificate()
+    {
+        return $this->belongsToMany('App\Model\Bill','bills_payment_certificates','certificate_id','bill_id');
+    }
 
 }

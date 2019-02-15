@@ -41,6 +41,8 @@ class certificateController extends Controller
     	
     	$contract = Contract::find($id);
 		
+
+
 		$designation_path = storage_path() . "/json/designation.json";
         $designations = json_decode(file_get_contents($designation_path), true);
        // dd($contract);
@@ -56,6 +58,8 @@ class certificateController extends Controller
     	return view('admin.certificate.payment', compact('contract','pe','designations'));
     }
 
+
+
     public function paymentCertificates($id){
         
         $contract = PaymentCertificates::where('contract_id', $id)->groupBy('certificate_no')->get();
@@ -69,16 +73,39 @@ class certificateController extends Controller
     public function storePaymentCertificates($id, Request $request){
         
         $requestData = $request->all();
-        
-        $certificate_no = '420107'.Carbon::now()->timestamp; 
-        foreach($requestData['bill_id'] as $key=>$value){
-            $create['contract_id'] = $requestData['contract_id'];
-            $create['bill_id'] = $requestData['bill_id'][$key];
-            $create['certificate_no'] = $certificate_no;
-            $create['issuer_name'] = $requestData['issuer_name'];
-           
-            PaymentCertificates::create($create);
+
+        if(Auth::user()->role =="ADMIN"){
+        $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+        }else{
+        $pe = Guser::where('user_id', Auth::user()->id)->first();   
         }
+        //dd($pe);
+        $peoffice = Peoffice::find( $pe['peoffice_id'] );
+
+
+        $create['certificate_no'] = "4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0702'.str_pad($id, 4, '0', STR_PAD_LEFT);
+        $create['contract_id'] = $requestData['contract_id'];
+        $create['issuer_name'] = $requestData['issuer_name'];
+        $pcertificate = PaymentCertificates::create($create);
+
+        $pf = PaymentCertificates::find($pcertificate->id);
+        $pf->payment_certificate()->attach($requestData['bill_id']);
+        //$pf->payment_certificate()->sync($requestData['bill_id']);
+
+
+
+        //dd($requestData);
+
+
+        // $certificate_no = "4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0702'.str_pad($id, 4, '0', STR_PAD_LEFT); 
+        // foreach($requestData['bill_id'] as $key=>$value){
+        //     $create['contract_id'] = $requestData['contract_id'];
+        //     $create['bill_id'] = $requestData['bill_id'][$key];
+        //     $create['certificate_no'] = $certificate_no;
+        //     $create['issuer_name'] = $requestData['issuer_name'];
+           
+        //     PaymentCertificates::create($create);
+        // }
          //dd($create);
        
 
@@ -88,23 +115,39 @@ class certificateController extends Controller
      public function showPaymentCertificate($id){
         
         
-        $payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
-        $payment_certificate_issuer = PaymentCertificates::where('certificate_no',$id)->first();
-        $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
+       //$payment_certificate_contract_id = PaymentCertificates::select('contract_id')->where('certificate_no',$id)->first();
+       
+       //  $payment_certificate_issuer = PaymentCertificates::where('certificate_no',$id)->first();
+       //  $payment_certificate_bill_ids = PaymentCertificates::select('bill_id')->where('certificate_no',$id)->get();
 
 
-        $contract = Contract::where('id', $payment_certificate_contract_id->contract_id)->with('Peoffice')->first();
-        $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
+       //  $contract = Contract::where('id', $payment_certificate_contract_id->contract_id)->with('Peoffice')->first();
+       //  $bills = Bill::whereIn('id', $payment_certificate_bill_ids)->get();
         
-       //dd($bills);
-        $payment_certificate_no = $id;
+       // //dd($bills);
+       //  $payment_certificate_no = $id;
+        
+       //  $designation_path = storage_path() . "/json/designation.json";
+       //  $designations = json_decode(file_get_contents($designation_path), true);
+       //  $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+       //  //dd($pe);
+
+        $payment_certificate = PaymentCertificates::find($id);
+        
+        $contract = Contract::where('id', $payment_certificate->contract_id)->with('Peoffice')->first();
+//dd($contract);
+        $bills = $payment_certificate->payment_certificate;
+
+        $payment_certificate_no = $payment_certificate->certificate_no;
         
         $designation_path = storage_path() . "/json/designation.json";
+
         $designations = json_decode(file_get_contents($designation_path), true);
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
-        //dd($pe);
 
-        return view('admin.certificate.payment_view', compact('bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no','payment_certificate_issuer'));
+
+
+        return view('admin.certificate.payment_view', compact('payment_certificate','bills','contract','pe','designations','payment_certificate_contract_id','payment_certificate_no','payment_certificate_issuer'));
     }
 
 
@@ -166,7 +209,7 @@ class certificateController extends Controller
         $requestData['certificate_issued'] ='yes';
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
-        $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'07'.str_pad($id, 4, '0', STR_PAD_LEFT);
+        $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0701'.str_pad($id, 4, '0', STR_PAD_LEFT);
         //$requestData['membership_no'] = "GM" . date("Ymd") . sprintf('%06d', $id);
         //dd($requestData['certificate_no']);
         $contract = Contract::findOrFail($id);

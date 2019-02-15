@@ -32,5 +32,10 @@ class Bill extends Model
     {
         return $this->belongsTo('App\Model\Contract');
     }
+
+    public function payment_certificate()
+    {
+        return $this->belongsToMany('App\Model\PaymentCertificates','bills_payment_certificates','bill_id','certificate_id');
+    }
     
 }

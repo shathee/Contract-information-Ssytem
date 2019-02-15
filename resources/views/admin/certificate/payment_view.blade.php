@@ -168,7 +168,7 @@
 	                        
 	                         <p>&nbsp;</p>
 	                        <p>&nbsp;</p>
-	                        <p>{{ $payment_certificate_issuer->issuer_name }}
+	                        <p>{{ $payment_certificate->issuer_name }}
 	                        </br>{{ $designations[$pe->designation] }}
 	                        </br>Date:{{date('Y-m-d')}}</p>
 	                    </td>

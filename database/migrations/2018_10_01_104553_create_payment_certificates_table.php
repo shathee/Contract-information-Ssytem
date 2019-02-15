@@ -18,7 +18,7 @@ class CreatePaymentCertificatesTable extends Migration
             $table->string('certificate_no');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('contract_id');
-            $table->string('bill_id');
+            //$table->string('bill_id');
             $table->string('issuer_name');
             $table->timestamps();
             });

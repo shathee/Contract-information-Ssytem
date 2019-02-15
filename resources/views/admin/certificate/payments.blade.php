@@ -32,7 +32,7 @@
                     <td>{{ $item->contract->contract_no }}</td>
                     <td>{{ $item->contract->created_at }}</td>
                     <td>
-                        <a href="{{ url('certificates/payment-certificate/view/'.$item->certificate_no)}}">
+                        <a href="{{ url('certificates/payment-certificate/view/'.$item->id)}}">
                         <button class="btn btn-xs btn-info">View</button>
                         </a>
                         

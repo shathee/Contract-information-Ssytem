@@ -84,7 +84,12 @@ class ContractsController extends Controller
 			'name_of_works' => 'required|min:10',
 			'noa_reference' => 'required'
 		]);
+
         $requestData = $request->all();
+        if($requestData['contract_type']!='works')
+        {
+            $requestData['commencement_id'] = na;
+        }
         
         Contract::create($requestData);
 
