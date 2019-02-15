@@ -11,6 +11,7 @@ use App\Model\Guser;
 use App\Model\Peoffice;
 use App\Model\Circle;
 use App\Model\Zone;
+use App\Model\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -57,8 +58,9 @@ class PeContractsController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffices = Peoffice::all()->pluck('name','id');
+        $projects = Project::all()->pluck('name','id');
         //tdd($peoffice);
-        return view('front.pecontracts.create', compact('zone','circle','peoffices','peoffice')); 
+        return view('front.pecontracts.create', compact('zone','circle','peoffices','projects','peoffice')); 
         
     }
 

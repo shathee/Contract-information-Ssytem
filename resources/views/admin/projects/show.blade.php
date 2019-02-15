@@ -24,9 +24,59 @@
                 <tr>
                     <th>ID</th><td>{{ $project->id }}</td>
                 </tr>
-                <tr><th> Name </th><td> {{ $project->name }} </td></tr><tr><th> Code </th><td> {{ $project->code }} </td></tr><tr><th> Cost </th><td> {{ $project->cost }} </td></tr>
+                <tr>
+                    <th> Name </th><td> {{ $project->name }} </td>
+                </tr>
+                <tr>
+                    <th> Code </th><td> {{ $project->code }} </td></tr>
+                <tr>
+                    <th> Cost </th><td> {{ $project->cost }} </td>
+                </tr>
+                <tr>
+                    <th> Start Date </th><td> {{ $project->start_date }} </td>
+                </tr>
+                <tr>
+                    <th> End Date </th><td> {{ $project->end_date }} </td>
+                </tr>
+            
+                
+                
+                    
             </tbody>
         </table>
+    </div>
+    <div class="row responsive">
+        <div class="col-md-6">
+            <h4>Associated PEs</h4>
+            <ul>
+                @foreach ($project->peoffice as $peoffice)
+                        <li>{{ $peoffice->name }}</li>
+                @endforeach
+            </ul> 
+                
+                
+                
+        </div>
+        <div class="col-md-6">
+            <h5>Tender Information under this Project</h5>
+            <p>Total Contracts : {{ $project->contracts->count() }} </p>
+            <ul>
+               
+                @forelse ($project->contracts as $contract)
+                <li> Package No : {{ $contract->contract_no }}
+                    <ul>
+                        <li>Contract Price: {{ $contract->original_contract_price }}</li>
+                        <li>Bills Paid: {{ $contract->bills->sum('gross_payment') }}</li>
+                    </ul>
+                </li>
+                @empty
+                    <p>No Contracts Signed under this Project</p>
+                @endforelse
+            </ul> 
+            
+            
+        </div>
+        
     </div>
    
 

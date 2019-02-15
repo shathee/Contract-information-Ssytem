@@ -50,7 +50,8 @@ class PeofficesController extends Controller
         $district = District::all('name','id');
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
-        //dd($district);
+        $project = Project::all()->pluck('name','id');
+        dd($project);
         return view('admin.peoffices.create', compact('district','zone','circle'));
     }
 

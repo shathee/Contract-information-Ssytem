@@ -25,7 +25,17 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'code', 'cost', 'start_date', 'end_date', 'fund', 'peoffice_id'];
+    protected $fillable = ['name', 'code', 'cost', 'start_date', 'end_date', 'fund'];
 
+
+    public function peoffice()
+    {
+        return $this->belongsToMany('App\Model\Peoffice');
+    }
+
+    public function contracts()
+    {
+        return $this->hasMany('App\Model\Contract');
+    }
     
 }

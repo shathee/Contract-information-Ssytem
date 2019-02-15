@@ -45,7 +45,7 @@ class ProjectsController extends Controller
     public function create()
     {
         $fund = array('gob' => 'GoB' );
-        $peoffice = Peoffice::all()->pluck('name','id');
+        $peoffice = Peoffice::orderBy('name')->pluck('name','id');
 
         return view('admin.projects.create',compact('fund','peoffice'));
     }
@@ -62,13 +62,15 @@ class ProjectsController extends Controller
         
         $requestData = $request->all();
         //dd($_POST);
-        $v = '';
-        foreach ($requestData['peoffice_id'] as $key => $value) {
-            $v = $v.'|'.$value;
-        }
+        
        
-        $requestData['peoffice_id'] = $v;
-        Project::create($requestData);
+        
+        $pc = Project::create($requestData);
+
+        $pc = Project::find($pc->id);
+        $pc->peoffice()->attach($requestData['peoffice_id']);
+        
+
 
         return redirect('admin/projects')->with('flash_message', 'Project added!');
     }
@@ -84,6 +86,8 @@ class ProjectsController extends Controller
     {
         $project = Project::findOrFail($id);
 
+
+
         return view('admin.projects.show', compact('project'));
     }
 
@@ -97,8 +101,10 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
-        //dd($project);
-        return view('admin.projects.edit', compact('project'));
+        $peoffice = Peoffice::orderBy('name')->pluck('name','id');
+        
+        //dd($project->peoffice);
+        return view('admin.projects.edit', compact('project','peoffice'));
     }
 
     /**

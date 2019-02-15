@@ -31,13 +31,19 @@
 </div><div class="form-group {{ $errors->has('fund') ? 'has-error' : ''}}">
     <label for="fund" class="col-md-4 control-label">{{ 'Fund' }}</label>
     <div class="col-md-6">
-        <!--
-        <select name="fund" class="form-control custom-select" id="fund" multiple>
-            @foreach ($fund as $optionKey => $optionValue)
-                <option value="{{ $optionKey }}" {{ (isset($project->fund) && $project->fund == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
-            @endforeach
-        </select>
-    -->
+         
+        <label class="radio-inline"> 
+            <input type="radio" name="fund" id="fund" value="gob">         GoB
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="fund" id="fund" value="aid">
+        Aid
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="fund" id="fund" value="own" >
+        Own Fund
+        </label>
+
         {!! $errors->first('fund', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -45,9 +51,11 @@
     <label for="peoffice_id" class="col-md-4 control-label">{{ 'Peoffice Id' }}</label>
     <div class="col-md-6">
         
-        <select name="peoffice_id[]" class="form-control custom-select" id="peoffice_id"  multiple >
+        <select name="peoffice_id[]" class="form-control custom-select" id="peoffice_id" size="20"  multiple >
             @foreach ($peoffice as $optionKey => $optionValue)
+                
                 <option value="{{ $optionKey }}" {{ (isset($peoffice->id) && $peoffice->id == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
+                
             @endforeach
         </select>
         <!--<input class="form-control" name="peoffice_id" type="text" id="peoffice_id" value="{{ $project->peoffice_id or ''}}" >-->

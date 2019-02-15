@@ -40,6 +40,19 @@
         {!! $errors->first('zone_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('project_id') ? 'has-error' : ''}}">
+    <label for="zone_id" class="col-md-4 control-label">{{ 'Project Name' }}</label>
+    <div class="col-md-6">
+       
+        <select name="project_id" class="form-control" id="project_id" required>
+            <option value="{{ '' }}" >{{ 'Non-Development Revenue' }}</option>
+            @foreach ($peoffice->project as $project)
+                <option value="{{ $project->id }}" >{{ $project->name }}</option>
+            @endforeach
+        </select>
+        {!! $errors->first('project_id', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 <div class="form-group {{ $errors->has('contract_no') ? 'has-error' : ''}}">
     <label for="contract_no" class="col-md-4 control-label">{{ 'Contract Package No' }}</label>
     <div class="col-md-6">

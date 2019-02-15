@@ -68,6 +68,7 @@ class ContractsController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $peoffice = Peoffice::all()->pluck('name','id');
+        $project = Project::all()->pluck('name','id');
         return view('admin.contracts.create', compact('zone','circle','peoffice'));
     }
 

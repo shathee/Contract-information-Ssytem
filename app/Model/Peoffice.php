@@ -42,6 +42,11 @@ class Peoffice extends Model
     {
         return $this->belongsTo('App\Model\District');
     }
+    public function project()
+    {
+        return $this->belongsToMany('App\Model\Project');
+    }
+
     
     
 }
