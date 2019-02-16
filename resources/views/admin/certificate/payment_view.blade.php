@@ -162,30 +162,27 @@
 	                    <td colspan="6">&nbsp;</td>
 	                </tr>
 		        	
-		        	<tr>
-	                    <td class=" border-" colspan="4">&nbsp;</td>
-	                    <td colspan="2" class="text-center border-0">
-	                        
-	                         <p>&nbsp;</p>
-	                        <p>&nbsp;</p>
-	                        <p>{{ $payment_certificate->issuer_name }}
-	                        </br>{{ $designations[$pe->designation] }}
-	                        </br>Date:{{date('Y-m-d')}}</p>
-	                    </td>
-               		</tr>
-               		
-		        	<tr>
-	                    
-	                    <td colspan="6" class="">
-	                        <p class="info">
-	                        	This is an electronically generated certificate
-	                        </p>
-	                    </td>
-               		</tr>
-               		
 	        	</tbody>
-	        	
 	        </table>
+	    </div>
+	    <div class="row">
+	    	
+	    	<div class="col-md-7 text-center">
+	    		<p>&nbsp;</p>
+                
+	    	</div>
+	    	<div class="col-md-5 text-center">
+	    		<p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>{{ $payment_certificate->issuer_name }}</p>
+                <p>{{ $designations[$pe->designation] }}</p>
+                <p>Date:{{date('Y-m-d')}}</p>
+	    	</div>
+	    	<div>
+	    		<p class="info">
+	            This is an electronically generated certificate
+	        	</p>
+	        </div>
 	    </div>
    
 
@@ -195,7 +192,7 @@
 </div>
 
 <script type="text/javascript">
-
+document.title = "{{ $payment_certificate_no }}";
 function ConfirmBox() {
     alert("Are you sure that you want to generate Payment Certificate?");
     

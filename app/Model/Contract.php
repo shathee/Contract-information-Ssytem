@@ -53,6 +53,12 @@ class Contract extends Model
     {
         return $this->hasMany('App\Model\Bill');
     }
+
+    public function payment_certificates()
+    {
+        return $this->hasMany('App\Model\PaymentCertificates');
+    }
+
     
 
 

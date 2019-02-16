@@ -37,10 +37,22 @@
                     <td>{{ $item->noa_date }}</td>
                     <td>
                         @if($o['type']=='payment-certificate')
-                        <a href="{{ url('certificates/payment-certificate/'.$item->id)}}"><button class="btn btn-xs btn-success">Generate</button></a>
-                        <a href="{{ url('certificates/payment-certificates/'.$item->id)}}">
-                            <button class="btn btn-xs btn-info">Payment Certificates</button>
-                        </a>
+                            @if($item->bills->count()>0)
+                            <a href="{{ url('certificates/payment-certificate/'.$item->id)}}">
+                            <button class="btn btn-xs btn-success">
+                            Generate</button>
+                            </a>
+                            @else
+                            No biil info given
+                            @endif
+                            @if($item->payment_certificates->count()>0)
+                            <a href="{{ url('certificates/payment-certificates/'.$item->id)}}">
+                                <button class="btn btn-xs btn-info">Payment Certificates</button>
+                            </a>
+                            @else
+                            No Certificates Generated
+                            @endif
+                            
                         @elseif($o['type']=='completion-certificate')
                        
                             @if($item->certificate_issued == 'no')

@@ -83,10 +83,15 @@ class certificateController extends Controller
         $peoffice = Peoffice::find( $pe['peoffice_id'] );
 
 
-        $create['certificate_no'] = "4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0702'.str_pad($id, 4, '0', STR_PAD_LEFT);
+        //$create['certificate_no'] = "4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0702'.str_pad($id, 4, '0', STR_PAD_LEFT);
         $create['contract_id'] = $requestData['contract_id'];
         $create['issuer_name'] = $requestData['issuer_name'];
         $pcertificate = PaymentCertificates::create($create);
+
+        $update['certificate_no'] = "4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0702'.str_pad($pcertificate->id, 4, '0', STR_PAD_LEFT);
+        
+        PaymentCertificates::where('id', $pcertificate->id)
+          ->update($update);
 
         $pf = PaymentCertificates::find($pcertificate->id);
         $pf->payment_certificate()->attach($requestData['bill_id']);

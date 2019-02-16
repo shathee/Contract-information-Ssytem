@@ -15,12 +15,19 @@
 
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 
+ 
+
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app-print.css')}}">
+
 
     <title>CPC</title>
   </head>
   <body>
+
+      
+
+    <div id="site" class="container">
 
       <div id="header" class="row d-print-none">
         <div class="col-md-2 offset-md-1">
@@ -32,7 +39,7 @@
         </div>
       </div>
 
-    <div class="container">
+
       
       <div id="top-menu" class="row d-print-none">
               <ul class="nav nav-tabs">
@@ -155,7 +162,7 @@
           
       </div>
 
-      <div id="footer" class="row  col-md-12 d-print-none">
+      <div id="footer" class="col-md-12 d-print-none">
           <div class="container">
             <div class="row">
                 

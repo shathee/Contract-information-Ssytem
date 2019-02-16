@@ -5,6 +5,13 @@
 <a href="{{url('search/cc')}}"><button type="button" class="btn btn-primary btn-lg">Verify Completion Certificate </button></a>
 			<a href="{{url('search/pc')}}"><button type="button" class="btn btn-secondary btn-lg">Verify Payment Certificate </button></a>
 		-->
+	<div class="row">
+		<div class="col-md-8 offset-md-2 text-center alert alert-danger" role="alert">
+	      <p><b>!!! Dear Users this Application is still under development. !!!</b></p>
+	      <p>Currently You can Use this only for test purposes</p>
+	      <p>For further information please contact programmer.cpc@bwdb.gov.bd</p>
+	    </div>
+	</div>
     <div class="row">
 		<div class="col-md-8 text-center">
 				<div id="home_quicklinks">
@@ -45,11 +52,7 @@
 		
     	
     	<div class="col-md-4">
-    		<div class="text-center alert alert-danger" role="alert">
-		      <p><b>!!! Dear Users this Application is still under development. !!!</b></p>
-		      <p>Currently You can Use this only for test purposes</p>
-		      <p>For further information please contact programmer.cpc@bwdb.gov.bd</p>
-		    </div>
+    		
     		 @if(Auth::check())
     		 <div id="home_quicklinks">
 	            <a class="quicklink link3" href="{{url('search/cwh')}}">
@@ -110,7 +113,7 @@
 			@endif
 		</div>
     	</div>
-    </div>
+    
             
     
 @endsection
