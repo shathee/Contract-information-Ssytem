@@ -8,8 +8,8 @@
 	<div class="row">
 		<div class="col-md-8 offset-md-2 text-center alert alert-danger" role="alert">
 	      <p><b>!!! Dear Users this Application is still under development. !!!</b></p>
-	      <p>Currently You can Use this only for test purposes</p>
-	      <p>For further information please contact programmer.cpc@bwdb.gov.bd</p>
+	      <p>If you face any difficulties or find any problem during usage </p>
+	      <p>please contact programmer.cpc@bwdb.gov.bd</p>
 	    </div>
 	</div>
     <div class="row">

@@ -16,7 +16,7 @@ use App\Model\CertificateFile;
 class SearchController extends Controller
 {
     public function index(){
-
+        
     	return view('search.index');
     }
  
@@ -128,14 +128,5 @@ class SearchController extends Controller
 	
 	
   
-    public function staff(){
-
-    	return view('pubs.staff');
-    }
-
-  
-    public function contact(){
-
-        return view('pubs.contact');
-    }
+    
 }

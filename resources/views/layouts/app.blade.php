@@ -170,8 +170,9 @@
                 <div class="col-sm-4 col-md-4">
                     <h5>About us</h5>
                     <ul>
-                        <li><a href="{{url('pubs/staff')}}">Officials of Contract & Procurement Cell</a></li>
-                        <li><a href="{{url('pubs/contact')}}">Contact us</a></li>
+                        <li><a href="{{url('staff')}}">Officials of Contract & Procurement Cell</a></li>
+                        <li><a href="{{url('what-we-do')}}">What We Do</a></li>
+                        <li><a href="{{url('contact')}}">Contact us</a></li>
                        
                     </ul>
                 </div>
@@ -193,11 +194,11 @@
                     <h5>For BWDB Officials Only</h5>
                     <ul>
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Sign UP</a></li>
+                        <li><a href="#{{ route('register') }}">Sign UP</a></li>
                     </ul>
                 </div>
            </div>
-            <div class="footer-copyright">
+            <div class="footer-copyright rounded-top">
                 <p>© 2018 Bangladesh Water Development Board </p>
             </div>
         </div>

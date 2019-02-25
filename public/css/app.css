@@ -11,7 +11,7 @@ body{
 #header{
     padding-top: 20px;
 	padding-bottom: 20px;
-  background-color: #062c13;
+  background-color: #031122;
 }
 h1.org-title{
   color: antiqueWhite;
@@ -61,13 +61,13 @@ h2.office-title{
 
 
 #footer{
-	background-color: #062C13;
+	background-color: #031122;
     color: white;
     padding-top: 10px;
 }
 
 #footer .footer-copyright {
-    background-color: #0E4220;
+    background-color: #142B47;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
@@ -205,7 +205,7 @@ h2.office-title{
     background: #fff;
     margin-top: 10%;
     margin-bottom: 5%;
-    width: 70%;
+    width: 90%;
 }
 .contact-form .form-control{
     border-radius:1rem;
@@ -538,3 +538,38 @@ a.quicklink {
 }
 
 
+/*homepage class*/
+ 
+ .home-page-class > .card {
+  border:none;
+ }
+
+ 
+
+.home-page-class > .card > a {
+  display: pointer;
+  color: #A4B267;
+  text-decoration: none;
+
+}
+.home-page-class > .card > a:hover{
+  text-decoration: none;
+  color: #B2DFDF;
+}
+/*.home-page-class > .card > a > h5{
+  display: pointer;
+  color: #A4B267;
+  text-decoration: none;
+  
+}
+.home-page-class > .card > a > h5:hover{
+  text-decoration: none;
+  color: #B2DFDF;
+}
+.home-page-class > .card-body{
+  height: 50px;
+}*/
+h5.card-title.h-button {
+    height: 50px;
+    padding: 5px;
+}

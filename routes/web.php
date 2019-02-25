@@ -65,7 +65,8 @@ Route::middleware(['auth'])->group(function () {
     
 });
 
-Route::get('/', 'SearchController@index');
+
+Route::get('/search', 'SearchController@index');
 Route::get('search/cc', 'SearchController@search_completion');
 Route::get('search/cc/{id}', 'SearchController@search_completion_show');
 Route::post('search/cc', 'SearchController@search_completion');
@@ -76,10 +77,16 @@ Route::get('search/cwh', 'SearchController@search_work_in_hand');
 Route::post('search/cwh', 'SearchController@search_work_in_hand');
 
 
-Route::get('search', function () {
-    return 'Found Data URL';
-});
-Route::get('pubs/staff', 'SearchController@staff');
-Route::get('pubs/contact', 'SearchController@contact');
+// Route::get('search', function () {
+//     return 'Found Data URL';
+// });
+
+Route::get('/', 'PagesController@index');
+
+Route::get('/what-we-do', 'PagesController@whatWeDo');
+
+
+Route::get('staff', 'PagesController@staff');
+Route::get('contact', 'PagesController@contact');
 
 //Route::resource('uploads', 'UploadsController');
