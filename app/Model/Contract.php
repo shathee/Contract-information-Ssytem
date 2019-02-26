@@ -59,6 +59,11 @@ class Contract extends Model
         return $this->hasMany('App\Model\PaymentCertificates');
     }
 
+    public function detailwork()
+    {
+        return $this->hasOne('App\Model\Detailwork');
+    }
+
     
 
 

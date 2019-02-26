@@ -28,7 +28,7 @@
                     
                     <div class="col-md-4 col-sm-4 certificate-top-left">
                         <address>
-                          <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
+                          <strong>@lang($contract->peoffice->name,[],'bn')</strong><br>
 
                           {{ __($contract->peoffice->address,[],'bn') }}<br>
                           {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
@@ -60,7 +60,6 @@
                        <span style="color: #c40000;">
                         Certificate No. : {{ $contract->certificate_no }}    
                        </span>
-                       
                        
                     </div>
                     <div class="col-md-4 col-sm-4 text-right">
@@ -316,5 +315,295 @@
             </div>
   
 </div>
+
+
+
+@if($detailwork!=null)
+<div class="page-break"></div>
+<div class="card" id="completion-certificate-detail">
+    @if($contract->contract_type=='works')
+        {{-- <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
+                <h3 class="text-center">Bangladesh Water Development Board</h3>
+                
+            </div>
+        </div>
+        <div class="text-center row">
+            
+            <div class="col-md-4 col-sm-4 certificate-top-left">
+                <address>
+                  <strong>@lang($contract->peoffice->name,[],'bn')</strong><br>
+
+                  {{ __($contract->peoffice->address,[],'bn') }}<br>
+                  {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
+                  <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                </address>
+               
+            </div>
+            <div class="col-md-4 col-sm-4 certificate-top-middle">
+                <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+                
+                
+            </div>
+            <div class="col-md-4 col-sm-4 certificate-top-right">
+                <address>
+                  <strong>{{ $contract->peoffice->name}}</strong><br>
+                  {{ $contract->peoffice->address}}<br>
+                  {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+                  <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                </address>
+            </div>
+          
+        </div> 
+        <hr>--}}
+
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-4 col-sm-4">
+           <span style="color: #c40000;">
+            Certificate No. : {{ $contract->certificate_no }}    
+           </span>
+           
+        </div>
+        @if(!empty($contract->detailwork->detail_work_form_component_1))
+            <table class="table table-bordered" id="completion-certificate-detail-table">
+        
+            <tr>
+                <td colspan="3">
+                    <h4 class="text-center">Details of Works Completed</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h5 class="text-center">Contractor: {{ $contract->contractors_legal_title}}</h5>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No
+                </th>
+                <th>
+                    Major Components of Works
+                </th>
+                <th>
+                    Total Value (in Contract Currency)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1.
+                </td>
+                <td>
+                    {{ $detailwork->detail_work_form_component_1}}
+                </td>
+                <td>
+                    {{ $detailwork->detail_work_form_component_1_value}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2.
+                </td>
+                <td>
+                    {{ $detailwork->detail_work_form_component_2}}
+                </td>
+                <td>{{ $detailwork->detail_work_form_component_2_value}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3.
+                </td>
+                <td>{{ $detailwork->detail_work_form_component_3}}
+                </td>
+                <td>{{ $detailwork->detail_work_form_component_3_value}}
+                </td>
+            </tr>
+        </table>
+        @endif
+        &nbsp;
+        @if(!empty($detailwork->lead_partner_name))
+
+            <table class="table table-bordered" id="completion-certificate-detail-table1">
+                <tr>
+                    <td colspan="3">
+                        <h5 class="text-center">Joint Venture</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5 class="text-center">Leading Partner:
+                            {{ $detailwork->lead_partner_name}}
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        Major Components of Works
+                    </th>
+                    <th>
+                        Total Value (in Contract Currency)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        1.
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_1}}
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_1_value}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2.
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_2}}
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_2_value}}
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        3.
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_3}}
+                    </td>
+                    <td>{{ $detailwork->jvca_lead_partner_work_form_component_3_value}}
+                    </td>
+                    
+                </tr>
+               
+            </table>
+            &nbsp;
+            <table class="table table-bordered " id="completion-certificate-detail-table2">
+                <tr>
+                    <td colspan="3">
+                        <h5 class="text-center">Co-partner: {{ $detailwork->co_partner1_name}}
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        Major Components of Works
+                    </th>
+                    <th>
+                        Total Value (in Contract Currency)
+                    </th>
+                </tr>
+                <tr>
+                        <td>
+                            1.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_1}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_1_value}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_2}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_2_value}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_3}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner1_work_form_component_3_value}}
+                        </td>
+                    </tr>
+            </table>
+            &nbsp;
+            <table class="table  table-bordered " id="completion-certificate-detail-table3">
+                <tr>
+                    <td colspan="3">
+                        <h5 class="text-center">Co-partner: {{ $detailwork->co_partner2_name}}
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        Major Components of Works
+                    </th>
+                    <th>
+                        Total Value (in Contract Currency)
+                    </th>
+                </tr>
+                
+                <tr>
+                        <td>
+                            1.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_1}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_1_value}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_2}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_2_value}}
+                        </td>
+                        
+                    <tr>
+                        <td>
+                            3.
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_3}}
+                        </td>
+                        <td>{{ $detailwork->jvca_co_partner2_work_form_component_3_value}}
+                        </td>
+                    </tr>
+            </table>
+
+        @endif
+
+        
+    @endif
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                               
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        &nbsp; 
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <p>
+                            {{ $contract->issuers_name }}
+                            <br>{{ $contract->issuers_designation }}
+                           <br> Date:&nbsp;{{ app_date_format($contract->memo_date,'dS F, Y') }}
+                        </p> 
+                    </div>
+                </div>
+
+</div>        
+@endif  
+
+
 
 @endsection

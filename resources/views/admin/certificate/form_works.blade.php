@@ -206,7 +206,7 @@
             <div class="form-group {{ $errors->has('noa_reference') ? 'has-error' : ''}}">
             
             <div class="col-md-10">
-                <input class="form-control" name="noa_reference" type="text" id="noa_reference" value="{{ $contract->noa_reference or ''}}" readonly required>
+                <input class="form-control" name="noa_reference" type="text" id="noa_reference" value="{{ $contract->noa_reference or ''}}" required>
                 {!! $errors->first('noa_reference', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
@@ -399,6 +399,390 @@
         </td>
     </tr>
     <tr>
+        <td colspan="3">
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#detailWorkInformationForm" aria-expanded="false" aria-controls="detailWorkInformationForm">
+                Detail Work information form
+            </button>
+        
+            <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#JvInformationForm" aria-expanded="false" aria-controls="JvInformationForm">
+                JVCA information form
+            </button>
+        </td>
+    </tr>
+    
+</table>
+<div class="collapse" id="detailWorkInformationForm">
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="3">
+                <h4 class="text-center">Details of Works Completed</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h5 class="text-center">Contractor: {{ $contract->contractors_legal_title}}</h5>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Major Components of Works
+            </th>
+            <th>
+                Total Value (in Contract Currency)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_1') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_1" type="text" id="detail_work_form_component_1" value="" >
+                        {!! $errors->first('detail_work_form_component_1', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_1_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_1_value" type="text" id="detail_work_form_component_1_value" value="" >
+                        {!! $errors->first('detail_work_form_component_1_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_2') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_2" type="text" id="detail_work_form_component_2" value="" >
+                        {!! $errors->first('detail_work_form_component_2', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_2_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_2_value" type="text" id="detail_work_form_component_2_value" value="" >
+                        {!! $errors->first('detail_work_form_component_2_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_3') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_3" type="text" id="detail_work_form_component_3" value="" >
+                        {!! $errors->first('detail_work_form_component_3', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('detail_work_form_component_3_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="detail_work_form_component_3_value" type="text" id="detail_work_form_component_3_value" value="" >
+                        {!! $errors->first('detail_work_form_component_3_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        
+    </table>
+</div>
+
+<div class="collapse" id="JvInformationForm">
+    <table class="table  table-bordered ">
+        <tr>
+            <td colspan="3">
+                <h5 class="text-center">Joint Venture</h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h5 class="text-center">Leading Partner:
+                    <div class="form-group {{ $errors->has('lead_partner_name') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="lead_partner_name" type="text" id="lead_partner_name" value="" >
+                        {!! $errors->first('lead_partner_name', '<p class="help-block">:message</p>') !!}
+                    </div>
+                    </div>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Major Components of Works
+            </th>
+            <th>
+                Total Value (in Contract Currency)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_1') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_1" type="text" id="jvca_lead_partner_work_form_component_1" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_1', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_1_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_1_value" type="text" id="jvca_lead_partner_work_form_component_1_value" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_1_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_2') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_2" type="text" id="jvca_lead_partner_work_form_component_2" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_2', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_2_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_2_value" type="text" id="jvca_lead_partner_work_form_component_2_value" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_2_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_3') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_3" type="text" id="jvca_lead_partner_work_form_component_3" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_3', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_lead_partner_work_form_component_3_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_lead_partner_work_form_component_3_value" type="text" id="jvca_lead_partner_work_form_component_3_value" value="" >
+                        {!! $errors->first('jvca_lead_partner_work_form_component_3_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+       
+    </table>
+    <table class="table table-bordered ">
+    <tr>
+        <td colspan="3">
+            <h5 class="text-center">Co-partner:  
+            <div class="form-group {{ $errors->has('co_partner1_name') ? 'has-error' : ''}}">
+                <div class="col-md-10">
+                    <input class="form-control" name="co_partner1_name" type="text" id="co_partner1_name" value="" >
+                    {!! $errors->first('co_partner1_name', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            No
+        </th>
+        <th>
+            Major Components of Works
+        </th>
+        <th>
+            Total Value (in Contract Currency)
+        </th>
+    </tr>
+    <tr>
+            <td>
+                1.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_1') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_1" type="text" id="jvca_co_partner1_work_form_component_1" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_1', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_1_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_1_value" type="text" id="jvca_co_partner1_work_form_component_1_value" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_1_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_2') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_2" type="text" id="jvca_co_partner1_work_form_component_2" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_2', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_2_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_2_value" type="text" id="jvca_co_partner1_work_form_component_2_value" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_2_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_3') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_3" type="text" id="jvca_co_partner1_work_form_component_3" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_3', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner1_work_form_component_3_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner1_work_form_component_3_value" type="text" id="jvca_co_partner1_work_form_component_3_value" value="" >
+                        {!! $errors->first('jvca_co_partner1_work_form_component_3_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+</table>
+
+<table class="table  table-bordered ">
+    <tr>
+        <td colspan="3">
+            <h5 class="text-center">Co-partner: 
+                <div class="form-group {{ $errors->has('co_partner2_name') ? 'has-error' : ''}}">
+                <div class="col-md-10">
+                    <input class="form-control" name="co_partner2_name" type="text" id="co_partner2_name" value="" >
+                    {!! $errors->first('co_partner2_name', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            No
+        </th>
+        <th>
+            Major Components of Works
+        </th>
+        <th>
+            Total Value (in Contract Currency)
+        </th>
+    </tr>
+    
+    <tr>
+            <td>
+                1.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_1') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_1" type="text" id="jvca_co_partner2_work_form_component_1" value="" >
+                        {!! $errors->first('jvca_co_partner2_work_form_component_1', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_1_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_1_value" type="text" id="jvca_co_partner2_work_form_component_1_value" value="" >
+                        {!! $errors->first('jvca_co_partner2_work_form_component_1_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_2') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_2" type="text" id="jvca_co_partner2_work_form_component_2" value="" >
+                        {!! $errors->first('jvca_co_partner2_work_form_component_2', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_2_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_2_value" type="text" id="jvca_co_partner2_work_form_component_2_value" value="" >
+                        {!! $errors->first('jvca_co_partner2_work_form_component_2_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3.
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_3') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_3" type="text" id="jvca_co_partner2_work_form_component_3" value="" >
+                        {!! $errors->first('jvca_co_partner3_work_form_component_3', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group {{ $errors->has('jvca_co_partner2_work_form_component_3_value') ? 'has-error' : ''}}">
+                    <div class="col-md-10">
+                        <input class="form-control" name="jvca_co_partner2_work_form_component_3_value" type="text" id="jvca_co_partner2_work_form_component_3_value" value="" >
+                        {!! $errors->first('jvca_co_partner2_work_form_component_3_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+            </td>
+        </tr>
+</table>
+
+</div>
+
+
+
+
+<table class="table">
+    <tr>
         <td>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-8">
@@ -410,6 +794,7 @@
         <td></td>
     </tr>
 </table>
+
 
 
 <script type="text/javascript">

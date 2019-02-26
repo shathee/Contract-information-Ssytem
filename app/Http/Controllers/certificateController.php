@@ -12,6 +12,7 @@ use App\Model\Peoffice;
 use App\Model\Bill;
 use App\Model\Guser;
 use App\Model\PaymentCertificates;
+use App\Model\Detailwork;
 use Format;
 use PDF;
 use Illuminate\Support\Facades\Auth;
@@ -159,7 +160,8 @@ class certificateController extends Controller
     public function completionCertificate($id){
     	
     	$contract = Contract::find($id);
-    	
+    	$detailwork = Detailwork::where('contract_id', $id)->first();
+        //dd($detailwork);
     	if(Auth::user()->role =="ADMIN"){
       	$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
     	}else{
@@ -168,7 +170,7 @@ class certificateController extends Controller
 
     	$contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
 
-    	return view('admin.certificate.completion', compact('contract','pe'));
+    	return view('admin.certificate.completion', compact('contract','pe','detailwork'));
 
     }
 
@@ -194,12 +196,13 @@ class certificateController extends Controller
 
     public function finalizeCompletionCertificateStore($id, Request $request){
         
-        $this->validate($request, [
-            'name_of_works' => 'required|min:10',
-            'noa_reference' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'name_of_works' => 'required|min:10',
+        //     'noa_reference' => 'required'
+        // ]);
         $requestData = $request->all();
         
+        //dd($requestData);
         if(Auth::user()->role =="ADMIN"){
         $pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
         }else{
@@ -215,10 +218,17 @@ class certificateController extends Controller
         $requestData['issuers_name'] = $pe->name;
         $requestData['issuers_designation'] =$designations[$pe->designation];
         $requestData['certificate_no'] ="4201".str_pad($peoffice->code, 3, '0', STR_PAD_LEFT).'0701'.str_pad($id, 4, '0', STR_PAD_LEFT);
+        
+
         //$requestData['membership_no'] = "GM" . date("Ymd") . sprintf('%06d', $id);
         //dd($requestData['certificate_no']);
         $contract = Contract::findOrFail($id);
         $contract->update($requestData);
+
+        $requestData['contract_id'] = $contract->id;
+        $requestData['user_id'] = $contract->user_id;
+        //$detailwork = Detailwork::findOrFail($id);
+        Detailwork::create($requestData);
 
         return redirect('certificates/completion-certificate/')->with('flash_message', 'Information Updated!');
         //.$requestData->id

@@ -186,7 +186,7 @@
                 <div class="col-sm-3 col-md-3">
                     <h5>APPS</h5>
                     <ul>
-                        <li><a href="#">Verify Certificate</a></li>
+                        <li><a href="{{ url('search')}}">Verify Certificate</a></li>
                         <li><a href="#"></a></li>
                     </ul>
                 </div>

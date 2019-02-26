@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header">
-    Contract {{ $pecontract->id }}
+    Contract Package No: {{ $pecontract->contract_no }}
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Peoffice Id </th><td> 
+                    <th> Procuring Entity/Division </th><td> 
                         @if(!empty($pecontract->peoffice->name)) 
                         {{ $pecontract->peoffice->name }}
                         @else
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Circle Id </th>
+                    <th> Circle </th>
                         <td>
                         @if(!empty($pecontract->circle->name)) 
                         {{ $pecontract->circle->name }}
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th> Zone Id </th>
+                    <th> Zone </th>
                     <td> @if(!empty($pecontract->circle->name)) 
                         {{ $pecontract->zone->name }}
                         @else

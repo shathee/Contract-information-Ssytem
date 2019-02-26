@@ -3,9 +3,10 @@ footer{display: none;}
 @media print {
 
     html, body {
-      height: 99%!important;
+      /*height: 99%!important;*/
       margin: 0 !important; 
       padding: 0 !important;
+      height: auto;
       overflow: hidden;
      }
 
@@ -20,8 +21,10 @@ footer{display: none;}
     }
 
     #completion-certificate:last-child {
-       page-break-after: auto;
+       /*page-break-after: auto;*/
       }
+    
+
 
     .card-body{
         padding: 0px;
@@ -173,6 +176,59 @@ footer{display: none;}
 
    .border-0 {
     border: 0!important;
+    }
+
+     #completion-certificate-detail{
+       /*page-break-before: always;*/
+      }
+      #completion-certificate-detail{
+        visibility: visible;
+        display: block;
+        width: 718px;
+        float: left;
+        font-size: 11px;
+        font-style: normal;
+        padding-left: 25px;
+        padding-right: 0px;
+        /*background-image: url(../img/verified.png);*/
+        background-repeat:no-repeat;
+        background-position: center center;
+        -webkit-print-color-adjust: exact;
+        border: none;
+    }
+      #completion-certificate-detail:last-child {
+       /*page-break-after: auto;*/
+      }
+
+       #completion-certificate-detail > table{
+       border: 1px solid #ccc;
+      }
+
+      /*#completion-certificate-detail-table{page-break-before: auto;}*/
+    #completion-certificate-detail-table, #completion-certificate-detail-table1, #completion-certificate-detail-table2, #completion-certificate-detail-table3 p{
+        margin: 0 0 0 0;
+        line-height: 2px;
+    }
+
+    #completion-certificate-detail-table, #completion-certificate-detail-table1, #completion-certificate-detail-table2, #completion-certificate-detail-table3{
+        margin-bottom: 0.03rem;
+    }
+
+    #completion-certificate-detail-table, #completion-certificate-detail-table1, #completion-certificate-detail-table2, #completion-certificate-detail-table3 tr > td{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        font-weight: 400;
+    }
+
+    #completion-certificate-detail-table, #completion-certificate-detail-table1, #completion-certificate-detail-table2, #completion-certificate-detail-table3 tr > th{
+         padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    #completion-certificate-detail-table, #completion-certificate-detail-table1, #completion-certificate-detail-table2, #completion-certificate-detail-table3{visibility: visible;}
+
+    .page-break{
+      display: block;
+      page-break-before: always;
     }
 
 
