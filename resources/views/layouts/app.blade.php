@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/app-print.css')}}">
 
 
-    <title>CPC</title>
+    <title>Contract & Procurement Cell</title>
   </head>
   <body>
 

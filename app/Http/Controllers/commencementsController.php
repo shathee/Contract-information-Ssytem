@@ -110,11 +110,11 @@ class CommencementsController extends Controller
         
 
         $commencement = Commencement::findOrFail($id);
-        //dd($commencement);
+        // /dd($commencement);
         abort_if($commencement->user_id != Auth::id(), 403);
-        $contract = Contract::where('commencement_id', $id)->first();
-
-        
+        //$contract = Contract::where('commencement_id', $id)->first();
+        $contract = Contract::where('id', $commencement->contract_id)->first();
+        //dd($contract);
         return view('front.commencements.show', compact('commencement','contract'));
     }
 
@@ -132,6 +132,8 @@ class CommencementsController extends Controller
 
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
+
+        
 
         return view('front.commencements.edit', compact('commencement','contracts'));
     }
