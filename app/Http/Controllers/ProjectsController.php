@@ -122,6 +122,7 @@ class ProjectsController extends Controller
         
         $project = Project::findOrFail($id);
         $project->update($requestData);
+        $project->peoffice()->attach($requestData['peoffice_id']);
 
         return redirect('admin/projects')->with('flash_message', 'Project updated!');
     }
