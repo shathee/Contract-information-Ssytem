@@ -42,6 +42,7 @@
 
       
       <div id="top-menu" class="row d-print-none">
+        
               <ul class="nav nav-tabs">
                 
                 @if (Auth::check())

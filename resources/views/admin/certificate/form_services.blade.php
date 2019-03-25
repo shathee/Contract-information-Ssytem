@@ -55,7 +55,7 @@
     </tr>
     <tr>
         <td>
-            <label for="circle_id" class="col-md-8 control-label">{{ 'Circle Id'  }}</label>
+            <label for="circle_id" class="col-md-8 control-label">{{ 'Circle/Directorate'  }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('circle_id') ? 'has-error' : ''}}">
@@ -78,7 +78,7 @@
     </tr>
     <tr>
         <td>
-            <label for="zone_id" class="col-md-8 control-label">{{ 'Zone Id' }}</label>
+            <label for="zone_id" class="col-md-8 control-label">{{ 'Zone' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('zone_id') ? 'has-error' : ''}}">
@@ -115,7 +115,7 @@
     </tr>
     <tr>
         <td>
-            <label for="name_of_works" class="col-md-8 control-label">{{ 'Name Of Works' }}</label>
+            <label for="name_of_works" class="col-md-8 control-label">{{ 'Name of Assignment' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('name_of_works') ? 'has-error' : ''}}">
@@ -158,7 +158,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_legal_title" class="col-md-8 control-label">{{ 'Contractors Legal Title' }}</label>
+            <label for="contractors_legal_title" class="col-md-8 control-label">{{ 'Consultant’s  Legal Title' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_legal_title') ? 'has-error' : ''}}">
@@ -172,7 +172,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_contact_details" class="col-md-8 control-label">{{ 'Contractors Contact Details' }}</label>
+            <label for="contractors_contact_details" class="col-md-8 control-label">{{ 'Consultant’s  Contact Details' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_contact_details') ? 'has-error' : ''}}">
@@ -186,7 +186,7 @@
     </tr>
     <tr>
         <td>
-            <label for="contractors_trade_license_details" class="col-md-8 control-label">{{ 'Contractorstrade License Details' }}</label>
+            <label for="contractors_trade_license_details" class="col-md-8 control-label">{{ 'Consultant’s trade License Details' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contractors_trade_license_details') ? 'has-error' : ''}}">
@@ -200,7 +200,7 @@
     </tr>
     <tr>
         <td>
-            <label for="noa_reference" class="col-md-8 control-label">{{ 'Noa Reference' }}</label>
+            <label for="noa_reference" class="col-md-8 control-label">{{ 'Reference to LOI to sign Contract' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('noa_reference') ? 'has-error' : ''}}">
@@ -214,7 +214,7 @@
     </tr>
     <tr>
         <td>
-             <label for="noa_date" class="col-md-8 control-label">{{ 'Noa Date' }}</label>
+             <label for="noa_date" class="col-md-8 control-label">{{ 'LOI Date' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('noa_date') ? 'has-error' : ''}}">
@@ -243,7 +243,7 @@
     </tr>
     <tr>
         <td>
-             <label for="executed_contract_price" class="col-md-10 control-label">{{ 'Executed Contract Price' }}</label>
+             <label for="executed_contract_price" class="col-md-10 control-label">{{ 'Final Contract Price as Performed' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('executed_contract_price') ? 'has-error' : ''}}">
@@ -258,7 +258,7 @@
     </tr>
     <tr>
         <td>
-             <label for="contract_date_of_commencement" class="col-md-8 control-label">{{ 'Contract Date Of Commencement' }}</label>
+             <label for="contract_date_of_commencement" class="col-md-8 control-label">{{ 'Date Of Commencement' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contract_date_of_commencement') ? 'has-error' : ''}}">
@@ -272,7 +272,7 @@
     </tr>
     <tr>
         <td>
-             <label for="contract_date_of_completion" class="col-md-8 control-label">{{ 'Contract Date Of Completion' }}</label>
+             <label for="contract_date_of_completion" class="col-md-8 control-label">{{ 'Date Of Completion' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('contract_date_of_completion') ? 'has-error' : ''}}">
@@ -286,7 +286,7 @@
     </tr>
     <tr>
         <td>
-            <label for="actual_date_of_commencement" class="col-md-8 control-label">{{ 'Actual Date Of Commencement' }}</label>
+            <label for="actual_date_of_commencement" class="col-md-8 control-label">{{ 'Date Of Actual Commencement' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('actual_date_of_commencement') ? 'has-error' : ''}}">
@@ -300,7 +300,7 @@
     </tr>
     <tr>
         <td>
-            <label for="actual_contract_date_of_completion" class="col-md-8 control-label">{{ 'Actual Contract Date Of Completion' }}</label>
+            <label for="actual_contract_date_of_completion" class="col-md-8 control-label">{{ 'Date Of  Actual Completion' }}</label>
         </td>
         <td>
             <div class="form-group {{ $errors->has('actual_contract_date_of_completion') ? 'has-error' : ''}}">
@@ -327,63 +327,9 @@
             </div>
         </td>
     </tr>
-    <tr>
-        <td>
-            <label for="amount_bonus_early_completion" class="col-md-8 control-label">{{ 'Amount Bonus Early Completion' }}</label>
-        </td>
-        <td>
-            <div class="form-group {{ $errors->has('amount_bonus_early_completion') ? 'has-error' : ''}}">
-                
-                <div class="col-md-10">
-                    <input class="form-control" name="amount_bonus_early_completion" type="number" id="amount_bonus_early_completion" value="{{ $contract->amount_bonus_early_completion or ''}}" >
-                    {!! $errors->first('amount_bonus_early_completion', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="amount_ld_delayed_completion" class="col-md-8 control-label">{{ 'Amount Ld Delayed Completion' }}</label>
-        </td>
-        <td>
-            <div class="form-group {{ $errors->has('amount_ld_delayed_completion') ? 'has-error' : ''}}">
-                
-                <div class="col-md-10">
-                    <input class="form-control" name="amount_ld_delayed_completion" type="number" id="amount_ld_delayed_completion" value="{{ $contract->amount_ld_delayed_completion or ''}}" >
-                    {!! $errors->first('amount_ld_delayed_completion', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="physical_progress" class="col-md-8 control-label">{{ 'Physical Progress in Percent (in terms of value)' }}</label>
-        </td>
-        <td>
-            <div class="form-group {{ $errors->has('physical_progress') ? 'has-error' : ''}}">
-                
-                <div class="col-md-10">
-                    <input class="form-control" name="physical_progress" type="text" id="physical_progress" value="{{ $contract->physical_progress or ''}}" required >
-                    {!! $errors->first('physical_progress', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="financial_progress" class="col-md-8 control-label">{{ 'Financial Progress in Amount(in terms of payment)' }}</label>
-        </td>
-        <td>
-            <div class="form-group {{ $errors->has('financial_progress') ? 'has-error' : ''}}">
-                
-                <div class="col-md-10">
-                    <input class="form-control" name="financial_progress" type="text" id="financial_progress" value="{{ $contract->financial_progress or ''}}" required >
-
-                    {!! $errors->first('financial_progress', '<p class="help-block">:message</p>') !!}
-                </div>
-            </div>
-        </td>
-    </tr>
+    
+    
+    
     <tr>
         <td>
             <label for="special_note" class="col-md-8 control-label">{{ 'Special Note (if any)' }}</label>
@@ -401,7 +347,7 @@
     <tr>
         <td colspan="3">
             <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#detailWorkInformationForm" aria-expanded="false" aria-controls="detailWorkInformationForm">
-                Detail Work information form
+                Details of Services Performed Form
             </button>
         
             <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#JvInformationForm" aria-expanded="false" aria-controls="JvInformationForm">
@@ -415,12 +361,12 @@
     <table class="table table-bordered">
         <tr>
             <td colspan="3">
-                <h4 class="text-center">Details of Works Completed</h4>
+                <h4 class="text-center">Details of Services Performed</h4>
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <h5 class="text-center">Contractor: {{ $contract->contractors_legal_title}}</h5>
+                <h5 class="text-center">Consultant: {{ $contract->contractors_legal_title}}</h5>
             </td>
         </tr>
         <tr>
@@ -428,7 +374,7 @@
                 No
             </th>
             <th>
-                Major Components of Works
+                Major Components of Assignment
             </th>
             <th>
                 Total Value (in Contract Currency)
@@ -526,7 +472,8 @@
                 No
             </th>
             <th>
-                Major Components of Works
+            Components/Activities<br>
+[reference drawn to JV Agreement]
             </th>
             <th>
                 Total Value (in Contract Currency)
@@ -615,7 +562,8 @@
             No
         </th>
         <th>
-            Major Components of Works
+            Components/Activities<br>
+[reference drawn to JV Agreement]
         </th>
         <th>
             Total Value (in Contract Currency)
@@ -704,7 +652,8 @@
             No
         </th>
         <th>
-            Major Components of Works
+            Components/Activities<br>
+[reference drawn to JV Agreement]
         </th>
         <th>
             Total Value (in Contract Currency)
@@ -786,10 +735,8 @@
         <td>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-8">
-                    <div class="col-md-offset-4 col-md-8">
                     <input onClick="confSubmit(this.form);" class="btn btn-primary" type="button" value="{{ $submitButtonText or 'Create' }}">
 
-                </div>
                 </div>
 
             </div>
@@ -799,9 +746,7 @@
 </table>
 
 
-
 <script type="text/javascript">
-
 function confSubmit(form) {
 if (confirm("Are you sure you want to submit the form? After Submission this Certificate will be Locked")) {
 form.submit();
@@ -812,6 +757,7 @@ alert("You decided to not submit the form!");
 return false;
 }
 }
+
 </script>
 
 

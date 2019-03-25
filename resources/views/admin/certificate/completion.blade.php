@@ -291,6 +291,106 @@
                             
                 @elseif($contract->contract_type=='services')
 
+
+                <h3 class="text-center">COMPLETION CERTIFICATE</h3>
+                <div class="table-responsive">
+                    <table id="completion-certificate-table" class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th width="3%">01</th>
+                                <th width="30%">Client Details</th><td></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th> Division/Name of Office </th><td> {{ $contract->peoffice->name }} </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>  Circle/Directorate </th><td> @if(!empty($pecontract->circle->name)) {{ $contract->circle->name }}
+                                @else
+                                {{'N/A'}}
+                                @endif  </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th> Zone </th><td> @if(!empty($pecontract->zone->name)) {{ $contract->zone->name }}
+                                @else
+                                {{'N/A'}}
+                                @endif  </td>
+                            </tr>
+                            <tr>
+                                <th>02</th>
+                                <th> Name of Assignment </th><td> {{ $contract->name_of_works }} </td>
+                            </tr>
+                            <tr>
+                                <th>03</th>
+                                <th> EGP ID </th><td> {{ $contract->egp_id }} </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th> Contract No </th><td> {{ $contract->contract_no }} </td></tr>
+                            
+                            <tr>
+                                <th>04</th>
+                                <th> Contractors Legal Title </th><td> {{ $contract->contractors_legal_title }} </td></tr>
+                            <tr>
+                                <th>05</th>
+                                <th> Consultant’s Contact Details </th><td> {{ $contract->contractors_contact_details }} </td>
+                            </tr>
+                            <tr>
+                                <th>06</th>
+                                <th> Consultant’s Registration  Details </th><td> {{ $contract->contractors_trade_license_details }} </td>
+                            </tr>
+                            <tr>
+                                <th>07</th>
+                                <th> Reference to LOI to sign Contract with Date </th><td> {{ $contract->    noa_reference }} & {{ $contract->noa_date }} </td></tr>
+                            <tr>
+                                <th></th>
+                                <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
+                            <tr>
+                                <th>08</th><th> Original Contract Price</th><td> {{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
+                            </tr>
+                            <tr>
+                                <th>09</th><th> Final Contract Price as Performed</th><td> {{Format::number($contract->executed_contract_price,3, ".", ",") }}</td>
+                            </tr>
+                            <tr>
+                                <th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                            </tr>
+                            <tr>
+                                <th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                            </tr>
+                            <tr>
+                                <th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                            </tr>
+                            <tr>
+                                <th>11</th><th> Actual Implementation Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
+                            </tr>
+                            <tr>
+                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date or null }}</td>
+                            </tr>
+                            <tr>
+                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                            </tr>
+                            <tr>
+                                <th>12</th><th>Days/Months Contract Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th>18</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <p>
+                           Certified that the Services under the Contract has been performed and completed in all respects in strict compliance with the <strong>“Description of Services”</strong> including all modifications thereof as per satisfaction of the Client.
+                        </p>
+                    </div>
+                </div>
+
+
+
                 @endif 
 
                 <div class="row">
@@ -579,15 +679,13 @@
 
         @endif
 
-        
-    @endif
-                <div class="row">
-                    <div class="col-md-8 col-sm-8">
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
-                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                               
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                       
+            </div>
+        </div>
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                         &nbsp; 
@@ -600,6 +698,9 @@
                         </p> 
                     </div>
                 </div>
+        
+    @endif
+                
 
 </div>        
 @endif  

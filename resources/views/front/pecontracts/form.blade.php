@@ -44,7 +44,7 @@
     <label for="zone_id" class="col-md-4 control-label">{{ 'Project Name' }}</label>
     <div class="col-md-6">
        
-        <select name="project_id" class="form-control" id="project_id" required>
+        <select name="project_id" class="form-control" id="project_id">
             <option value="{{ '' }}" >{{ 'Non-Development Revenue' }}</option>
             @foreach ($peoffice->project as $project)
                 <option value="{{ $project->id }}" >{{ $project->name }}</option>

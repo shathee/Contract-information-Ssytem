@@ -196,10 +196,14 @@ class certificateController extends Controller
 
     public function finalizeCompletionCertificateStore($id, Request $request){
         
-        // $this->validate($request, [
-        //     'name_of_works' => 'required|min:10',
-        //     'noa_reference' => 'required'
-        // ]);
+        $this->validate($request, [
+             'office_memo' => 'required',
+             'memo_date' => 'required',
+             'office_memo' => 'required',
+             'office_memo' => 'required',
+             
+             'noa_reference' => 'required'
+         ]);
         $requestData = $request->all();
         
         //dd($requestData);

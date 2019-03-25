@@ -293,7 +293,7 @@
             <div class="form-group {{ $errors->has('actual_date_of_commencement') ? 'has-error' : ''}}">
                 
                 <div class="col-md-10">
-                    <input class="form-control date_picker" name="actual_date_of_commencement" type="text" id="actual_date_of_commencement" value="{{ $contract->actual_date_of_commencement or ''}}" required readonly>
+                    <input class="form-control date_picker" name="actual_date_of_commencement" type="text" id="actual_date_of_commencement" value="{{ $contract->actual_date_of_commencement or ''}}" required>
                     {!! $errors->first('actual_date_of_commencement', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -403,7 +403,10 @@
         <td>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-8">
-                    <input onclick="ConfirmBox('Are you Sure')" class="btn btn-primary" type="submit" value="{{ $submitButtonText or 'Create' }}">
+                    <div class="col-md-offset-4 col-md-8">
+                    <input onClick="confSubmit(this.form);" class="btn btn-primary" type="button" value="{{ $submitButtonText or 'Create' }}">
+
+                </div>
                 </div>
 
             </div>
@@ -415,9 +418,15 @@
 
 <script type="text/javascript">
 
-function ConfirmBox() {
-    alert("Are you sure you want to submit the form? After Submission this Certificate will be Locked");
-    
+function confSubmit(form) {
+if (confirm("Are you sure you want to submit the form? After Submission this Certificate will be Locked")) {
+form.submit();
+}
+
+else {
+alert("You decided to not submit the form!");
+return false;
+}
 }
 </script>
 

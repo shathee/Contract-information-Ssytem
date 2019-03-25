@@ -7,8 +7,8 @@
 		-->
 	<div class="row">
 		<div class="col-md-8 offset-md-2 text-center alert alert-danger" role="alert">
-	      <p><b>!!! Dear Users this Application is still under development. !!!</b></p>
-	      <p>If you face any difficulties or find any problem during usage </p>
+	      <p><b>!!! Dear Users Some of the features of this Application is still under development. !!!</b></p>
+	      <p>If you face any difficulties or find any problem accessing the application </p>
 	      <p>please contact programmer.cpc@bwdb.gov.bd</p>
 	    </div>
 	</div>

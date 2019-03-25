@@ -23,7 +23,7 @@ h2.office-title{
 #top-menu ul{
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color: #ececec;
+	background-color: #37424c;
 	width: 100%
 }
 .nav-tabs .nav-item{
@@ -31,7 +31,14 @@ h2.office-title{
 }
 
 .nav-tabs .nav-item a{
-  color: #113256;
+  color: #efede6;
+  font-family: Helvetica;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+  border:none;
+  background-color: #fefefe;
+  color:#000;
 }
 
 .show{
@@ -51,6 +58,7 @@ h2.office-title{
 
 .dropdown-item:hover{
   font-weight: bold;
+  border: none;
   
 } 
 

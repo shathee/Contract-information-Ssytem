@@ -32,6 +32,8 @@
           @include ('admin.certificate.form_works', ['submitButtonText' => 'Finalize'])
         @elseif($contract->contract_type=='goods')
           @include ('admin.certificate.form_goods', ['submitButtonText' => 'Finalize'])
+        @elseif($contract->contract_type=='services')
+          @include ('admin.certificate.form_services', ['submitButtonText' => 'Finalize'])
         @endif
 
     </form>

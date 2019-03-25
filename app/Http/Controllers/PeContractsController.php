@@ -76,6 +76,10 @@ class PeContractsController extends Controller
         
         $requestData = $request->all();
         $requestData['user_id'] = Auth::id();
+        $requestData['contract_date_of_commencement'] = $requestData['contract_date'];
+        $requestData['contract_date_of_completion'] = date('Y-m-d', strtotime($requestData['contract_date'].'+'.$requestData['original_contract_completion_time'].'days'));
+        //dd($requestData); 
+
         if($requestData['contract_type']!='works'){
             $requestData['commencement_id'] = "na";
         }else{
