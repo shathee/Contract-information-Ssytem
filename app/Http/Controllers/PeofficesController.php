@@ -9,6 +9,7 @@ use App\Model\Peoffice;
 use App\Model\District;
 use App\Model\Zone;
 use App\Model\Circle;
+use App\Model\Project;
 use Illuminate\Http\Request;
 
 class PeofficesController extends Controller
@@ -51,7 +52,7 @@ class PeofficesController extends Controller
         $zone = Zone::all()->pluck('name','id');
         $circle = Circle::all()->pluck('name','id');
         $project = Project::all()->pluck('name','id');
-        dd($project);
+        //dd($project);
         return view('admin.peoffices.create', compact('district','zone','circle'));
     }
 
