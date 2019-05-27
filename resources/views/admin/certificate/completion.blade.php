@@ -52,18 +52,29 @@
                   
                 </div>
                 <hr>
-                <div class="text-center row">
-                    <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
                         Office Memo No. : {{ $contract->office_memo}}
                     </div>
-                    <div class="col-md-4 col-sm-4">
+                    
+                    <div class="col-md-6 col-sm-6 text-right">
+                       Date:&nbsp;{{ app_date_format($contract->memo_date,'d-m-Y') }}
+                    </div>
+                    
+                </div>
+
+                <div class="text-center row">
+                    <div class="col-md-3 col-sm-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-6 col-sm-6">
                        <span style="color: #c40000;">
                         Certificate No. : {{ $contract->certificate_no }}    
                        </span>
                        
                     </div>
-                    <div class="col-md-4 col-sm-4 text-right">
-                       Date:&nbsp;{{ app_date_format($contract->memo_date,'d-m-Y') }}
+                    <div class="col-md-3 col-sm-3">
+                      &nbsp;
                     </div>
                     
                 </div>
@@ -343,10 +354,12 @@
                             </tr>
                             <tr>
                                 <th>07</th>
-                                <th> Reference to LOI to sign Contract with Date </th><td> {{ $contract->    noa_reference }} & {{ $contract->noa_date }} </td></tr>
+                                <th> Reference to LOI to sign Contract with Date </th><td> {{ $contract->    noa_reference }} </br>{{ app_date_format($contract->noa_date,'d-m-Y') }} </td></tr>
+                            
                             <tr>
                                 <th></th>
-                                <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
+                                <th> Contract Date </th><td> {{ app_date_format($contract->contract_date,'d-m-Y') }}</td>
+                            </tr>
                             <tr>
                                 <th>08</th><th> Original Contract Price</th><td> {{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
                             </tr>
@@ -354,29 +367,29 @@
                                 <th>09</th><th> Final Contract Price as Performed</th><td> {{Format::number($contract->executed_contract_price,3, ".", ",") }}</td>
                             </tr>
                             <tr>
-                                <th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                                <th>10</th><th> Original Contract Period</th><td> &nbsp;</td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                                <th></th><th> (a) Date of Commencement</th><td>  {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Completion</th><td> {{ app_date_format($contract->contract_date_of_completion,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th>11</th><th> Actual Implementation Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
+                                <th>11</th><th> Actual Implementation Period</th><td> &nbsp;</td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date or null }}</td>
+                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Actual Completion</th><td> {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }} </td>
                             </tr>
                             <tr>
                                 <th>12</th><th>Days/Months Contract Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>
                             </tr>
                             
                             <tr>
-                                <th>18</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
+                                <th>13</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
                             </tr>
                         </tbody>
                     </table>

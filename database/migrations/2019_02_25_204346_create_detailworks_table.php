@@ -17,11 +17,11 @@ class CreateDetailworksTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('contract_id');
             $table->unsignedInteger('user_id');
-            $table->string('detail_work_form_component_1')->nullable();
+            $table->text('detail_work_form_component_1')->nullable();
             $table->string('detail_work_form_component_1_value')->nullable();
-            $table->string('detail_work_form_component_2')->nullable();
+            $table->text('detail_work_form_component_2')->nullable();
             $table->string('detail_work_form_component_2_value')->nullable();
-            $table->string('detail_work_form_component_3')->nullable();
+            $table->text('detail_work_form_component_3')->nullable();
             $table->string('detail_work_form_component_3_value')->nullable();
             $table->string('lead_partner_name')->nullable();
             $table->string('jvca_lead_partner_work_form_component_1')->nullable();

@@ -11,6 +11,10 @@
 				<input class="form-control mr-sm-2 col-md-6 offset-md-2" name="search" type="search" placeholder="Write the certificate No" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			  </form>
+
+			 
+			  
+
 			@if( !empty($contract))
 			@foreach($contract as $item)
 			<div class="table-responsive">
@@ -43,6 +47,7 @@
 				<div class="pagination-wrapper"> </div>
 			</div>
 			@endforeach
+
 			@endif
 		</div>
 		<div class="col-md-12" style="min-height: 300px;">

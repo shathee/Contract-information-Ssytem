@@ -387,7 +387,7 @@
             <td>
                 <div class="form-group {{ $errors->has('detail_work_form_component_1') ? 'has-error' : ''}}">
                     <div class="col-md-10">
-                        <input class="form-control" name="detail_work_form_component_1" type="text" id="detail_work_form_component_1" value="" >
+                        <textarea class="form-control" name="detail_work_form_component_1_value" type="text" id="detail_work_form_component_1_value" rows="5"></textarea>
                         {!! $errors->first('detail_work_form_component_1', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
@@ -408,7 +408,10 @@
             <td>
                 <div class="form-group {{ $errors->has('detail_work_form_component_2') ? 'has-error' : ''}}">
                     <div class="col-md-10">
-                        <input class="form-control" name="detail_work_form_component_2" type="text" id="detail_work_form_component_2" value="" >
+                        <textarea class="form-control" name="detail_work_form_component_2" type="text" id="detail_work_form_component_2" rows="5">
+                            
+                        </textarea> 
+
                         {!! $errors->first('detail_work_form_component_2', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
