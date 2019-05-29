@@ -118,7 +118,7 @@
                           <a class="dropdown-item" href="{{ url('certificates/payment-certificate')}}">Payment Certificate</a>
                           <a class="dropdown-item" href="{{ url('certificates/completion-certificate')}}">Completion Certificate</a>
                           <a class="dropdown-item" href="{{ url('certificate-files')}}">Upload Scanned Certificate</a>
-                          <a class="dropdown-item" href="{{ url('certificate-files')}}">Upload Previous Certificate(Issued before 25-05-2019)</a>
+                          <a class="dropdown-item" href="{{ url('old-certificate-files')}}">Upload Old Certificate(Issued before 25-05-2019)</a>
                           
                         </div>
                       </li>

@@ -27,5 +27,12 @@ class CertificateFile extends Model
      */
     protected $fillable = ['id', 'certificate_no', 'file_path', 'type'];
 
+
+    public function contract()
+    {
+        return $this->belongsTo('App\Model\Contract','certificate_no','certificate_no');
+    }
+
+
     
 }

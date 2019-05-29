@@ -26,14 +26,16 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th><th>Id</th><th>Certificate No</th><th>File Path</th><th>Actions</th>
+                    <th>#</th><th>Id</th><th>Certificate No</th><th>Package No</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             @foreach($certificatefiles as $item)
                 <tr>
                     <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->id }}</td><td>{{ $item->certificate_no }}</td><td>{{ $item->file_path }}</td>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->certificate_no }}</td>
+                    <td>{{ $item->contract->contract_no }}</td>
                     <td>
                         <a href="{{ url('/certificate-files/' . $item->id) }}" title="View CertificateFile"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                         <a href="{{ url('/certificate-files/' . $item->id . '/edit') }}" title="Edit CertificateFile"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -46,7 +46,7 @@
                             <button type="submit" class="btn btn-danger btn-xs" title="Delete Contract" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                         <a class="btn btn-info btn-xs" href="{{ url('payment-certificate/'.$item->id)}}">Payment Certificate</a>
-                        <a class="btn btn-info btn-xs" href="{{ url('completion-certificate/'.$item->id)}}">Completion Certificate</a>
+                        <a class="btn btn-info btn-xs" href="{{ url('certificates/completion-certificate/'.$item->id)}}">Completion Certificate</a>
                     </td>
                 </tr>
             @endforeach

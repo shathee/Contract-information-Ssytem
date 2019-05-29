@@ -43,6 +43,10 @@ class CertificateFilesController extends Controller
     {
         return view('front.certificate-files.create');
     }
+    public function createOld()
+    {
+        return view('front.certificate-files.old_create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -70,6 +74,27 @@ class CertificateFilesController extends Controller
         CertificateFile::create($requestData);
 
         return redirect('certificate-files')->with('flash_message', 'CertificateFile added!');
+    }
+
+    public function storeOld(Request $request)
+    {
+        dd($request->all());
+        $this->validate($request, [
+            'certificate_no' => 'required|unique:certificate_files,certificate_no',
+            'file_path' => 'required|mimes:pdf|max:1000',
+            'type' => 'required'
+            
+        ]);
+
+        $requestData = $request->all();
+                if ($request->hasFile('file_path')) {
+            $requestData['file_path'] = $request->file('file_path')
+                ->store('certificates','public_uploads');
+        }
+
+        CertificateFile::create($requestData);
+
+        return redirect('old-certificate-files')->with('flash_message', 'CertificateFile added!');
     }
 
     /**

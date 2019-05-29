@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 	Route::resource('certificate-files', 'CertificateFilesController');
+	Route::get('/old-certificate-files', 'CertificateFilesController@createOld');
+	Route::post('/old-certificate-files', 'CertificateFilesController@storeOld');
     
 });
 
