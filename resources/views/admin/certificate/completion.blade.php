@@ -19,7 +19,7 @@
   <div class="card-body" id="completion-certificate">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
+                        <h3 class="text-center">বাংলাদেশ পানি উন্নয়ন বোর্ড</h3>
                         <h3 class="text-center">Bangladesh Water Development Board</h3>
                         
                     </div>
@@ -31,7 +31,7 @@
                           <strong>@lang($contract->peoffice->name,[],'bn')</strong><br>
 
                           {{ __($contract->peoffice->address,[],'bn') }}<br>
-                          {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
+                          {{ $contract->peoffice->district->name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
                           <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
                         </address>
                        
@@ -94,25 +94,25 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <th>  Circle/Directorate </th><td> @if(!empty($pecontract->circle->name)) {{ $contract->circle->name }}
+                                <th>  Circle/Directorate </th><td> @if(!empty($contract->circle->name)) {{ $contract->circle->name }}
                                 @else
                                 {{'N/A'}}
                                 @endif  </td>
                             </tr>
                             <tr>
                                 <th></th>
-                                <th> Zone </th><td> @if(!empty($pecontract->zone->name)) {{ $contract->zone->name }}
+                                <th> Zone </th><td> @if(!empty($contract->zone->name)) {{ $contract->zone->name }}
                                 @else
                                 {{'N/A'}}
                                 @endif  </td>
                             </tr>
                             <tr>
                                 <th>02</th>
-                                <th> name of the works </th><td> {{ $contract->name_of_works }} </td>
+                                <th> Name of the works </th><td> {{ $contract->name_of_works }} </td>
                             </tr>
                             <tr>
                                 <th>03</th>
-                                <th> EGP ID </th><td> {{ $contract->egp_id }} </td>
+                                <th> e-GP Tender ID </th><td> {{ $contract->egp_id or 'N/A'}} </td>
                             </tr>
                             <tr>
                                 <th></th>
@@ -131,10 +131,10 @@
                             </tr>
                             <tr>
                                 <th>07</th>
-                                <th> Reference of Noa with Date </th><td> {{ $contract->    noa_reference }} & {{ $contract->noa_date }} </td></tr>
+                                <th> Reference of Noa with Date </th><td> {{ $contract->    noa_reference }} & {{ app_date_format($contract->noa_date,'d-m-Y') }} </td></tr>
                             <tr>
                                 <th></th>
-                                <th> Contract Date </th><td> {{ $contract->contract_date }}</td></tr>
+                                <th> Contract Date </th><td> {{ app_date_format($contract->contract_date,'d-m-Y') }}</td></tr>
                             <tr>
                                 <th>08</th><th> Original Contract Price as in NOA </th><td> {{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
                             </tr>
@@ -142,43 +142,52 @@
                                 <th>09</th><th> Final Contract Price as Executed</th><td> {{Format::number($contract->executed_contract_price,3, ".", ",") }}</td>
                             </tr>
                             <tr>
-                                <th>10</th><th> Original Contract Period</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                                <th>10</th><th> Original Contract Period</th><td> </td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                                <th></th><th> (a) Date of Commencement</th><td> {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }} </td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Completion</th><td> {{ app_date_format($contract->contract_date_of_completion,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th>11</th><th> Actual Implementation Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
+                                <th>11</th><th> Actual Implementation Period</th><td></td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date or null }}</td>
+                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ app_date_format($contract->actual_date_of_commencement,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Actual Completion</th><td> {{ app_date_format($contract->actual_contract_date_of_completion,'d-m-Y') }}</td>
                             </tr>
                             <tr>
                                 <th>12</th><th>Days/Months Contract Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>
                             </tr>
                             <tr>
-                                <th>13</th><th>Amount of Bonus for Early Completion</th><td> {{ $contract->amount_bonus_early_completion }}</td>
+                                <th>13</th><th>Amount of Bonus for Early Completion</th><td> @if($contract->amount_bonus_early_completion == 0)
+                                    {{ 'N/A' }}
+                                @else   
+                                {{ $contract->amount_bonus_early_completion }}
+                                @endif
+                                </td>
                             </tr>
                             <tr>
-                                <th>14</th><th>Amount of LD for Delayed Completion</th><td> {{ $contract->amount_ld_delayed_completion }}</td>
+                                <th>14</th><th>Amount of LD for Delayed Completion</th><td> @if($contract->amount_ld_delayed_completion == 0)
+                                {{ 'N/A' }}
+                                @else
+                                {{ $contract->amount_ld_delayed_completion }}
+                                @endif</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <th>15</th><th> Final Contract Price as Executed</th><td> {{ $contract->executed_contract_price }}</td>
+                            </tr> -->
+                            <tr>
+                                <th>15</th><th> Physical Progress in Percent (in terms of value) </th><td> {{ $contract->physical_progress }} %</td>
                             </tr>
                             <tr>
-                                <th>16</th><th> Physical Progress in Percent (in terms of value) </th><td> {{ $contract->physical_progress }} </td>
+                                <th>16</th><th>Financial Progress in Amount (in terms of payment)</th><td> {{ $contract->financial_progress }}</td>
                             </tr>
                             <tr>
-                                <th>17</th><th>Financial Progress in Amount (in terms of payment)</th><td> {{number_format($contract->fp, 2, '.', ',')}} %</td>
-                            </tr>
-                            <tr>
-                                <th>18</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
+                                <th>17</th><th> Special Note (if any)</th><td>{{ $contract->special_note }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -186,7 +195,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <p>
-                            Certified that the Works under the Contract has been executed and completed in all respects in strict compliance with the provisions of the Contract including all plans, designs, drawings, specifications and all modifications thereof as per direction and satisfaction of the Project Manager/Engineer-in Charge/Other (specify). All defects in workmanship and materials reported during construction have been duly corrected.
+                            Certified that the Works under the Contract has been executed and completed in all respects in strict compliance with the provisions of the Contract including all plans, designs, drawings, specifications and all modifications thereof as per direction and satisfaction of the Project Manager/Engineer-in Charge. All defects in workmanship and materials reported during construction have been duly corrected.
                         </p>
                     </div>
                 </div>
