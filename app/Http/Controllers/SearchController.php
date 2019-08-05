@@ -28,10 +28,20 @@ class SearchController extends Controller
         
 		
         if (!empty($keyword)) {
-            $contract = Contract::where('certificate_no', '=', $keyword)
+
+           if($request->get('old') == "yes"){
+            
+             $certificateFile = CertificateFile::where('certificate_no', 'like','%' . $keyword . '%' )->get();
+             return view('search.completion', compact('certificateFile'));
+           }else{
+            
+             $contract = Contract::where('certificate_no', '=', $keyword)
                 ->Where('certificate_issued', '=', "yes")->get();
+                return view('search.completion', compact('contract'));
+           }
+           
 			//dd($contract);
-			return view('search.completion', compact('contract'));
+			
         } else {
             return view('search.completion');
         }

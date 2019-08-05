@@ -18,6 +18,7 @@ class CreateCertificateFilesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('certificate_no')->nullable();
             $table->string('file_path')->nullable();
+            $table->string('old')->default('no');
             $table->string('type');
             });
     }
