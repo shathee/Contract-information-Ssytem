@@ -29,6 +29,9 @@ class CertificateFilesController extends Controller
                 ->paginate($perPage);
         } else {
             $certificatefiles = CertificateFile::paginate($perPage);
+            //$certificatefiles = CertificateFile::all();
+
+            //dd($certificatefiles);
         }
 
         return view('front.certificate-files.index', compact('certificatefiles'));
@@ -99,21 +102,9 @@ class CertificateFilesController extends Controller
 
     public function showAllOld(Request $request)
     {
-        //dd($request->all());
-        $this->validate($request, [
-            'certificate_no' => 'required|unique:certificate_files,certificate_no',
-            'file_path' => 'required|mimes:pdf|max:1000',
-            'type' => 'required'
-            
-        ]);
+        
 
-        $requestData = $request->all();
-                if ($request->hasFile('file_path')) {
-            $requestData['file_path'] = $request->file('file_path')
-                ->store('certificates','public_uploads');
-        }
-
-        CertificateFile::create($requestData);
+        //CertificateFile::where
 
         return redirect('old-certificate-files')->with('flash_message', 'CertificateFile added!');
     }
