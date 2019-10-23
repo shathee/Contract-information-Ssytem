@@ -270,22 +270,22 @@
                                 <th>09</th><th> Final Contract Price as Delivered</th><td> {{Format::number($contract->executed_contract_price,3, ".", ",") }}</td>
                             </tr>
                             <tr>
-                                <th>10</th><th> Original Contract Period</th><td> {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }}</td>
+                                <th>10</th><th> Original Contract Period</th><td> </td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Commencement</th><td> {{ $contract->contract_date_of_commencement }}</td>
+                                <th></th><th> (a) Date of Commencement</th><td> {{ app_date_format($contract->contract_date_of_commencement,'d-m-Y') }} </td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Completion</th><td> {{ app_date_format($contract->contract_date_of_completion,'d-m-Y') }}</td>
                             </tr>
                             <tr>
-                                <th>11</th><th> Actual Delivery Period</th><td> {{ $contract->actual_date_of_commencement }}</td>
+                                <th>11</th><th> Actual Delivery Period</th><td> </td>
                             </tr>
                             <tr>
-                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ $contract->commencement->contract_commencement_date or null }}</td>
+                                <th></th><th> (a) Date of Actual Commencement</th><td> {{ app_date_format($contract->actual_date_of_commencement,'d-m-Y') }} </td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->actual_contract_date_of_completion }}</td>
                             </tr>
                             <tr>
                                 <th>12</th><th>Days/Months Delivery Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>

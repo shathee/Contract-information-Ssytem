@@ -32,7 +32,7 @@
 		</hr>
 		 <div class="row">
 			<!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-4 offset-md-2">
+            <div class="col-xs-12 col-sm-6 col-md-6 offset-md-3">
                 
                     <div class="team-member">
                         <div class="frontside">
@@ -52,7 +52,7 @@
                
             </div>
 			<div class="col-xs-12 col-sm-6 col-md-4">
-                
+                <!-- 
                     <div class="team-member">
                         <div class="frontside">
                             <div class="card">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         
-                    </div>
+                    </div> -->
                 
             </div>
             <!-- ./Team member -->
@@ -118,7 +118,7 @@
 		</hr>
 		<div class="row">
 			<!-- Team member -->
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-3  offset-md-1">
                 
                     <div class="team-member">
                         <div class="frontside">
@@ -138,7 +138,7 @@
                
             </div>
 			
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-6 col-md-4">
                 
                     <div class="team-member">
                         <div class="frontside">
@@ -176,7 +176,12 @@
                     </div>
                 
             </div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			
+           
+            <!-- ./Team member -->
+		</div>
+        <div class="row">
+             <div class="col-xs-12 col-sm-6 col-md-3 offset-md-3">
                 
                     <div class="team-member">
                         <div class="frontside">
@@ -184,8 +189,8 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="{{asset('img/bio/jayantu.jpg')}}" alt="card image"></p>
                                      
-									
-									<h6 class="card-title">Jayantu Paul</h6>
+                                    
+                                    <h6 class="card-title">Jayantu Paul</h6>
                                     <p class="card-text">Assistant Engineer</p>
                                     
                                 </div>
@@ -195,8 +200,28 @@
                     </div>
                 
             </div>
-            <!-- ./Team member -->
-		</div>
+
+             <div class="col-xs-12 col-sm-6 col-md-3">
+                
+                    <div class="team-member">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="{{asset('img/bio/no-image-icon-md.png')}}" alt="card image"></p>
+                                     
+                                    
+                                    <h6 class="card-title">Md. Mahboob Alam Razib</h6>
+                                    <p class="card-text">Assistant Engineer</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+            </div>
+
+        </div>
             
            
     

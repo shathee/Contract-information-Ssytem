@@ -83,7 +83,8 @@ Route::post('search/cwh', 'SearchController@search_work_in_hand');
 //     return 'Found Data URL';
 // });
 
-Route::get('/', 'PagesController@index');
+//Route::get('/', 'PagesController@index');
+Route::get('/', 'SearchController@index');
 
 Route::get('/what-we-do', 'PagesController@whatWeDo');
 

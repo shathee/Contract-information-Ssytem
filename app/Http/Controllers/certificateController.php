@@ -169,6 +169,7 @@ class certificateController extends Controller
     	}
 
         
+
     	$contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
 
     	return view('admin.certificate.completion', compact('contract','pe','detailwork'));
