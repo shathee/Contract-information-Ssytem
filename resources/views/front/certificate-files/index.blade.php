@@ -4,9 +4,11 @@
     
 <div class="card">
   <div class="card-header">
-   Certificatefiles
-  </div>  
+   Certificate Files
+  </div>
   <div class="card-body">
+      <h5 style="color: red">Search available certificate files with certificate no before uploading new signed certificate to avoid duplication</h5>
+      <br/>
     <h5 class="card-title text-right">
     <a href="{{ url('/certificate-files/create') }}" class="btn btn-success btn-sm" title="Add New CertificateFile">
         <i class="fa fa-plus" aria-hidden="true"></i> Add New

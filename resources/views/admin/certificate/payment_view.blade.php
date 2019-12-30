@@ -17,20 +17,18 @@
   <div class="card-body" id="payment-certificate">
    	<div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <h3 class="text-center">{{ __('Bangladesh Water Development Board',[],'bn')}}</h3>
-                        <h3 class="text-center">Bangladesh Water Development Board</h3>
-                        
+						<h3 class="text-center">বাংলাদেশ পানি উন্নয়ন বোর্ড</h3>
+						<h3 class="text-center">Bangladesh Water Development Board</h3>
                     </div>
                 </div>
                 <div class="text-center row">
                     
                     <div class="col-md-4 col-sm-4 certificate-top-left">
                         <address>
-                          <strong>                            @lang($contract->peoffice->name,[],'bn')</strong><br>
-
-                          {{ __($contract->peoffice->address,[],'bn') }}<br>
-                          {{ $contract->peoffice->district->bn_name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
-                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+							<strong>{{ $contract->peoffice->name_bn or ''}}</strong><br>
+							{{ $contract->peoffice->address_bn or ''}}<br>
+                          {{ $contract->peoffice->district->bn_name or ''}}-{{ $contract->peoffice->postcode_bn or ''}}<br>
+							ফোন: {{ $contract->peoffice->phone_bn or ''}}
                         </address>
                        
                     </div>
@@ -44,17 +42,17 @@
                           <strong>{{ $contract->peoffice->name}}</strong><br>
                           {{ $contract->peoffice->address}}<br>
                           {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                          Phone: {{ $contract->peoffice->phone}}
                         </address>
                     </div>
                   
                 </div>
                 <hr>
 
-   	
+
     <h3 class="text-center">PAYMENT CERTIFICATE</h3>
     <h5 class="text-center">Certificate-No.:{{ $payment_certificate_no }}</h5>
-   <div class="table-responsive"> 
+   <div class="table-responsive">
         <table class="table table-bordered " id="payment-certificate-table">
 	            <tbody>
 	                <tr>
@@ -67,11 +65,24 @@
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Circle Office Name </th><td> {{ $contract->circle->name }} </td>
+	                    <th> Circle Office Name </th>
+						<td>
+							@if(!empty($contract->circle))
+								{{ $contract->circle->name }}
+							@else
+								{{'N/A'}}
+							@endif
+						</td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Zone Office Name </th><td> {{ $contract->zone->name }} </td>
+	                    <th> Zone Office Name </th>
+						<td>@if(!empty($contract->zone))
+								{{ $contract->zone->name }}
+							@else
+								{{'N/A'}}
+							@endif
+						</td>
 	                </tr>
 	                <tr>
 	                    <th>02</th>
@@ -84,7 +95,7 @@
 	                <tr>
 	                    <th></th>
 	                    <th> Contract No </th><td> {{ $contract->contract_no }} </td></tr>
-	                
+
 	                <tr>
 	                    <th>04</th>
 	                    <th> Contractors Legal Title </th><td> {{ $contract->contractors_legal_title }} </td></tr>
@@ -106,10 +117,10 @@
 	                    <th>08</th><th> Original Contract Price as in NOA </th>
 	                    <td>{{Format::number($contract->original_contract_price,3, ".", ",") }}</td>
 	                </tr>
-	                                
+
 	            </tbody>
 	        </table>
-	        
+
 	        <table class="table table-bordered payment-certificate-table">
 	        	<thead id="#pc-footer" class="">
 	        		<tr>
@@ -139,13 +150,13 @@
 		        		<td>{{Format::number($bill->vat,3, ".", ",") }}</td>
 		        		<td>{{Format::number($bill->ait,3, ".", ",") }}</td>
 		        		<td>{{Format::number($bill->gross_payment,3, ".", ",") }}</td>
-		        	
+
 		        	</tr>
-		        	
+
 	        	@empty
 	        		<tr>
 		        		<td colspan="6">No Data Found</td>
-		        	
+
 		        	</tr>
 	        	@endforelse
 	        		<tr class="">
@@ -154,39 +165,31 @@
 		        		<td><b>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</b></td>
 		        		<td><b>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</b></td>
 		        		<td><b>{{Format::number($contract->bills->sum('gross_payment'),3, ".", ",") }}</b></td>
-		        		
-		        	
+
+
 		        	</tr>
-		        	
+
+
 		        	<tr>
-	                    <td colspan="6">&nbsp;</td>
+						<td class="border-0" colspan="4"></td>
+
+						<td colspan="2" class="text-center border-0">
+							<p>Electronically Signed By</p>
+							<p>&nbsp;</p>
+							<strong>
+								<p>{{ $payment_certificate->issuer_name }}
+									</br>{{ $designations[$pe->designation] }}
+									</br>Date:{{date('Y-m-d')}}</p>
+							</strong>
+						</td>
 	                </tr>
-		        	
+
 	        	</tbody>
 	        </table>
 	    </div>
-	    <div class="row">
-	    	
-	    	<div class="col-md-7 text-center">
-	    		<p>&nbsp;</p>
-                
-	    	</div>
-	    	<div class="col-md-5 text-center">
-	    		<p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>{{ $payment_certificate->issuer_name }}</p>
-                <p>{{ $designations[$pe->designation] }}</p>
-                <p>Date:{{date('Y-m-d')}}</p>
-	    	</div>
-	    	<div>
-	    		<p class="info">
-	            This is an electronically generated certificate
-	        	</p>
-	        </div>
-	    </div>
-   
-
-    
+	  <div class="info">
+		  This is an electronically generated certificate
+	  </div>
 
   </div>
 </div>

@@ -5,30 +5,32 @@
 <div class="card">
   <div class="card-header d-print-none">
 	   <h5 class="card-title text-right">
-	   		
+
 	    </h5>
   </div>  
   <div class="card-body" id="payment-certificate">
+	  <div class="col-md-12 col-sm-12">
+		  <h3 class="text-center">বাংলাদেশ পানি উন্নয়ন বোর্ড</h3>
+		  <h3 class="text-center">Bangladesh Water Development Board</h3>
+	  </div>
    	<div class="text-center row">
     	<div class="col-md-3 col-sm-3 certificate-top-left">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
+			<address>
+				<strong>{{ $contract->peoffice->name_bn or ''}}</strong><br>
+				{{ $contract->peoffice->address_bn or ''}}<br>
+				{{ $contract->peoffice->district->bn_name or ''}}-{{ $contract->peoffice->postcode_bn or ''}}<br>
+				ফোন: {{ $contract->peoffice->phone_bn or ''}}
+			</address>
     	</div>
     	<div class="col-md-6 col-sm-6 certificate-top-middle">
             <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-            <h3>Bangladesh Water Development Board</h3>
-    		
     	</div>
     	<div class="col-md-3 col-sm-3 certificate-top-right">
     		<address>
 	          <strong>{{ $contract->peoffice->name}}</strong><br>
 	          {{ $contract->peoffice->address}}<br>
 	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+	          Phone: {{ $contract->peoffice->phone}}
 	        </address>
     	</div>
     	
@@ -49,19 +51,30 @@
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Peoffice Id </th><td> {{ $contract->peoffice->name }} </td>
+	                    <th> PE Office Name </th><td> {{ $contract->peoffice->name }} </td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Circle Id </th><td> {{ $contract->circle->name }} </td>
+	                    <th> Circle Office Name </th>
+						<td>@if(!empty($contract->circle))
+								{{ $contract->circle->name }}
+							@else
+								{{'N/A'}}
+							@endif</td>
 	                </tr>
 	                <tr>
 	                    <th></th>
-	                    <th> Zone Id </th><td> {{ $contract->zone->name }} </td>
+	                    <th> Zone Office Name </th>
+						<td>@if(!empty($contract->zone))
+								{{ $contract->zone->name }}
+							@else
+								{{'N/A'}}
+							@endif
+						</td>
 	                </tr>
 	                <tr>
 	                    <th>02</th>
-	                    <th> name of the works </th><td> {{ $contract->name_of_works }} </td>
+	                    <th> Name of the works </th><td> {{ $contract->name_of_works }} </td>
 	                </tr>
 	                <tr>
 	                    <th>03</th>
@@ -70,7 +83,7 @@
 	                <tr>
 	                    <th></th>
 	                    <th> Contract No </th><td> {{ $contract->contract_no }} </td></tr>
-	                
+
 	                <tr>
 	                    <th>04</th>
 	                    <th> Contractors Legal Title </th><td> {{ $contract->contractors_legal_title }} </td></tr>
@@ -135,7 +148,7 @@
 	        	@endforelse
 	        		<tr>
 	        			
-		        		<td class="" colspan="2"><b>Cumilitive Up to Last Bill</b></td>
+		        		<td class="" colspan="2"><b>Cumulative Up to Last Bill</b></td>
 		        		<td><b>{{Format::number($contract->bills->sum('net_payment'),3, ".", ",") }}</b</td>
 		        		<td><b>{{Format::number($contract->bills->sum('vat'),3, ".", ",") }}</b</td>
 		        		<td><b>{{Format::number($contract->bills->sum('ait'),3, ".", ",") }}</b</td>
@@ -143,12 +156,9 @@
 		        		
 		        	
 		        	</tr>
+
 		        	
-		        	<tr>
-	                    <td colspan="6">&nbsp;</td>
-	                </tr>
-		        	
-		        	<tr>
+		        	<tr>cumulative
 	                  
 	                    <td class="border-0" colspan="4"></td>
 	                    
@@ -166,8 +176,11 @@
 	        	
 	        </table>
 	    </div>
-   
 
+		  <div class="info">
+				  This is an electronically generated certificate
+
+		  </div>
     
 
   </div>

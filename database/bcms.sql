@@ -145,6 +145,7 @@ CREATE TABLE `contracts` (
   `commencement_id` text COLLATE utf8mb4_unicode_ci,
   `original_contract_completion_time` int(11) DEFAULT NULL,
   `certificate_issued` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+  `certificate_file_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

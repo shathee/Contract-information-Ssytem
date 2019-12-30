@@ -362,12 +362,16 @@
                         &nbsp; 
                     </div>
                     <div class="col-md-4 col-sm-4">
+                        <p></p>
                         <p>
                             {{ $contract->issuers_name }}
                             <br>{{ $contract->issuers_designation }}
                            <br> Date:{{date('Y-m-d')}}
                         </p> 
                     </div>
+                </div>
+                <div class="info">
+                    This is an electronically generated certificate
                 </div>
             </div>
     @elseif($contract->contract_type=='services')

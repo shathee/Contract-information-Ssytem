@@ -28,11 +28,10 @@
                     
                     <div class="col-md-4 col-sm-4 certificate-top-left">
                         <address>
-                          <strong>@lang($contract->peoffice->name,[],'bn')</strong><br>
-
-                          {{ __($contract->peoffice->address,[],'bn') }}<br>
-                          {{ $contract->peoffice->district->name or ''}}-{{ __($contract->peoffice->postcode,[],'bn')}}<br>
-                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                            <strong>{{ $contract->peoffice->name_bn}}</strong><br>
+                            {{ $contract->peoffice->address_bn}}<br>
+                          {{ $contract->peoffice->district->bn_name or ''}}-{{ $contract->peoffice->postcode_bn or ''}}<br>
+                          ফোন: {{ $contract->peoffice->phone_bn}}
                         </address>
                        
                     </div>
@@ -46,7 +45,7 @@
                           <strong>{{ $contract->peoffice->name}}</strong><br>
                           {{ $contract->peoffice->address}}<br>
                           {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-                          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
+                          Phone: {{ $contract->peoffice->phone}}
                         </address>
                     </div>
                   
@@ -427,6 +426,7 @@
                         &nbsp; 
                     </div>
                     <div class="col-md-4 col-sm-4">
+                        <p>&nbsp;</p>
                         <p>
                             {{ $contract->issuers_name }}
                             <br>{{ $contract->issuers_designation }}
@@ -434,6 +434,10 @@
                         </p> 
                     </div>
                 </div>
+
+      <div class="info">
+          This is an electronically generated certificate
+      </div>
             </div>
   
 </div>
@@ -713,6 +717,7 @@
                         &nbsp; 
                     </div>
                     <div class="col-md-4 col-sm-4">
+                        <p>&nbsp;</p>
                         <p>
                             {{ $contract->issuers_name }}
                             <br>{{ $contract->issuers_designation }}
@@ -720,6 +725,9 @@
                         </p> 
                     </div>
                 </div>
+        <div class="info">
+            This is an electronically generated certificate
+        </div>
         
     @endif
                 

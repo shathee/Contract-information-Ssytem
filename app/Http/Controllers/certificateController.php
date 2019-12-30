@@ -72,7 +72,7 @@ class certificateController extends Controller
 
 
     public function storePaymentCertificates($id, Request $request){
-        
+        $contract = Contract::find($id);
         $requestData = $request->all();
 
         if(Auth::user()->role =="ADMIN"){

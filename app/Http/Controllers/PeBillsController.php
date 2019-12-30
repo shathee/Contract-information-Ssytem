@@ -63,7 +63,7 @@ class PeBillsController extends Controller
 
         // $contracts = Contract::where('commencement_id', '!=', NULL)
         //     ->where('peoffice_id', '=', $peoffice_id->peoffice_id)->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
-		$contracts = Contract::where('commencement_id', '!=', NULL)->where('user_id', '=', Auth::id())->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
+		$contracts = Contract::all()->where('user_id', '=', Auth::id())->where('certificate_issued', '=', 'no')->pluck('contract_no','id');
 
 		//dd($peoffice_id->peoffice_id);
 
@@ -123,7 +123,7 @@ class PeBillsController extends Controller
     {
         
         $bill = Bill::findOrFail($id);
-        $contracts = Contract::where('commencement_id', '!=', NULL)->pluck('contract_no','id');
+        $contracts = Contract::all()->pluck('contract_no','id');
 
         return view('front.bills.edit', compact('bill','contracts'));
 

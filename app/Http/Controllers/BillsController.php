@@ -44,7 +44,7 @@ class BillsController extends Controller
      */
     public function create()
     {
-        $contracts = Contract::where('commencement_id', '!=', NULL)->pluck('contract_no','id');
+        $contracts = Contract::all()->pluck('contract_no','id');
         return view('admin.bills.create',compact('contracts'));
     }
 
@@ -96,7 +96,7 @@ class BillsController extends Controller
     public function edit($id)
     {
         $bill = Bill::findOrFail($id);
-        $contracts = Contract::where('commencement_id', '!=', NULL)->pluck('contract_no','id');
+        $contracts = Contract::all()->pluck('contract_no','id');
 
         return view('admin.bills.edit', compact('bill','contracts'));
     }

@@ -15,31 +15,39 @@
 	    </h5>
   </div>  
   <div class="card-body" id="payment-certificate">
-   	<div class="text-center row">
-    	<div class="col-md-3 col-sm-3 certificate-top-left">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	<div class="col-md-6 col-sm-6 certificate-top-middle">
-            <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
-            <h3>Bangladesh Water Development Board</h3>
-    		
-    	</div>
-    	<div class="col-md-3 col-sm-3 certificate-top-right">
-    		<address>
-	          <strong>{{ $contract->peoffice->name}}</strong><br>
-	          {{ $contract->peoffice->address}}<br>
-	          {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
-	          <abbr title="Phone">P:</abbr> {{ $contract->peoffice->phone}}
-	        </address>
-    	</div>
-    	
-    </div>
-    <hr>
+	  <div class="row">
+		  <div class="col-md-12 col-sm-12">
+			  <h3 class="text-center">বাংলাদেশ পানি উন্নয়ন বোর্ড</h3>
+			  <h3 class="text-center">Bangladesh Water Development Board</h3>
+		  </div>
+	  </div>
+	  <div class="text-center row">
+
+		  <div class="col-md-4 col-sm-4 certificate-top-left">
+			  <address>
+				  <strong>{{ $contract->peoffice->name_bn or ''}}</strong><br>
+				  {{ $contract->peoffice->address_bn or ''}}<br>
+				  {{ $contract->peoffice->district->bn_name or ''}}-{{ $contract->peoffice->postcode_bn or ''}}<br>
+				  ফোন: {{ $contract->peoffice->phone_bn or ''}}
+			  </address>
+
+		  </div>
+		  <div class="col-md-4 col-sm-4 certificate-top-middle">
+			  <img id="logo" src={{asset('img/bwdb-logo.png')}} alt="Logo" />
+
+
+		  </div>
+		  <div class="col-md-4 col-sm-4 certificate-top-right">
+			  <address>
+				  <strong>{{ $contract->peoffice->name}}</strong><br>
+				  {{ $contract->peoffice->address}}<br>
+				  {{ $contract->peoffice->district->name or ''}}-{{ $contract->peoffice->postcode or ''}}<br>
+				  Phone: {{ $contract->peoffice->phone}}
+			  </address>
+		  </div>
+
+	  </div>
+	  <hr>
     <h3 class="text-center">PAYMENT CERTIFICATE</h3>
    <div class="table-responsive"> 
         <table class="table table-bordered " id="payment-certificate-table">

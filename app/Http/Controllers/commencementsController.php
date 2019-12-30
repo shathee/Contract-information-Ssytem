@@ -71,7 +71,7 @@ class CommencementsController extends Controller
     {
         // $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
         // $contracts = Contract::where('peoffice_id',$peoffice_id)->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
-        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
+        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)/*->where('contract_type','works')*/->pluck('contract_no','id');
 
         return view('front.commencements.create', compact('contracts'));
     }
@@ -92,8 +92,10 @@ class CommencementsController extends Controller
 
         $commencement = Commencement::create($requestData);
 
+        $contract_completion_time = Contract::where('id', $commencement->contract_id)->first()->original_contract_completion_time;
         Contract::where('id', $commencement->contract_id)
-          ->update(['commencement_id' => $commencement->id,'contract_date_of_commencement'=> $commencement->contract_commencement_date]);
+            ->update(['commencement_id' => $commencement->id,'contract_date_of_commencement'=> $commencement->contract_commencement_date,
+                'contract_date_of_completion' => date('Y-m-d', strtotime($commencement->contract_commencement_date.' + '.strval($contract_completion_time).' days'))]);
 
         return redirect('commencements')->with('flash_message', 'Commencement added!');
     }
@@ -131,7 +133,7 @@ class CommencementsController extends Controller
         abort_if($commencement->user_id != Auth::id(), 403);
 
         $peoffice_id = Guser::where('user_id', Auth::id())->pluck('peoffice_id');
-        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)->where('contract_type','works')->pluck('contract_no','id');
+        $contracts = Contract::where('user_id',Auth::id())->where('commencement_id', NULL)/*->where('contract_type','works')*/->pluck('contract_no','id');
 
         
 
@@ -155,6 +157,12 @@ class CommencementsController extends Controller
         abort_if($commencement->user_id != Auth::id(), 403);
         
         $commencement->update($requestData);
+        $commencement = Commencement::findOrFail($id);
+
+        $contract_completion_time = Contract::where('id', $commencement->contract_id)->first()->original_contract_completion_time;
+        Contract::where('id', $commencement->contract_id)
+            ->update(['contract_date_of_commencement'=> $commencement->contract_commencement_date,
+                'contract_date_of_completion' => date('Y-m-d', strtotime($commencement->contract_commencement_date.' + '.strval($contract_completion_time).' days'))]);
 
         return redirect('commencements')->with('flash_message', 'Commencement updated!');
     }

@@ -9,18 +9,20 @@
   </div>  
   <div class="card-body">
         <div class="card-title text-right">
-            
+            <h5 style="color: red", align="left">The Certificate will not be completed until signed certificate is uploded.</h5>
             <a href="{{ url('certificates/'.$o['type']) }}" title="Back">
+
                 <button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-            </a> 
+            </a>
+
             
            <!--<button class="btn btn-info" onClick="window.print()">Print</button>-->
         </div>
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>E-GP Id</th>
+                    <th>Certificate No</th>
                     <th>Contract/Package No</th>
                     <th>Type</th>
                     <th>NOA Date </th>
@@ -30,8 +32,14 @@
             <tbody>
             @foreach($contracts as $item)
                 <tr>
-                    <td>{{ $loop->iteration or $item->id }}</td>
-                    <td>{{ $item->egp_id }}</td>
+                    <td>
+                        @if($item->egp_id)
+                        {{ $item->egp_id }}
+                        @else
+                        N/A
+                        @endif
+                    </td>
+                    <td>{{ $item->certificate_no }}</td>
                     <td>{{ $item->contract_no }}</td>
                     <td>{{ title_case($item->contract_type) }}</td>
                     <td>{{ $item->noa_date }}</td>
@@ -62,6 +70,8 @@
                             @else
                              <a href="{{ url('certificates/completion-certificate/'.$item->id)}}">
                                 <button class="btn btn-xs btn-info">Completion Certificate</button></a>
+                                <a href="{{ url('certificate-files')}}">
+                                    <button class="btn btn-xs btn-success">Upload Signed Certificate</button></a>
                             @endif
                         
                         @else

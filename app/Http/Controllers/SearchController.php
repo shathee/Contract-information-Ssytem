@@ -30,12 +30,15 @@ class SearchController extends Controller
         if (!empty($keyword)) {
 
            if($request->get('old') == "yes"){
-            
+               $contract = Contract::where('certificate_no','like','%' . $keyword . '%')
+                   ->Where('certificate_issued', '=', "yes")->pluck('certificate_no')->toArray();
+
              $certificateFile = CertificateFile::where('certificate_no', 'like','%' . $keyword . '%' )->get();
+             $certificateFile = $certificateFile->diff(CertificateFile::whereIn('certificate_no', $contract)->get());
+
              return view('search.completion', compact('certificateFile'));
            }else{
-            
-             $contract = Contract::where('certificate_no', '=', $keyword)
+             $contract = Contract::where('certificate_no','like','%' . $keyword . '%')
                 ->Where('certificate_issued', '=', "yes")->get();
                 return view('search.completion', compact('contract'));
            }
@@ -54,13 +57,14 @@ class SearchController extends Controller
     {
 		
         $contract = Contract::find($id);
-		
-    	//$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
+
+    	$pe = Guser::where('peoffice_id',$contract->peoffice->id)->first();
 		//dd($pe);
     	//$contract->fp = ($contract->bills->sum('gross_payment')/$contract->original_contract_price)*100;
         
-        $certificatefile = CertificateFile::where('certificate_no',$contract->certificate_no)->first();
-         //dd($certificatefile);
+        //$certificatefile = CertificateFile::where('certificate_no',$contract->certificate_no)->first();
+        $certificatefile = CertificateFile::find($id);
+         //sdd($certificatefile);
         
     	return view('search.completion_show', compact('contract','pe','certificatefile'));
 		

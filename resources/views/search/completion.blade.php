@@ -13,8 +13,7 @@
 					<h6>Certificate Issued</h6>
 				</div>
 				<div class="form-group form-check-inline">
-					
-					<input type="radio" class=" form-check-input" name="old" value="yes" id="old1"> Before July, 2019
+					<input type="radio" class=" form-check-input" name="old" value="yes" checked id="old1"> Before July, 2019
   				</div>
 				
 				<div class="form-group form-check-inline">
@@ -37,12 +36,12 @@
 			  
 
 			@if( !empty($contract))
-				@foreach($contract as $item)
+
 				<div class="table-responsive">
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>Certificate No</th>
 								<th>E-GP Id</th>
 								<th>Contract/Package No</th>
 								<th>Contract Name</th>
@@ -51,48 +50,47 @@
 							</tr>
 						</thead>
 						<tbody>
-						
+						@foreach($contract as $item)
 							<tr>
-								<td>{{ $item->id }}</td>
+								<td>{{ $item->certificate_no }}</td>
 								<td>{{ $item->egp_id }}</td>
 								<td>{{ $item->contract_no }}</td>
 								<td>{{ $item->name_of_works }}</td>
 								<td>{{ $item->noa_date }}</td>
 								<td>
-									<a class="btn btn-xs" href="{{ url('search/cc/'.$item->id)}}">View</a>
+									<a class="btn btn-xs" href="{{ url('search/cc/'.$item->certificate_file_id)}}">View</a>
 								</td>
 							</tr>
-						
+						@endforeach
 						</tbody>
 					</table>
 					<div class="pagination-wrapper"> </div>
 				</div>
-				@endforeach
+
 			@elseif( !empty($certificateFile))
-				@foreach($certificateFile as $item)
+
 				<div class="table-responsive">
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>Id</th>
+								<th>Certificate No</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-						
+						@foreach($certificateFile as $item)
 							<tr>
 								<td>{{ $item->certificate_no }}</td>
 								<td>
 									<a class="btn btn-xs" href="{{ url('search/cc/'.$item->id)}}">View</a>
 								</td>
 							</tr>
-						
+						@endforeach
 						</tbody>
 					</table>
 					<div class="pagination-wrapper"> </div>
 				</div>
-				@endforeach
+
 			@endif
 		</div>
 		<div class="col-md-12" style="min-height: 300px;">
