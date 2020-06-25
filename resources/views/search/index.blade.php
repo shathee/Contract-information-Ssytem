@@ -12,9 +12,10 @@
 	      <p>please contact programmer.cpc@bwdb.gov.bd</p>
 	    </div>
 	</div>
-    <div class="row">
+    <div class="row ">
+
 		<div class="col-md-8 text-center">
-				<div id="home_quicklinks">
+				<div id="home_quicklinks" style="text-align: right;">
 	                                <a class="quicklink link1" href="{{url('search/cc')}}">
 	                                    <span class="ql_caption">
 	                                        <span class="outer">
@@ -39,23 +40,18 @@
 	                                    <span class="ql_bottom"></span>
 	                                </a>
 
-	                               
+
 
 	                                <div class="clear"></div>
 
                 </div>
-	                            
-
-
 		</div>
-   
-		
-    	
+
     	<div class="col-md-4">
-    		
+
     		 @if(Auth::check())
-    		 <div id="home_quicklinks">
-	            <a class="quicklink link3" href="{{url('search/cwh')}}">
+    		 <div id="home_quicklinks" style="text-align: left;">
+	            <a class="quicklink link3" href="{{url('search/cwh')}}" style="margin-left: 0px;">
 	            <span class="ql_caption">
 	                <span class="outer">
 	                    <span class="inner">
@@ -68,14 +64,14 @@
 	            </a>
 	            <div class="clear"></div>
 	         </div>
-	     
+
     		@else
 				<h1 class="form-heading">login Form</h1>
 				<div class="login-form">
-				
+
 				    <div class="panel">
 				   <h2>BWDB Users Login</h2>
-				   
+
 				   </div>
 				    <form id="Login" class=" form-horizontal" method="POST" action="{{ route('login') }}">
 				    	{{ csrf_field() }}
@@ -108,7 +104,7 @@
 				        <button type="submit" class="btn btn-primary">Login</button>
 
 				    </form>
-			   
+
 				</div>
 			@endif
 		</div>

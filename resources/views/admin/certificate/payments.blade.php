@@ -32,8 +32,37 @@
                     <td>{{ $item->contract->created_at }}</td>
                     <td>
                         <a href="{{ url('certificates/payment-certificate/view/'.$item->id)}}">
-                        <button class="btn btn-xs btn-info">View</button>
+                        <button class="btn btn-xs btn-info">View Electronic Certificate</button>
                         </a>
+
+                        @if($item->certificate_file_id == NULL)
+                            <a href="{{ url('certificate-files/create')}}">
+                                <button class="btn btn-xs btn-danger">Upload Signed Certificate</button></a>
+                        @else
+                            <a href="{{ url('certificate-files/'.$item->certificate_file_id)}}">
+                                <button class="btn btn-xs btn-success">View Signed Certificate</button></a>
+                        @endif
+
+                        {{--@if($item->certificate_issued == 'no')
+                            <a href="{{ url('certificates/finalize-completion-certificate/'.$item->id)}}">
+                                <button class="btn btn-warning" style="width: 208px;"><b>Finalize Information</b></button>
+                            </a>
+                        @else
+                            <a href="{{ url('certificates/completion-certificate/'.$item->id)}}">
+                                <button class="btn btn-xs btn-info">View Electronic Certificate</button></a>
+
+                            @if($item->certificate_file_id == NULL)
+                                <a href="{{ url('certificate-files/create')}}">
+                                    <button class="btn btn-xs btn-danger">Upload Signed Certificate</button></a>
+                            @else
+                                <a href="{{ url('certificate-files/'.$item->certificate_file_id)}}">
+                                    <button class="btn btn-xs btn-success">View Signed Certificate</button></a>
+                            @endif
+
+                        @endif--}}
+
+
+
                         
                     </td>
                     </tr>

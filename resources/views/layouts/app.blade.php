@@ -25,9 +25,9 @@
   </head>
   <body>
 
-      
 
-    <div id="site" class="container">
+
+    <div id="site" class="container" style="max-width: 2000px;">
 
       <div id="header" class="row d-print-none">
         <div class="col-md-2 offset-md-1">

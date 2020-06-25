@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Model\CertificateFile;
+use App\Model\Contract;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -76,7 +77,14 @@ class CertificateFilesController extends Controller
 
         CertificateFile::create($requestData);
 
-        return redirect('certificate-files')->with('flash_message', 'CertificateFile added!');
+        $NewCertificateFile = CertificateFile::where('certificate_no', $requestData['certificate_no'])->first();
+
+        $update['certificate_file_id'] = $NewCertificateFile->id;
+
+        Contract::where('certificate_no', $requestData['certificate_no'])
+            ->update($update);
+
+        return redirect('certificate-files')->with('flash_message', 'Certificate File uploaded!');
     }
 
     public function storeOld(Request $request)
@@ -84,6 +92,7 @@ class CertificateFilesController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'certificate_no' => 'required|unique:certificate_files,certificate_no',
+            'contract_no' => 'required',
             'file_path' => 'required|mimes:pdf|max:1000',
             'type' => 'required'
             
@@ -97,7 +106,7 @@ class CertificateFilesController extends Controller
 
         CertificateFile::create($requestData);
 
-        return redirect('old-certificate-files')->with('flash_message', 'CertificateFile added!');
+        return redirect('old-certificate-files')->with('flash_message', 'Certificate File uploaded!');
     }
 
     public function showAllOld(Request $request)

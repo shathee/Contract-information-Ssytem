@@ -284,7 +284,7 @@
                                 <th></th><th> (a) Date of Actual Commencement</th><td> {{ app_date_format($contract->actual_date_of_commencement,'d-m-Y') }} </td>
                             </tr>
                             <tr>
-                                <th></th><th> (b) Date of Actual Completion</th><td> {{ $contract->actual_contract_date_of_completion }}</td>
+                                <th></th><th> (b) Date of Actual Completion</th><td> {{ app_date_format($contract->actual_contract_date_of_completion ,'d-m-Y') }}</td>
                             </tr>
                             <tr>
                                 <th>12</th><th>Days/Months Delivery Period Extended</th><td> {{ $contract->days_contract_period_extended }}</td>
@@ -487,12 +487,12 @@
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         <div>&nbsp;</div>
-        <div class="col-md-4 col-sm-4">
+{{--        <div class="col-md-4 col-sm-4">
            <span style="color: #c40000;">
             Certificate No. : {{ $contract->certificate_no }}    
            </span>
            
-        </div>
+        </div>--}}
         @if(!empty($contract->detailwork->detail_work_form_component_1))
             <table class="table table-bordered" id="completion-certificate-detail-table">
         
@@ -705,13 +705,15 @@
 
         @endif
 
-        <div class="row">
+{{--        <div class="row">
             <div class="col-md-8 col-sm-8">
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                        
-            </div>
+            </div>This is an electronically generated certificate
         </div>
+
+
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                         &nbsp; 
@@ -727,7 +729,7 @@
                 </div>
         <div class="info">
             This is an electronically generated certificate
-        </div>
+        </div>--}}
         
     @endif
                 

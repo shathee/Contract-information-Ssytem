@@ -4,7 +4,7 @@
     
 <div class="card">
   <div class="card-header">
-    Upload Old Certificates
+    Upload Old Certificate
   </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
@@ -30,7 +30,16 @@
                 <input class="form-control" name="certificate_no" type="text" id="certificate_no" value="{{ $certificatefile->certificate_no or ''}}" >
                 {!! $errors->first('certificate_no', '<p class="help-block">:message</p>') !!}
             </div>
-        </div><div class="form-group {{ $errors->has('file_path') ? 'has-error' : ''}}">
+        </div>
+
+            <div class="form-group {{ $errors->has('contract_no') ? 'has-error' : ''}}">
+            <label for="contract_no" class="col-md-4 control-label">{{ 'Packege/Contract No' }}</label>
+            <div class="col-md-6">
+                <input class="form-control" name="contract_no" type="text" id="contract_no" value="{{ $certificatefile->contract_no or ''}}" >
+                {!! $errors->first('contract_no', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+            <div class="form-group {{ $errors->has('file_path') ? 'has-error' : ''}}">
             <label for="file_path" class="col-md-4 control-label">{{ 'File Path' }}</label>
             <div class="col-md-6">
                 <input class="form-control" name="file_path" type="file" id="file_path" value="{{ $certificatefile->file_path or ''}}" >

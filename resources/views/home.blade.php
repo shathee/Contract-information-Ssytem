@@ -26,14 +26,9 @@
                 </div>
         </div>
 
-        <div class="panel panel-default">
-                <div class="panel-heading"><h3>&nbsp;</h3></div>
-
-                <div class="panel-body">
-                    
-                    
-                            <div id="home_quicklinks">
-                                        <a class="quicklink link1" href="{{url('search/cc')}}">
+        <div>
+            <div id="home_quicklinks">
+                <a class="quicklink link1" href="{{url('search/cc')}}">
                                             <span class="ql_caption">
                                                 <span class="outer">
                                                     <span class="inner">
@@ -41,11 +36,11 @@
                                                     </span>
                                                 </span>
                                             </span>
-                                            <span class="ql_top"></span>
-                                            <span class="ql_bottom"></span>
-                                        </a>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
 
-                                        <a class="quicklink link2" href="{{url('search/pc')}}">
+                <a class="quicklink link2" href="{{url('search/pc')}}">
                                             <span class="ql_caption">
                                                 <span class="outer">
                                                     <span class="inner">
@@ -53,13 +48,13 @@
                                                     </span>
                                                 </span>
                                             </span>
-                                            <span class="ql_top"></span>
-                                            <span class="ql_bottom"></span>
-                                        </a>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
 
 
-                                <div class="clear"></div>
-                                <a class="quicklink link3" href="{{url('search/cwh')}}">
+                <div class="clear"></div>
+                <a class="quicklink link3" href="{{url('search/cwh')}}">
                                     <span class="ql_caption">
                                         <span class="outer">
                                             <span class="inner">
@@ -67,13 +62,12 @@
                                             </span>
                                         </span>
                                     </span>
-                                    <span class="ql_top"></span>
-                                    <span class="ql_bottom"></span>
-                                </a>
-                                <div class="clear"></div>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+                <div class="clear"></div>
 
-                            </div>
-                </div>
+            </div>
         </div>
     @else
         <div class="panel panel-default">

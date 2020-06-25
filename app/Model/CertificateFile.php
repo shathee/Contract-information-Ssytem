@@ -25,7 +25,7 @@ class CertificateFile extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'certificate_no', 'file_path', 'type'];
+    protected $fillable = ['id', 'certificate_no', 'file_path', 'type', 'contract_no'];
 
 
     public function contract()

@@ -3,9 +3,6 @@
 @section('content')
     
 <div class="card">
-  <div class="card-header">
-    CertificateFile {{ $certificatefile->id }}
-  </div>  
   <div class="card-body">
     <h5 class="card-title text-right">
         <a href="{{ url('/certificate-files') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -23,13 +20,9 @@
         <table class="table table-borderless">
             <tbody>
                 <tr>
-                    <th>ID</th><td>{{ $certificatefile->id }}</td>
-                </tr>
-                <tr><th> Id </th><td> {{ $certificatefile->id }} </td></tr>
-                <tr>
                     <th> Certificate No </th><td> {{ $certificatefile->certificate_no }} </td></tr><tr>
                     <th> Package No:</th>
-                    <td> {{ $certificatefile->contract->contract_no }} </td>
+                    <td> {{ $certificatefile->contract_no }} </td>
                 </tr>
 
                 <tr>

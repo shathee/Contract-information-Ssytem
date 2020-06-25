@@ -39,7 +39,8 @@ class SearchController extends Controller
              return view('search.completion', compact('certificateFile'));
            }else{
              $contract = Contract::where('certificate_no','like','%' . $keyword . '%')
-                ->Where('certificate_issued', '=', "yes")->get();
+                ->Where('certificate_issued', '=', "yes")
+                 ->Where('certificate_file_id', '!=', NULL)->get();
                 return view('search.completion', compact('contract'));
            }
            
