@@ -15,7 +15,7 @@
 
 
 Auth::routes();
-
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::middleware(['auth'])->group(function () {
 	Route::middleware(['admin'])->group(function () {
