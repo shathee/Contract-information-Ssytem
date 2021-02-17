@@ -9,8 +9,6 @@
 
 ## About 
 
-An application 
-
 An in house application with modules for contract management, contract lifecycle management, contractor management, Acceptance report management and User management.
 ### Powered By: 
 
